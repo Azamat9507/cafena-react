@@ -5,7 +5,7 @@ import { RippleBadge } from './MaterialTheme/styled';
 
 function App() {
   return (
-    <Container maxWidth="sm">
+    <Container>
       <Stack flexDirection={"column"}>
           <Box sx={{my: 4}}>
             <Typography variant='h4' component={"h4"} gutterBottom>
