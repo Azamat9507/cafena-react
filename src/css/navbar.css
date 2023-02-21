@@ -6,7 +6,7 @@
     background-size: cover;
 }
 
-.format_restaurant .home_navbar {
+.format_restaurant.home_navbar {
     width: 100%;
     height: 400px;
     display: flex;
@@ -14,7 +14,7 @@
     background-size: cover;
 }
 
-.format_others .home_navbar {
+.format_others.home_navbar {
     width: 100%;
     height: 400px;
     display: flex;

@@ -1,6 +1,5 @@
-/* eslint-disable eqeqeq */
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/App.css';
 import '../css/navbar.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -89,7 +88,7 @@ export default App;
 
 
 
-function useState(): [any, any] {
-  throw new Error('Function not implemented.');
-}
+// function Home() {
+//   return <h2>Home</h2>
+// }
 

@@ -1,4 +1,4 @@
-import { Badge, Box, Button, Container, Icon, IconButton, Stack } from "@mui/material";
+import { Badge, Box, Button, Container, IconButton, Stack } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
