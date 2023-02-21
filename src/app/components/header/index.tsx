@@ -6,7 +6,6 @@ export function NavbarHome(props: any) {
   return ( 
     <div className="format home_navbar">
       <Container>
-
         <Stack 
           flexDirection={"row"} 
           className="navbar_config"

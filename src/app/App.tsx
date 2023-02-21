@@ -18,7 +18,7 @@ import { NavbarOthers } from './components/header/others';
 
 
 function App() {
-  const [, setPath] = useState();
+  const [path, setPath] = useState();
   const main_path = window.location.pathname;
   
   return (
