@@ -1,21 +1,37 @@
+/* eslint-disable eqeqeq */
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import React from 'react';
 import '../css/App.css';
+import '../css/navbar.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import { CommunityPage } from './screens/CommunityPage';
 import { HelpPage } from './screens/HelpPage';
 import { LoginPage } from './screens/LoginPage';
 import { MemberPage } from './screens/MemberPage';
 import { OrdersPage } from './screens/OrdersPage';
 import { RestaurantPage } from './screens/RestaurantPage';
-import { Homepage } from './screens/Homepage/index';
+import { Homepage } from './screens/Homepage';
+import { NavbarHome } from './components/header';
+import { NavbarRestaurant } from './components/header/restaurant';
+import { NavbarOthers } from './components/header/others';
+
 
 function App() {
+  const [, setPath] = useState();
+  const main_path = window.location.pathname;
+  
   return (
-    <div>
-<Router>
-      <div>
-        <nav>
+    <Router>
+      {main_path == "/" ? (
+        <NavbarHome setPath={setPath} /> 
+      ) : main_path.includes("/restaurant") ? (
+        <NavbarRestaurant setPath={setPath} />
+      ) : (
+        <NavbarOthers setPath={setPath} />
+      )}
+
+        {/* <nav>
           <ul>
             <li>
               <Link to="/restaurant">RestaurantPage</Link>
@@ -39,7 +55,7 @@ function App() {
               <Link to="/">Homepage</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
 
 
         <Switch>
@@ -65,20 +81,15 @@ function App() {
             <Homepage />
           </Route>
         </Switch>
-      </div>
     </Router>
-    </div>
-
   );
 }
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-
 
 export default App;
 
 
+
+function useState(): [any, any] {
+  throw new Error('Function not implemented.');
+}
 
