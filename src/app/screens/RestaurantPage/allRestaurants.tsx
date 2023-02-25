@@ -18,6 +18,8 @@ import CallIcon from "@mui/icons-material/Call";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
+const order_list = Array.from(Array(8));
+
 export function AllRestaurants() {
 return (
   <div className="all_restaurant">
@@ -25,10 +27,10 @@ return (
       <Stack flexDirection={"column"} alignItems={"center"}>
         <Box className="fill_search_box">
           <Box className="fill_box">
-            <a href="#">Best</a>
-            <a href="#">Popular</a>
-            <a href="#">Trending</a>
-            <a href="#">New</a>
+            <a href="#">Zo'r</a>
+            <a href="#">Mashhur</a>
+            <a href="#">Trendagi</a>
+            <a href="#">Yangi</a>
           </Box>
           <Box className="search_big_box">
             <form className="search_form" action="" method="">
@@ -51,104 +53,108 @@ return (
 
         <Stack className="all_res_box">
           <CssVarsProvider>
+            {order_list.map(ele => {
+              return (
                 <Card
-                  variant="outlined"
-                  sx={{
-                    minHeight: 410,
-                    minWidth: 290,
-                    mx: "17px",
-                    my: "20px",
-                  }}
-                >
-                  <CardOverflow>
-                    <AspectRatio ratio="1">
-                      <img src="/restaurant/burak.jpeg" alt="" />
-                    </AspectRatio>
-                    <IconButton
-                      aria-labelledby="Like minimal photography"
-                      size="md"
-                      variant="solid"
-                      color="neutral"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                      }}
-                      sx={{
-                        position: "absolute",
-                        zIndex: 2,
-                        borderRadius: "50%",
-                        right: "1rem",
-                        bottom: 0,
-                        transform: "translateY(50%)",
-                        color: "rgba(0,0,0,.4)",
-                      }}
-                    >
-                      <Favorite style={{ color: "white" }} />
-                    </IconButton>
-                  </CardOverflow>
-                  <Typography level="h2" sx={{ fontSize: "md", mt: 2 }}>
-                    Texas De Brazil restaurant
-                  </Typography>
-                  <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
-                    <Link
-                      href=""
-                      startDecorator={<LocationOnRoundedIcon />}
-                      textColor="neutral.700"
-                    >
-                      Tashkent, Yunus Abad 4-1
-                    </Link>
-                  </Typography>
-                  <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
-                    <Link
-                      href=""
-                      startDecorator={<CallIcon />}
-                      textColor="neutral.700"
-                    >
-                      99890 7654789
-                    </Link>
-                  </Typography>
-                  <CardOverflow
-                    variant="soft"
+                variant="outlined"
+                sx={{
+                  minHeight: 410,
+                  minWidth: 290,
+                  mx: "17px",
+                  my: "20px",
+                }}
+              >
+                <CardOverflow>
+                  <AspectRatio ratio="1">
+                    <img src="/restaurant/burak.jpeg" alt="" />
+                  </AspectRatio>
+                  <IconButton
+                    aria-labelledby="Like minimal photography"
+                    size="md"
+                    variant="solid"
+                    color="neutral"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
                     sx={{
-                      display: "flex",
-                      gap: 1.5,
-                      py: 1.5,
-                      px: "var(--Card-padding)",
-                      borderTop: "1px solid",
-                      borderColor: "neutral.outlinedBorder",
-                      bgcolor: "background.level1",
+                      position: "absolute",
+                      zIndex: 2,
+                      borderRadius: "50%",
+                      right: "1rem",
+                      bottom: 0,
+                      transform: "translateY(50%)",
+                      color: "rgba(0,0,0,.4)",
                     }}
                   >
-                    <Typography
-                      level="body3"
-                      sx={{
-                        fontWeight: "md",
-                        color: "text.secondary",
-                        alignItems: "center",
-                        display: "flex",
-                      }}
-                    >
-                      1000
-                      <VisibilityIcon
-                        sx={{ fontSize: 20, marginLeft: "5px" }}
-                      />
-                    </Typography>
-                    <Box sx={{ width: 2, bgcolor: "divider" }} />
-                    <Typography
-                      level="body3"
-                      sx={{
-                        fontWeight: "md",
-                        color: "text.secondary",
-                        alignItems: "center",
-                        display: "flex",
-                      }}
-                    >
-                      <div>500</div>
-                      <FavoriteIcon
-                        sx={{ fontSize: 20, marginLeft: "5px" }}
-                      />
-                    </Typography>
-                  </CardOverflow>
-                </Card>
+                    <Favorite style={{ color: "white" }} />
+                  </IconButton>
+                </CardOverflow>
+                <Typography level="h2" sx={{ fontSize: "md", mt: 2 }}>
+                  Texas De Brazil restaurant
+                </Typography>
+                <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+                  <Link
+                    href=""
+                    startDecorator={<LocationOnRoundedIcon />}
+                    textColor="neutral.700"
+                  >
+                    Tashkent, Yunus Abad 4-1
+                  </Link>
+                </Typography>
+                <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+                  <Link
+                    href=""
+                    startDecorator={<CallIcon />}
+                    textColor="neutral.700"
+                  >
+                    99890 7654789
+                  </Link>
+                </Typography>
+                <CardOverflow
+                  variant="soft"
+                  sx={{
+                    display: "flex",
+                    gap: 1.5,
+                    py: 1.5,
+                    px: "var(--Card-padding)",
+                    borderTop: "1px solid",
+                    borderColor: "neutral.outlinedBorder",
+                    bgcolor: "background.level1",
+                  }}
+                >
+                  <Typography
+                    level="body3"
+                    sx={{
+                      fontWeight: "md",
+                      color: "text.secondary",
+                      alignItems: "center",
+                      display: "flex",
+                    }}
+                  >
+                    1000
+                    <VisibilityIcon
+                      sx={{ fontSize: 20, marginLeft: "5px" }}
+                    />
+                  </Typography>
+                  <Box sx={{ width: 2, bgcolor: "divider" }} />
+                  <Typography
+                    level="body3"
+                    sx={{
+                      fontWeight: "md",
+                      color: "text.secondary",
+                      alignItems: "center",
+                      display: "flex",
+                    }}
+                  >
+                    <div>500</div>
+                    <FavoriteIcon
+                      sx={{ fontSize: 20, marginLeft: "5px" }}
+                    />
+                  </Typography>
+                </CardOverflow>
+              </Card>
+              );
+            })}
           </CssVarsProvider>
         </Stack>
         <Stack className="bottom_box">
@@ -173,7 +179,7 @@ return (
           />
           <img
             className="line_img_two"
-            src="/restaurant/line_two.svg"
+            src="/restaurant/line.svg"
             alt="lines"
           ></img>
         </Stack>
