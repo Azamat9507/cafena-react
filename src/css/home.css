@@ -493,7 +493,7 @@
   margin-left: -40px;
   width: 216px;
   height: 200px;
-  transform: matrix(1, 0, 0, 1, 0, 0);
+  transform: matrix(-1, 0, 0, 1, 0, 0);
   background: url("/public/home/papays.png");
   background-size: cover;
 }
