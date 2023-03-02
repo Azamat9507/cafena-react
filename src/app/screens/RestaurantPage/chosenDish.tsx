@@ -80,7 +80,7 @@ export function ChosenDish() {
                       alignItems: "center",
                       marginRight: "20px",
                     }}
-                  >
+                  > 
                     <Checkbox
                       {...label}
                       icon={<FavoriteBorder />}
