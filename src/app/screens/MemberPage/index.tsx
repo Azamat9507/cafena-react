@@ -11,7 +11,7 @@ export function MemberPage() {
 
 
   return (
-    <div className="restaurant _page">
+    <div className="restaurant_page">
       <Switch>
         <Route path={`${member.path}/other`}>
           <VisitOtherPage />
