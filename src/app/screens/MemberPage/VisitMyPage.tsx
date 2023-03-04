@@ -20,6 +20,8 @@ import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { TuiEditor } from "../../components/tuiEditor/tuiEditor";
+import TViewer from "../../components/tuiEditor/TViewer";
 
 export function VisitMyPage(props: any) {
   /** INITIALIZATIONS **/
@@ -83,12 +85,17 @@ export function VisitMyPage(props: any) {
 
                 <TabPanel value={"4"}>
                   <Box className={"menu_name"}>Maqola yozish</Box>
-                  <Box className={"write_content"}></Box>
+                  <Box className={"write_content"}>
+                    <TuiEditor />
+                  </Box>
                 </TabPanel>
 
                 <TabPanel value={"5"}>
                   <Box className={"menu_name"}>Tanlangan Maqola</Box>
-                  <Box className={"menu_content"}></Box>
+                  <Box className={"menu_content"}>
+                  <TViewer text={`<h3>Hello</h3>`}/>
+                  </Box>
+                  
                 </TabPanel>
 
                 <TabPanel value={"6"}>
@@ -114,6 +121,7 @@ export function VisitMyPage(props: any) {
                     <img
                       src={"/auth/default_user.svg"}
                       className={"order_user_avatar"}
+                      alt={""}
                     />
                     <div className={"order_user_icon_box"}>
                       <img src={"/icons/user_icon_small.svg"} />
