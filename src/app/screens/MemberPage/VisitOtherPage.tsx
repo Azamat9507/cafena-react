@@ -15,7 +15,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 
 export function VisitOtherPage(props: any) {
   /** INITIALIZATIONS **/
-  const [value, setValue] = useState("5");
+  const [value, setValue] = useState("1");
 
   /** HANDLERS **/
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -68,7 +68,7 @@ export function VisitOtherPage(props: any) {
                       className={"order_user_avatar"}
                     />
                     <div className={"order_user_icon_box"}>
-                      <img src={"/icons/user_icon.svg"} />
+                      <img src={"/icons/user_icon_small.svg"} />
                     </div>
                   </div>
                   <span className={"order_user_name"}>Solijonov Azamat</span>
