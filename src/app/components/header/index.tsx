@@ -8,7 +8,7 @@ export function NavbarHome(props: any) {
   const [value, setValue] = useState(true);
 
   useEffect(() => {
-    setCount(count + 1)
+    setCount(count + 1);
   }, [value]);
 
 
