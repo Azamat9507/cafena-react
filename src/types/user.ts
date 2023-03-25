@@ -2,14 +2,14 @@ import { MeLiked } from './product';
 import { MeFollowed } from './follow';
 
 export interface Restaurant {
-  id_: string;
+  _id: string;
   mb_nick: string;
   mb_phone: string;
   mb_password: string;
   mb_type: string;
   mb_status: string;
-  mb_address: string;
-  mb_description: string;
+  mb_address?: string;
+  mb_description?: string;
   mb_image: string;
   mb_point: number;
   mb_top: string;
@@ -22,7 +22,7 @@ export interface Restaurant {
 }
 
 export interface Member {
-  id_: string;
+  _id: string;
   mb_nick: string;
   mb_phone: string;
   mb_password: string;
