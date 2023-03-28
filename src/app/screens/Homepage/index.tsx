@@ -10,11 +10,9 @@ import { Recommendations } from './recommendations';
 import "../../../css/home.css";
 
 //REDUX
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Dispatch} from "@reduxjs/toolkit";
-import { createSelector } from "reselect";
-import { setTopRestaurants} from "../../screens/Homepage/slice";
-import {retrieveBestRestaurants, retrieveTopRestaurants} from "../../screens/Homepage/selector";
+import { setBestRestaurants, setTopRestaurants} from "../../screens/Homepage/slice";
 import { Restaurant } from '../../../types/user';
 import RestaurantApiService from '../../apiServices/restaurantApiService';
 
@@ -22,23 +20,15 @@ import RestaurantApiService from '../../apiServices/restaurantApiService';
 /** REDUX SLICE */
 const actionDispatch = (dispach: Dispatch) => ({
   setTopRestaurants: (data: Restaurant[]) => dispach(setTopRestaurants(data)),
+  setBestRestaurants: (data: Restaurant[]) => dispach(setBestRestaurants(data)),
 });
-/** REDUX SELECTOR */
-const topRestaurantRetriever = createSelector(
-  retrieveTopRestaurants, 
-  (topRestaurants) => ({ 
-    topRestaurants, 
-  })
-);
 
 
 export function Homepage() {
   /** INTIALIZATION */
-  const {setTopRestaurants} = actionDispatch(useDispatch());
-
- 
-
-  //selector: store => data
+  const {setTopRestaurants, setBestRestaurants} = actionDispatch(
+    useDispatch()
+  );
 
   useEffect(() => {
     // backend data request => data
@@ -49,6 +39,10 @@ export function Homepage() {
         setTopRestaurants(data);
       })
       .catch(err => console.log(err));
+
+      restaurantService.getRestaurants({page: 1, limit: 4, order: "mb_point"}).then( data => {
+        setBestRestaurants(data);
+      }).catch(err => console.log(err));
   }, []);
   
   return (  
