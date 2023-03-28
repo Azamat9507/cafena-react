@@ -12,7 +12,10 @@ import "../../../css/home.css";
 //REDUX
 import {useDispatch} from "react-redux";
 import {Dispatch} from "@reduxjs/toolkit";
-import { setBestRestaurants, setTopRestaurants} from "../../screens/Homepage/slice";
+import { 
+  setBestRestaurants, 
+  setTopRestaurants 
+} from "../../screens/Homepage/slice";
 import { Restaurant } from '../../../types/user';
 import RestaurantApiService from '../../apiServices/restaurantApiService';
 
