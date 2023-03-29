@@ -17,6 +17,7 @@ import { NavbarRestaurant } from './components/header/restaurant';
 import { NavbarOthers } from './components/header/others';
 import { Footer } from './components/footer';
 import Car from './screens/testCar';
+import AuthenticationModal from './components/auth';
 
 
 function App() {
@@ -56,7 +57,10 @@ function App() {
             <Homepage />
           </Route>
         </Switch>
+
         <Footer />
+
+        <AuthenticationModal />
     </Router>
   );
 }

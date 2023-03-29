@@ -13,4 +13,4 @@ export interface HomePageState {
   bestBoArticles: BoArticle[];
   trendBoArticles: BoArticle[];
   newsBoArticles: BoArticle[];
-}
+}     

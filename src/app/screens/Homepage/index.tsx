@@ -59,4 +59,4 @@ export function Homepage() {
       <Recommendations/>
     </div>
   ); 
-}                                                                       
+}   
