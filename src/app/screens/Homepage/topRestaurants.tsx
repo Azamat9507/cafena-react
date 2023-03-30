@@ -26,7 +26,7 @@ const topRestaurantRetriever = createSelector(
 );
 
 export function TopRestaurants() {
-    /** INTIALIZATION */
+    /** INTIALIZATIONS */
   const {topRestaurants} = useSelector(topRestaurantRetriever);
  
   console.log("topRestaurants::", topRestaurants);

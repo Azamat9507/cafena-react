@@ -28,7 +28,7 @@ const actionDispatch = (dispach: Dispatch) => ({
 
 
 export function Homepage() {
-  /** INTIALIZATION */
+  /** INTIALIZATIONS */
   const {setTopRestaurants, setBestRestaurants} = actionDispatch(
     useDispatch()
   );

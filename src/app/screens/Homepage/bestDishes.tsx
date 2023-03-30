@@ -28,7 +28,7 @@ const trendProductsRetriever = createSelector(
 );
 
 export function BestDishes() {
-    /** INTIALIZATION */
+    /** INTIALIZATIONS */
   const {trendProducts} = useSelector(trendProductsRetriever);
   const {setTrendProducts } = actionDispatch(useDispatch());
   useEffect(() => {

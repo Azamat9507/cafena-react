@@ -3,15 +3,6 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 export function NavbarHome(props: any) {
-  /** INTIALIZATIONS **/
-  const [count, setCount] = useState(0);
-  const [value, setValue] = useState(true);
-
-  useEffect(() => {
-    setCount(count + 1);
-  }, [value]);
-
-
   return ( 
     <div className="format home_navbar">
       <Container>
@@ -72,8 +63,8 @@ export function NavbarHome(props: any) {
             <Box>
               <Button 
                 variant="contained" 
-                style={{ color: "#FFFFFF", 
-                background: "#1976d2" }}
+                style={{ color: "#FFFFFF", background: "#1976d2" }}
+                onClick={props.handleLoginOpen}
               >
                 KIRISH
               </Button>
@@ -91,7 +82,7 @@ export function NavbarHome(props: any) {
                 The Authentic Restaurant & Cafe
               </Box>
               <Box className="timeline_service">
-                {count} soat xizmatingizdamiz.
+                24 soat xizmatingizdamiz.
               </Box>
               <Box sx={{mt: "90px"}}>
                 <Button 
@@ -101,7 +92,7 @@ export function NavbarHome(props: any) {
                   background: "#1976d2", 
                   color: "#FFFFFF", 
                   }}
-                  onClick={() => setValue(!value)}
+                  onClick={props.handleSignUpOpen}
                 >
                   RO'YHATDAN O'TISH
                 </Button>
