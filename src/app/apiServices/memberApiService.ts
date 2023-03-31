@@ -3,6 +3,7 @@ import assert from "assert";
 import { serverApi } from '../../lib/config';
 import { Definer } from '../../lib/Definer';
 import { Member } from "../../types/user";
+import { MemberLiken } from "../../types/others";
 
 class MemberApiService {
   private readonly path: string;
@@ -62,6 +63,24 @@ public async logOutRequest() {
   }
 }
 
+  public async memberLikeTarget(data: any) {
+    try {
+      const url = "/member-liken",
+      result = await axios.post(this.path + url, data, {
+        withCredentials: true,
+      });
+      assert.ok(result?.data, Definer.general_err1);
+      assert.ok(result?.data?.state != "fail", result?.data?.message);
+
+      console.log("state", result.data.data);
+      const like_result: MemberLiken = result.data.data;
+      return like_result;
+
+    } catch(err: any) {
+      console.log(`Error ::: memberLikeTarget ${err.message}`);
+      throw err;
+    }
+  }
 }
 
 export default MemberApiService;
