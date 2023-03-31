@@ -1,6 +1,8 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import HomePageReducer from './screens/Homepage/slice';
 import reduxLogger from "redux-logger";
+import { Restaurant } from '../types/user';
+import RestaurantPageReducer from './screens/RestaurantPage/slice';
 
 
 export const store = configureStore({
@@ -8,6 +10,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat(reduxLogger), 
   reducer: {
     homePage: HomePageReducer,
+    restaurantPage: RestaurantPageReducer,
   },
 });
 

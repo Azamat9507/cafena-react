@@ -9,19 +9,17 @@ import { CssVarsProvider } from '@mui/joy/styles';
 import { CardOverflow, IconButton } from '@mui/joy';
 import { Favorite } from '@mui/icons-material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-//REDUX
-import {useSelector} from "react-redux";
-import { createSelector } from "reselect";
-import {retrieveTopRestaurants} from "../../screens/Homepage/selector";
-import { Restaurant } from '../../../types/user';
 import { serverApi } from '../../../lib/config';
 import { sweetErrorHandling, sweetTopSmallSuccessAlert } from '../../../lib/sweetAlert';
 import assert from 'assert';
 import { Definer } from '../../../lib/Definer';
 import MemberApiService from '../../apiServices/memberApiService';
 import { useHistory } from 'react-router-dom';
-
-
+//REDUX
+import {useSelector} from "react-redux";
+import { createSelector } from "reselect";
+import {retrieveTopRestaurants} from "../../screens/Homepage/selector";
+import { Restaurant } from '../../../types/user';
 /** REDUX SELECTOR */
 const topRestaurantRetriever = createSelector(
   retrieveTopRestaurants, 
