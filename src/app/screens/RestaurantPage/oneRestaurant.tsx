@@ -12,6 +12,18 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import Badge from "@mui/material/Badge";
 import { useHistory, useParams } from "react-router-dom";
+import { Product } from "../../../types/product";
+import { ProductSearchObj } from "../../../types/others";
+import ProductApiService from "../../apiServices/productApiService";
+import { serverApi } from "../../../lib/config";
+import RestaurantApiService from "../../apiServices/restaurantApiService";
+import assert from "assert";
+import { Definer } from "../../../lib/Definer";
+import MemberApiService from "../../apiServices/memberApiService";
+import { 
+  sweetErrorHandling, 
+  sweetTopSmallSuccessAlert } 
+  from "../../../lib/sweetAlert";
 //REDUX
 import { useDispatch, useSelector} from "react-redux";
 import { createSelector } from "reselect";
@@ -27,15 +39,7 @@ import  {
   setRandomRestaurants, 
   setTargetProducts 
 } from "../../screens/RestaurantPage/slice";
-import { Product } from "../../../types/product";
-import { ProductSearchObj } from "../../../types/others";
-import ProductApiService from "../../apiServices/productApiService";
-import { serverApi } from "../../../lib/config";
-import RestaurantApiService from "../../apiServices/restaurantApiService";
-import assert from "assert";
-import { Definer } from "../../../lib/Definer";
-import MemberApiService from "../../apiServices/memberApiService";
-import { sweetErrorHandling, sweetTopSmallSuccessAlert } from "../../../lib/sweetAlert";
+
 
 
 
@@ -89,7 +93,7 @@ export function OneRestaurant() {
     restaurant_mb_id: restaurant_id,
     product_collection: "dish",
   });
- const [productRebuild, setProductRebuild] = useState<Date>(new Date())
+ const [productRebuild, setProductRebuild] = useState<Date>(new Date());
 
   useEffect(() => {
     const restaurantService = new RestaurantApiService();
@@ -98,15 +102,20 @@ export function OneRestaurant() {
       .then((data) => setRandomRestaurants(data))
       .catch((err) => console.log(err));
 
+    restaurantService
+      .getChosenRestaurant(chosenRestaurantId)
+      .then(data => setChosenRestaurant(data))
+      .catch(err => console.log(err));
+
 
     const productService = new ProductApiService();
     productService
       .getTargetProducts(targetProductSearchObj)
       .then(data => setTargetProducts(data))
       .catch(err => console.log(err));
-  }, [targetProductSearchObj, productRebuild]);
+  }, [ chosenRestaurantId, targetProductSearchObj, productRebuild]);
 
-  /**HANDLER */
+  /** HANDLERS */
   const chosenRestaurantHandler = (id: string) => {
     setchosenRestaurantId(id);
     targetProductSearchObj.restaurant_mb_id = id;
@@ -123,6 +132,9 @@ export function OneRestaurant() {
     targetProductSearchObj.page = 1;
     targetProductSearchObj.order = order;
     setTargetProductSearchObj({ ...targetProductSearchObj });
+  };
+  const chosenDishHandler = (id: string) => {
+    history.push(`/restaurant/dish/${id}`);
   };
 
   const targetLikeProduct = async (e: any) => {
@@ -421,12 +433,12 @@ export function OneRestaurant() {
           <Box
             className={"about_left"}
             sx={{
-              backgroundImage: `url('/restaurant/texasDeBrazil.jpeg')`,
+              backgroundImage: `url(${serverApi}/${chosenRestaurant?.mb_image})`,
             }}
           >
             <div className={"about_left_desc"}>
-              <span>Burak</span>
-              <p>Eng mazzali oshxona</p>
+              <span>{chosenRestaurant?.mb_nick}</span>
+              <p>{chosenRestaurant?.mb_description}</p>
             </div>
           </Box>
           <Box className={"about_right"}>

@@ -11,6 +11,7 @@ import ProductApiService from '../../apiServices/productApiService';
 import { retrieveTrendProducts } from './selector';
 import { createSelector } from 'reselect';
 import { serverApi } from '../../../lib/config';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -29,6 +30,7 @@ const trendProductsRetriever = createSelector(
 
 export function BestDishes() {
     /** INTIALIZATIONS */
+  const history = useHistory();
   const {trendProducts} = useSelector(trendProductsRetriever);
   const {setTrendProducts } = actionDispatch(useDispatch());
   useEffect(() => {
@@ -37,6 +39,11 @@ export function BestDishes() {
       .then((data) => setTrendProducts(data)) 
       .catch(err => console.log(err));
   }, []);
+
+  /** HANDLERS */
+  const chosenDishHandler = (id: string) => {
+    history.push(`/restaurant/dish/${id}`);
+  };
   return (
     <div className="best_dishes_frame">
       <Container>
@@ -59,7 +66,9 @@ export function BestDishes() {
                   >
                     <div className={"dish_sale"}>{size_volume}</div>
                     <div className={"view_btn"}>
-                      <div>Batafsil ko'rish</div>
+                      <div onClick={() => chosenDishHandler(product._id)}>
+                        Batafsil ko'rish
+                      </div>
                       <img 
                         src="/icons/arrow_right.svg"
                         style={{ marginLeft: "9px" }}
