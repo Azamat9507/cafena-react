@@ -4,10 +4,12 @@ import { BoArticle } from './boArticle';
 import { Order } from './order';
 
 
+
 /** REACT APP STATE */
 export interface AppRootState {
   homePage: HomePageState;
   restaurantPage: RestaurantPageState;
+  ordersPage: OrdersPageState;
 }
 
 /** HOMEPAGE */
