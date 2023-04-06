@@ -60,8 +60,8 @@ const chosenRestaurantRetriever = createSelector(
 const chosen_list = Array.from(Array(3).keys());
 export function ChosenDish() {
     /** INTIALIZATIONS */
-  let { dish_id } = useParams<{ dish_id: string}>();
   const {setChosenProduct, setChosenRestaurant} = actionDispatch(useDispatch());
+  let { dish_id } = useParams<{ dish_id: string}>();
   const {chosenProduct} = useSelector(chosenProductRetriever);
   const {chosenRestaurant} = useSelector(chosenRestaurantRetriever);
   const label = { inputProps: { "aria-label": "Checkbox demo" } };

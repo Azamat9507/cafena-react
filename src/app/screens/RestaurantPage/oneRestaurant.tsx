@@ -207,7 +207,8 @@ export function OneRestaurant() {
               {randomRestaurants.map((ele: Restaurant) => {
                 const image_path = `${serverApi}/${ele.mb_image}`;
                 return (
-                  <SwiperSlide onClick={() => chosenRestaurantHandler(ele._id)}
+                  <SwiperSlide 
+                    onClick={() => chosenRestaurantHandler(ele._id)}
                     style={{ cursor: "pointer" }}
                     key={ele._id}
                     className={"restaurant_avatars"}
@@ -317,31 +318,39 @@ export function OneRestaurant() {
                   : product.product_size + "size";
 
                 return (
-                  <Box className={"dish_box"} key={product._id}>
                     <Box
+                      onClick={() => chosenDishHandler(product._id)}
+                      className={"dish_box"}
+                      key={product._id}
+                    >
+                    <Box
+                      onClick={() => chosenDishHandler(product._id)}
                       className={"dish_img"}
                       sx={{
                         backgroundImage: `url(${image_path})`,
                       }}
                     >
-                      <div className={"dish_sale"}>{size_volume}</div>
-                      <Button
-                        className={"like_view_btn"}
-                        style={{ left: "36px" }}
-                      >
-                        <Badge badgeContent={product.product_likes} color="primary">
-                          <Checkbox
-                            icon={<FavoriteBorder style={{ color: "white" }} />}
-                            id={product._id}
-                            checkedIcon={<Favorite style={{ color: "red" }} />}
-                            onClick={targetLikeProduct}
-                            checked={
-                              product?.me_liked &&
-                              product?.me_liked[0]?.my_favorite
-                                ? true
-                                : false
-                            }
-                          />
+                    <div className={"dish_sale"}>{size_volume} </div>
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                      className={"like_view_btn"}
+                      style={{ left: "36px" }}
+                    >
+                    <Badge badgeContent={product.product_likes} color="primary">
+                      <Checkbox
+                        icon={<FavoriteBorder style={{ color: "white" }} />}
+                        id={product._id}
+                        checkedIcon={<Favorite style={{ color: "red" }} />}
+                        onClick={targetLikeProduct}
+                        checked={
+                          product?.me_liked &&
+                          product?.me_liked[0]?.my_favorite
+                            ? true
+                            : false
+                        }
+                      />
                         </Badge>
                       </Button>
                       <Button className={"view_btn"}>
