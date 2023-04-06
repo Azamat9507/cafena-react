@@ -178,10 +178,10 @@ export function ChosenDish() {
                     icon={<FavoriteBorder />}
                     checkedIcon={<Favorite style={{ color: "red" }} />}
                     id={chosenProduct?._id}
-                    onClick={targetLikeProduct }
+                    onClick={targetLikeProduct}
                     checked={ 
                       chosenProduct?.me_liked && 
-                      !!chosenProduct?.me_liked[0]?.my_favorite
+                      chosenProduct?.me_liked[0]?.my_favorite ? true : false
                     }
                   />
 
