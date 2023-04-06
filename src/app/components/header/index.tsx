@@ -57,9 +57,14 @@ export function NavbarHome(props: any) {
                 Yordam
               </NavLink>
             </Box>
+            
             {/* Basketdan chaqirib olindi */}
-
-            <Basket cartItems={props.cartItems}/>
+            <Basket 
+              cartItems={props.cartItems} 
+              onAdd={props.onAdd} 
+              onRemove={props.onRemove}
+              onDelete={props.onDelete}
+            />
             
             {!props.verifiedMemberData ? (  
               <Box>
