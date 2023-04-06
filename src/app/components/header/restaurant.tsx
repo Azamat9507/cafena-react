@@ -59,7 +59,12 @@ export function NavbarRestaurant(props: any) {
             </Box>
 
             {/* Basketdan chaqirib olindi */}
-            <Basket cartItems={props.cartItems} onAdd={props.onAdd}/>
+            <Basket 
+              cartItems={props.cartItems} 
+              onAdd={props.onAdd} 
+              onRemove={props.onRemove}
+              onDelete={props.onDelete}
+            />
 
             {!props.verifiedMemberData ? (  
               <Box>

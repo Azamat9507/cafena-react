@@ -13,7 +13,7 @@ export default function Basket(props: any) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const {cartItems, onAdd} = props;
+  const {cartItems, onAdd, onRemove, onDelete} = props;
   // mahsulotlarni qoshib narixini chiqarish logicgi
   const itemsPrice = cartItems.reduce(
     (a: any, c: CartItem) => a + c.price * c.quantity,
@@ -96,7 +96,7 @@ export default function Basket(props: any) {
                     <div className={"cancel_btn"}>
                       <CancelIcon
                         color={"primary"}
-                        // onClick={}
+                        onClick={() => onDelete(item)}
                       />
                     </div>
                     <img src={image_path} className={"product_img"} />
@@ -105,7 +105,7 @@ export default function Basket(props: any) {
                     <Box sx={{ minWidth: 120 }}>
                       <div className="col-2">
                         <button
-                          //   onClick={}
+                            onClick={() => onRemove(item)}
                           className="remove"
                         >
                           -
