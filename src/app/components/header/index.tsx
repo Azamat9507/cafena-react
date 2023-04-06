@@ -58,7 +58,9 @@ export function NavbarHome(props: any) {
               </NavLink>
             </Box>
             {/* Basketdan chaqirib olindi */}
-              <Basket />
+
+            <Basket cartItems={props.cartItems}/>
+            
             {!props.verifiedMemberData ? (  
               <Box>
                 <Button 
