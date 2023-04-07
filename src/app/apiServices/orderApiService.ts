@@ -19,7 +19,7 @@ class OrderApiService {
         });
 
       assert.ok(result?.data, Definer.general_err1);
-      assert.ok(result?.data?.state != "failed", result?.data?.message);
+      assert.ok(result?.data?.state != "fail", result?.data?.message);
       console.log("state:", result.data.data);
 
       const order: any = result.data.data;
