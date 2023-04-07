@@ -1,6 +1,7 @@
 import { Product } from "./product"
 
 export interface OrderItem {
+  map(arg0: (item: any) => JSX.Element): import("react").ReactNode;
   _id: string,
   item_quantity: number,
   item_price: number,
@@ -12,15 +13,15 @@ export interface OrderItem {
 
 
 export interface Order {
-_id: string,
-order_total_amount: number,
-order_delivery_cost: number,
-order_status: string,
-mb_id: string,
-createdAt: Date,
-updatedAt: Date,
-/** from aggregation */
-order_items: OrderItem,
-product_data: Product[],
+  _id: string,
+  order_total_amount: number,
+  order_delivery_cost: number,
+  order_status: string,
+  mb_id: string,
+  createdAt: Date,
+  updatedAt: Date,
+  /** from aggregation */
+  order_items: OrderItem,
+  product_data: Product[],
 
 }

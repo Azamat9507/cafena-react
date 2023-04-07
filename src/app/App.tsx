@@ -34,6 +34,7 @@ function App() {
   const main_path = window.location.pathname;
   const [signUpOpen, setSignUpOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
+  const [orderRebuild, setOrderRebuild] = useState<Date>(new Date());
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -156,6 +157,7 @@ function App() {
           onRemove={onRemove}
           onDelete={onDelete}
           onDeleteAll={onDeleteAll}
+          setOrderRebuild={setOrderRebuild}
         /> 
       ) : main_path.includes("/restaurant") ? (
         <NavbarRestaurant 
@@ -173,6 +175,7 @@ function App() {
           onRemove={onRemove}
           onDelete={onDelete}
           onDeleteAll={onDeleteAll}
+          setOrderRebuild={setOrderRebuild}
           
         />
       ) : (
@@ -191,6 +194,7 @@ function App() {
           onRemove={onRemove}
           onDelete={onDelete}
           onDeleteAll={onDeleteAll}
+          setOrderRebuild={setOrderRebuild}
         />
       )}
 
@@ -202,7 +206,9 @@ function App() {
             <CommunityPage />
           </Route>
           <Route path="/orders">
-            <OrdersPage />
+            <OrdersPage 
+              orderRebuild={orderRebuild} 
+              setOrderRebuild={setOrderRebuild}/>
           </Route>
           <Route path="/member-page">
             <MemberPage />
