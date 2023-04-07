@@ -27,6 +27,7 @@ import "../app/apiServices/verify";
 import { CartItem } from '../types/others';
 import { Product } from '../types/product';
 
+
 function App() {
     /** INTIALIZATIONS */
   const [verifiedMemberData, setVerifiedMemberData] = useState<Member | null>(null);
@@ -208,7 +209,10 @@ function App() {
           <Route path="/orders">
             <OrdersPage 
               orderRebuild={orderRebuild} 
-              setOrderRebuild={setOrderRebuild}/>
+              setOrderRebuild={setOrderRebuild}
+              verifiedMemberData={verifiedMemberData}
+            />
+              
           </Route>
           <Route path="/member-page">
             <MemberPage />
