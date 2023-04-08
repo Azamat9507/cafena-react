@@ -7,12 +7,38 @@ import Checkbox from "@mui/material/Checkbox";
 import moment from "moment";
 import { BoArticle } from "../../../types/boArticle";
 import { serverApi } from "../../../lib/config";
+import { sweetErrorHandling, sweetTopSmallSuccessAlert } from "../../../lib/sweetAlert";
+import assert from "assert";
+import { Definer } from "../../../lib/Definer";
+import MemberApiService from "../../apiServices/memberApiService";
+
 
 export function TargetArticles(props: any) {
+  const {setArticlesRebuild} = props;
+  /** HANDLERS */
+  const targetLikeHandler = async (e: any) => {
+    try {
+      assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
+
+      const memberService = new MemberApiService();
+      const like_result = await memberService.memberLikeTarget({
+        like_ref_id: e.target.id, 
+        group_type: "community",
+      });
+      assert.ok(like_result, Definer.general_err1);
+      await sweetTopSmallSuccessAlert("success", 700, false);
+      setArticlesRebuild(new Date());
+    } catch(err: any) {
+      console.log(err);
+      sweetErrorHandling(err).then();
+    }
+  };
   return (
     <Stack>
       {props.targetBoArticles?.map((article: BoArticle) => {
-        const art_image_url = article?.art_image ? `${serverApi}/${article.art_image}` : "/community/default_img.jpg";
+        const art_image_url = article?.art_image 
+          ? `${serverApi}/${article.art_image}` 
+          : "/community/default_img.jpg";
         return (
           <Link
             className={"all_article_box"}
@@ -30,7 +56,9 @@ export function TargetArticles(props: any) {
                   width={"35px"}
                   style={{ borderRadius: "50%", backgroundSize: "cover" }}
                 />
-                <span className={"all_article_author_user"}>{article?.member_data.mb_nick}</span>
+                <span className={"all_article_author_user"}>
+                  {article?.member_data.mb_nick}
+                </span>
               </Box>
               <Box
                 display={"flex"}
@@ -62,12 +90,19 @@ export function TargetArticles(props: any) {
                       sx={{ ml: "40px" }}
                       icon={<FavoriteBorder />}
                       checkedIcon={<Favorite style={{ color: "red" }} />}
+                      onClick={targetLikeHandler}
                       id={article?._id}
-                      checked={false}
+                      checked={article?.me_liked && article.me_liked[0]?.my_favorite 
+                        ? true 
+                        : false}
                     />
-                    <span style={{ marginRight: "18px" }}>{article?.art_likes}</span>
+                    <span style={{ marginRight: "18px" }}>
+                      {article?.art_likes}
+                    </span>
                     <RemoveRedEyeIcon />
-                    <span style={{ marginLeft: "18px" }}>{article?.art_views}</span>
+                    <span style={{ marginLeft: "18px" }}>
+                      {article?.art_views}
+                    </span>
                   </Box>
                 </Box>
               </Box>
