@@ -11,17 +11,74 @@ import TabPanel from "@mui/lab/TabPanel";
 import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CommunityApiService from "../../apiServices/communityApiService";
+import { BoArticle, SearchArticlesObj } from "../../../types/boArticle";
+//REDUX
+import { useDispatch, useSelector} from "react-redux";
+import { createSelector } from "reselect";
+import {Dispatch} from "@reduxjs/toolkit";
+import { setTargetBoArticles } from "./slice";
+import { retrieveTargetBoArticles } from "./selector";
+
+/** REDUX SLICE */
+const actionDispatch = (dispach: Dispatch) => ({
+  setTargetBoArticles: (data: BoArticle[]) => 
+    dispach(setTargetBoArticles(data)),
+});
+
+/** REDUX SELECTOR */
+const targetBoArticlesRetriever = createSelector(
+  retrieveTargetBoArticles, 
+  (targetBoArticles) => ({ 
+    targetBoArticles, 
+  })
+);
+
+
 
 export function CommunityPage(props: any) {
     /** INITIALIZATIONS **/
+    const { setTargetBoArticles } = 
+    actionDispatch(useDispatch());
+    const { targetBoArticles } = useSelector(targetBoArticlesRetriever);
   const [value, setValue] = React.useState("1");
+  const [searchArticlesObj, setSearchArticlesObj] = useState<SearchArticlesObj>({
+    bo_id: "all",
+    page: 1,
+    limit: 5,
+  });
+
+  useEffect(() => {
+    const communityService = new CommunityApiService();
+    communityService
+      .getTargetArticles(searchArticlesObj)
+      .then(data => setTargetBoArticles(data))
+      .catch(err => console.log(err));
+  }, [searchArticlesObj]);
 
   /** HANDLERS **/
   const handleChange = (event: any, newValue: string) => {
+    searchArticlesObj.page = 1;
+    switch(newValue) {
+      case "1":
+        searchArticlesObj.bo_id = "all";
+        break;
+      case "2":
+        searchArticlesObj.bo_id = "celebrity";
+        break;
+      case "3":
+        searchArticlesObj.bo_id = "evaluation";
+        break;
+      case "4":
+        searchArticlesObj.bo_id = "story";
+        break;
+    }
+    setSearchArticlesObj({...searchArticlesObj});
     setValue(newValue);
   };
   const handlePaginationChange = (event: any, value: number) => {
-    console.log(value);
+    searchArticlesObj.page = value;
+    setSearchArticlesObj({...searchArticlesObj})
   };
   
   return (
@@ -55,21 +112,21 @@ export function CommunityPage(props: any) {
                 <Box className={"article_main"}>
                   <TabPanel value={"1"}>
                     <TargetArticles
-                      targetBoArticles={[1, 2, 3]}
+                      targetBoArticles={targetBoArticles}
                       test={"Maqolalar"}
                     />
                   </TabPanel>
                   <TabPanel value={"2"}>
                     <TargetArticles
-                      targetBoArticles={[1, 2, 3, 4]}
+                      targetBoArticles={targetBoArticles}
                       test={"Mashxurlar"}
                     />
                   </TabPanel>
                   <TabPanel value={"3"}>
-                    <TargetArticles targetBoArticles={[1, 2]} />
+                    <TargetArticles targetBoArticles={targetBoArticles} />
                   </TabPanel>
                   <TabPanel value={"4"}>
-                    <TargetArticles targetBoArticles={[1, 2, 3]} />
+                    <TargetArticles targetBoArticles={targetBoArticles} />
                   </TabPanel>
                 </Box>
 

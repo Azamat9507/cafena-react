@@ -5,4 +5,4 @@ const selectCommunityPage = (state: AppRootState) => state.communityPage;
 export const retrieveTargetBoArticles = createSelector(
   selectCommunityPage,
   (CommunityPage) => CommunityPage.targetBoArticles
-)
+);

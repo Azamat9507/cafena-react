@@ -42,5 +42,5 @@ export interface OrdersPageState {
 
 /** COMMUNITY PAGE */
 export interface CommunityPageState {
-  targetBoArticles: BoArticle[]
+  targetBoArticles: BoArticle[];
 }
