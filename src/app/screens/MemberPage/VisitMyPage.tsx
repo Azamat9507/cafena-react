@@ -22,9 +22,60 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { TuiEditor } from "../../components/tuiEditor/tuiEditor";
 import TViewer from "../../components/tuiEditor/TViewer";
+import { Member } from "../../../types/user";
+import { BoArticle } from "../../../types/boArticle";
+//REDUX
+import { useDispatch, useSelector} from "react-redux";
+import { createSelector } from "reselect";
+import {Dispatch} from "@reduxjs/toolkit";
+import { 
+  setChoosenMember, 
+  setChosenMemberBoArticles, 
+  setChosenSingleBoArticle 
+} from "./slice";
+import { 
+  retrieveChoosenMember, 
+  retrieveChosenMemberBoArticles, 
+  retrieveChosenSingleBoArticle 
+} from "./selector";
+
+/** REDUX SLICE */
+const actionDispatch = (dispach: Dispatch) => ({
+  setChoosenMember: (data: Member) => dispach(setChoosenMember(data)),
+  setChosenMemberBoArticles: (data: BoArticle[]) => dispach(setChosenMemberBoArticles(data)),
+  setChosenSingleBoArticle: (data: BoArticle) => dispach(setChosenSingleBoArticle(data)),
+});
+
+/** REDUX SELECTOR */
+const chosenMemberRetriever = createSelector(
+  retrieveChoosenMember, 
+  (choosenMember) => ({ 
+    choosenMember, 
+  })
+);
+const chosenMemberBoArticlesRetriever = createSelector(
+  retrieveChosenMemberBoArticles, 
+  (chosenMemberBoArticles) => ({ 
+    chosenMemberBoArticles, 
+  })
+);
+const chosenSingleBoArticleRetriever = createSelector(
+  retrieveChosenSingleBoArticle, 
+  (chosenSingleBoArticle) => ({ 
+    chosenSingleBoArticle, 
+  })
+);
 
 export function VisitMyPage(props: any) {
   /** INITIALIZATIONS **/
+  const { 
+    setChoosenMember, 
+    setChosenMemberBoArticles, 
+    setChosenSingleBoArticle 
+  } = actionDispatch(useDispatch());
+  const { choosenMember } = useSelector(chosenMemberRetriever);
+  const { chosenMemberBoArticles } = useSelector(chosenMemberBoArticlesRetriever);
+  const { chosenSingleBoArticle } = useSelector(chosenSingleBoArticleRetriever);
   const [value, setValue] = useState("1");
 
   /** HANDLERS **/
