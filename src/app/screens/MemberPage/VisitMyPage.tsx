@@ -41,7 +41,7 @@ import {
 import { sweetErrorHandling, sweetFailureProvider } from "../../../lib/sweetAlert";
 import CommunityApiService from "../../apiServices/communityApiService";
 import MemberApiService from "../../apiServices/memberApiService";
-import { verifyMemberData } from '../../apiServices/verify';
+
 
 /** REDUX SLICE */
 const actionDispatch = (dispach: Dispatch) => ({
@@ -94,7 +94,7 @@ export function VisitMyPage(props: any) {
 
     const communityService = new CommunityApiService();
     const memberService = new MemberApiService();
-    
+
     communityService
       .getMemberCommunityArticles(memberArticleSearchObj)
       .then((data) => setChosenMemberBoArticles(data))
