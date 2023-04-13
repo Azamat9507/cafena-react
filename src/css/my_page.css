@@ -400,7 +400,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 20px 20px 20px 20px;
+  border-radius: 10px;
   background: #ffffff;
   box-shadow: inset 1px 4px 4px rgb(172 87 87 / 25%),
     inset 0px 4px 4px rgb(0 0 0 / 25%), inset 0px 4px 4px rgb(0 0 0 / 25%);
