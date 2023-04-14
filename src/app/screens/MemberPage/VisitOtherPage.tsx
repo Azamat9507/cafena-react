@@ -82,7 +82,7 @@ export function VisitOtherPage(props: any) {
   const { chosenSingleBoArticle } = useSelector(chosenSingleBoArticleRetriever);
   const [value, setValue] = useState("1");
   const [memberArticleSearchObj, setMemberArticleSearchObj] = 
-  useState<SearchMemberArticlesObj>({mb_id: chosen_mb_id, page: 1, limit: 5 });
+  useState<SearchMemberArticlesObj>({mb_id: chosen_mb_id, page: 1, limit: 4 });
   const [articlesRebuild, setArticlesRebuild] = useState<Date>(new Date());
   const [followRebuild, setFollowRebuild] = useState<boolean>(false);
 
