@@ -20,6 +20,7 @@ import  {
 } from "../../screens/OrdersPage/slice";
 import OrderApiService from "../../apiServices/orderApiService";
 import { Member } from "../../../types/user";
+import { verifiedMemberData } from "../../apiServices/verify";
 
 
 /** REDUX SLICE */
@@ -37,7 +38,6 @@ export function OrdersPage(props: any) {
   const [value, setValue] = useState("1");
   const { setPausedOrders, setProcessOrders, setFinishedOrders } = 
     actionDispatch(useDispatch());
-    const verifiedMemberData: Member | null = props.verifiedMemberData;
 
   useEffect(() => {
     const orderService = new OrderApiService();
@@ -108,7 +108,7 @@ export function OrdersPage(props: any) {
                 </div>
               </div>
               <span className={"order_user_name"}>{verifiedMemberData?.mb_nick}</span>
-              <span className={"order_user_prof"}>{props.verifiedMemberData?.mb_type ?? "Foydalanuvchi ismi"}</span>
+              <span className={"order_user_prof"}>{verifiedMemberData?.mb_type ?? "Foydalanuvchi ismi"}</span>
             </Box>
             <Box
               style={{ border: "1px solid #A1A1A1" }}

@@ -38,6 +38,7 @@ import MemberApiService from "../../apiServices/memberApiService";
 import CommunityApiService from "../../apiServices/communityApiService";
 import { sweetErrorHandling, sweetTopSuccessAlert } from "../../../lib/sweetAlert";
 import FollowApiService from "../../apiServices/followApiService";
+import { verifiedMemberData } from "../../apiServices/verify";
 
 
 /** REDUX SLICE */
@@ -71,7 +72,7 @@ const chosenSingleBoArticleRetriever = createSelector(
 export function VisitOtherPage(props: any) {
   /** INITIALIZATIONS **/
   const history = useHistory();
-  const {verifiedMemberData, chosen_mb_id, chosen_art_id} =props;
+  const {chosen_mb_id, chosen_art_id} = props;
   const { 
     setChoosenMember, 
     setChosenMemberBoArticles, 
@@ -147,7 +148,7 @@ export function VisitOtherPage(props: any) {
 
   const subscribeHandler = async (e: any) => {
     try {
-      assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
+      assert.ok(verifiedMemberData, Definer.auth_err1);
 
       const followService = new FollowApiService();
       await followService.subscribe(e.target.value);
@@ -161,7 +162,7 @@ export function VisitOtherPage(props: any) {
   };
   const unsubscribeHandler = async (e: any) => {
     try {
-      assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
+      assert.ok(verifiedMemberData, Definer.auth_err1);
       const followService = new FollowApiService();
       await followService.unsubscribe(e.target.value);
 

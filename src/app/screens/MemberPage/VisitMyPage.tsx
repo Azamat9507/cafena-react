@@ -41,6 +41,7 @@ import {
 import { sweetErrorHandling, sweetFailureProvider } from "../../../lib/sweetAlert";
 import CommunityApiService from "../../apiServices/communityApiService";
 import MemberApiService from "../../apiServices/memberApiService";
+import { verifiedMemberData } from "../../apiServices/verify";
 
 
 /** REDUX SLICE */
@@ -72,7 +73,6 @@ const chosenSingleBoArticleRetriever = createSelector(
 
 export function VisitMyPage(props: any) {
   /** INITIALIZATIONS **/
-  const {verifiedMemberData} = props;
   const { 
     setChoosenMember, 
     setChosenMemberBoArticles, 
@@ -88,7 +88,7 @@ export function VisitMyPage(props: any) {
     useState<SearchMemberArticlesObj>({mb_id: "none", page: 1, limit: 4 });
 
   useEffect(() => {
-    if(!localStorage.getItem("member_data")) {
+    if(!localStorage) {
       sweetFailureProvider("Please login first", true, true);
     }
 
@@ -185,7 +185,7 @@ export function VisitMyPage(props: any) {
                       actions_enabled={true} 
                       followRebuild={followRebuild}
                       setFollowRebuild={setFollowRebuild}
-                      mb_id={props.verifiedMemberData?._id}
+                      mb_id={verifiedMemberData?._id}
                     />
                   </Box>
                 </TabPanel>
@@ -197,7 +197,7 @@ export function VisitMyPage(props: any) {
                       actions_enabled={true}
                       followRebuild={followRebuild}
                       setFollowRebuild={setFollowRebuild}
-                      mb_id={props.verifiedMemberData?._id} 
+                      mb_id={verifiedMemberData?._id} 
                     />
                   </Box>
                 </TabPanel>

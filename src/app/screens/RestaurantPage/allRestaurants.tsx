@@ -32,6 +32,7 @@ import {retrieveTargetRestaurants} from "../../screens/RestaurantPage/selector";
 import { Restaurant } from '../../../types/user';
 import {Dispatch} from "@reduxjs/toolkit";
 import  { setTargetRestaurants } from "../../screens/RestaurantPage/slice";
+import { verifiedMemberData } from '../../apiServices/verify';
 
 
 
@@ -91,7 +92,7 @@ const handlePaginationChange = (event: any, value: number) => {
 
 const targetLikeHandler = async (e: any, id: string ) => {
   try {
-    assert.ok(localStorage.getItem("member_data"), Definer.auth_err1);
+    assert.ok(verifiedMemberData, Definer.auth_err1);
 
     const memberService = new MemberApiService(),
       like_result: any = await memberService.memberLikeTarget({ 
