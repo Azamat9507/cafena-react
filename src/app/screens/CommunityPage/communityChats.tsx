@@ -6,6 +6,7 @@ export function CommunityChats() {
   /** INITIALIZATIONS **/
   const [messagesList, setMessagesList] = useState([]);
 
+
   return (
     <Stack className={"chat_frame"}>
       <Box className={"chat_top"}>Jonli Muloqot</Box>
