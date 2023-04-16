@@ -44,7 +44,7 @@ export function MySettings(props: any) {
   
       const fileType = file["type"], 
         validTypes = ["image/jpg", "image/jpeg", "image/png"];
-      assert.ok(!validTypes.includes(fileType) && file, Definer.input_err2);
+      assert.ok(validTypes.includes(fileType) && file, Definer.input_err2);
 
       memberUpdate.mb_image = file;
       setMemberUpdate({ ...memberUpdate });
