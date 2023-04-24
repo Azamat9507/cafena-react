@@ -332,7 +332,7 @@ export function VisitMyPage(props: any) {
                         <img src={"/icons/followers.svg"} />
                         <span>Follower</span>
                       </div>
-                    )}
+                    )} 
                   />
                   <Tab
                     style={{ flexDirection: "column" }}

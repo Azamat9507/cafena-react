@@ -156,7 +156,7 @@
   height: 295px;
   display: flex;
   border-radius: 0px 90px 0px 0px;
-  background: url("/public/community/cute_girl.jpg");
+  /* background: url("/public/community/cute_girl.jpg"); */
   background-size: cover;
 }
 
