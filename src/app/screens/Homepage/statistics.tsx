@@ -1,7 +1,6 @@
 import { Container, Stack } from '@mui/material';
 import React from 'react';
 import { Box } from '@mui/material';
-import Marginer from '../../components/marginer';
 
 
 
@@ -10,18 +9,25 @@ export function Statistics() {
     <div className="static_frame">
       <Container className="static_width">
         <Stack className="static_frame_static_frame">
-          <Stack className="static_box">
+          <Stack className="static_box" >
             <div className="static_img_left"></div>
             <div className="static_text">
               <Box className="static_num">Fast Delivery</Box>
               <Box className="static_text">When order over $15</Box>
             </div>
           </Stack>
+          {/* <Stack className="static_box">
+            <div className="static_img_middle1"></div>
+            <div className="static_text">
+              <Box className="static_num">100% Quality</Box>
+              <Box className="static_text">Natural Premium coffee nuts</Box>
+            </div>
+          </Stack> */}
           <Stack className="static_box">
             <div className="static_img_middle"></div>
             <div className="static_text">
-              <Box className="static_num">24/7 Support </Box>
-              <Box className="static_text">Contact us any time</Box>
+              <Box className="static_num">24/7 AI Support </Box>
+              <Box className="static_text">Contact us whenever</Box>
             </div>
           </Stack>
           <Stack className="static_box">

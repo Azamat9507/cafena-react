@@ -30,6 +30,14 @@
   background-size: cover;
 }
 
+/* .homepage .static_img_middle1 {
+  width: 65px;
+  height: 65px;
+  background: url("/public/icons/f-icon-2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
 .homepage .static_img_right {
   width: 65px;
   height: 65px;
@@ -39,13 +47,12 @@
 }
 
 .static_frame .static_width {
-  width: 1320;
+  width: 1320px;
 }
 
 
 .homepage .static_box {
-  height: 100px;
-  margin: 10px;
+  height: 150px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -69,14 +76,14 @@
   font-weight: 700;
   margin-left: 15px;
   font-size: 25px;
-  line-height: 40px;
+  line-height: 30px;
   text-align: center;
   color: #FFFFFF;
 
 }
 
 .static_box .static_text {
-  margin: 15px;
+  margin: 10px;
 }
 
 .homepage .static_box .static_text {
@@ -86,7 +93,7 @@
   font-size: 20px;
   line-height: 10px;
   text-align: center;
-  color: #f3b352;
+  color: #a7a7a7;
 }
 
 .homepage .top_restaurant_frame {
