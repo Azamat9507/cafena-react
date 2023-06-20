@@ -75,7 +75,7 @@ export function TopRestaurants() {
           alignItems={"center"}
           sx={{ mt: "45px" }}
         >
-          <Box className="category_title">TOP Restauranlar</Box>
+          <Box className="category_title">Coffee Shops</Box>
           <Stack sx={{mt: "43px" }} flexDirection={"row"} m={"16px"}>
             {topRestaurants.map((ele: Restaurant) => {
               const image_path = `${serverApi}/${ele.mb_image}`;
@@ -84,8 +84,8 @@ export function TopRestaurants() {
                   <Card 
                     onClick={() => chosenRestaurantHandler(ele._id)}
                     sx={{
-                      minHeight: 430,
-                      width: 325,
+                      minHeight: 420,
+                      width: 300,
                       mr: "35px",
                       cursor: "pointer",
                     }}
@@ -134,7 +134,7 @@ export function TopRestaurants() {
                           zIndex: 2,
                           borderRadius: "50%",
                           right: "1rem",
-                          bottom: 45,
+                          bottom: 380,
                           transform: "translateY(50%)",
                           color: "rgba(0,0,0,0.4)",
                         }}

@@ -51,10 +51,10 @@ export function Homepage() {
   return (  
     <div className="homepage">
       <Statistics/>
+      <Advertisements/>
       <TopRestaurants/>
       <BestRestaurants/>
       <BestDishes/>
-      <Advertisements/>
       <Events/>
       <Recommendations/>
     </div>

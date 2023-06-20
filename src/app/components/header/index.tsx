@@ -15,7 +15,7 @@ export function NavbarHome(props: any) {
                 
         >
           <Box>
-            <img src='/icons/papay.svg' alt=""/>
+            <img src='/icons/logo.png' alt=""/>
           </Box> 
           <Stack
             flexDirection={"row"}
@@ -25,39 +25,38 @@ export function NavbarHome(props: any) {
           >
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/" activeClassName="underline" >
-                Bosh Sahifa
+                Home
               </NavLink>
             </Box>
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/restaurant" activeClassName="underline" >
-                Oshxona
+                Shop
               </NavLink>
             </Box>
             {verifiedMemberData ? (
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/orders" activeClassName="underline" >
-                Buyurtma
+                Order
               </NavLink>
             </Box>
             ) : null}
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/community" activeClassName="underline" >
-                Jamiyat
+                Community
               </NavLink>
             </Box>
             {verifiedMemberData ? (
               <Box className="hover-line" onClick={props.setPath}>
                 <NavLink to="/member-page" activeClassName="underline" >
-                  Sahifam
+                  My Page
                 </NavLink>
               </Box>
             ) : null}
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/help" activeClassName="underline" >
-                Yordam
+                Help
               </NavLink>
             </Box>
-
             {/* Basketdan chaqirib olindi */}
             <Basket 
               cartItems={props.cartItems} 
@@ -67,25 +66,48 @@ export function NavbarHome(props: any) {
               onDeleteAll={props.onDeleteAll}
               setOrderRebuild={props.setOrderRebuild}
             />
+            <Box>
+                {!verifiedMemberData ? (
+                  <Button
+                    sx={{border: 1, borderRadius: 24, borderColor: "#C7A17A"}} 
+                    variant="contained" 
+                    style={{width: "100px", 
+                    height: "48px", 
+                    backgroundColor: "transparent", 
+                    color: "#FFFFFF",  
+                    }}
+                    onClick={props.handleSignUpOpen}
+                  >
+                    SIGN UP
+                  </Button>
+                ) : null}
+            </Box>
             
             {!verifiedMemberData ? (  
               <Box>
                 <Button 
                   variant="contained" 
-                  style={{ color: "#FFFFFF", background: "#1976d2" }}
+                  style={{ color: "#FFFFFF",
+                  width: "100px", 
+                  background: "#C7A17A",
+                  height: "48px",
+                  borderRadius: 24 
+                }}
                   onClick={props.handleLoginOpen}
                 >
-                  KIRISH
+                  Login
                 </Button>
               </Box>
             ) : (
               <img
-                style={{ width: "48px", height: "48px", borderRadius: "#1976d2" }}
+                style={{ width: "48px", height: "48px" }}
                 src={verifiedMemberData.mb_image}
                 onClick={props.handleLogOutClick} 
+                alt={""}
               />
+              
             )}
-            
+
             <Menu
               anchorEl={props.anchorEl}
               open ={props.open}
@@ -133,28 +155,15 @@ export function NavbarHome(props: any) {
         <Stack className="head_information">
             <Stack justifyContent={"column"} style={{ marginTop: "86px", marginLeft: "24px"}}>
               <Box>
-              <img src='/icons/wellcome.svg' alt=""/>
+                We have got your morning covered with
               </Box>
               <Box className="define_restaurant">
-                The Authentic Restaurant & Cafe
+                <img src='/icons/coffee-title.svg' alt=""/>
               </Box>
               <Box className="timeline_service">
-                24 soat xizmatingizdamiz.
-              </Box>
-              <Box sx={{mt: "90px"}}>
-                {!verifiedMemberData ? (
-                  <Button 
-                    variant="contained" 
-                    style={{width: "210px", 
-                    height: "60px", 
-                    background: "#1976d2", 
-                    color: "#FFFFFF", 
-                    }}
-                    onClick={props.handleSignUpOpen}
-                  >
-                    RO'YHATDAN O'TISH
-                  </Button>
-                ) : null}
+              It is best to start your day with a cup of coffee. Discover the
+              best flavours coffee you will ever have. We provide the best
+              for our customers. 
               </Box>
             </Stack>
 

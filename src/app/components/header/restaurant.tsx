@@ -15,7 +15,7 @@ export function NavbarRestaurant(props: any) {
                 
         >
           <Box>
-            <img src='/icons/papay.svg' alt=""/>
+            <img src='/icons/logo.png' alt=""/>
           </Box> 
           <Stack
             flexDirection={"row"}
@@ -25,37 +25,37 @@ export function NavbarRestaurant(props: any) {
           >
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/">
-                Bosh Sahifa
+                Home
               </NavLink>
             </Box>
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/restaurant" activeClassName="underline" >
-                Oshxona
+                Shop
               </NavLink>
             </Box>
             {verifiedMemberData ? (
               <Box className="hover-line" onClick={props.setPath}>
                 <NavLink to="/orders" activeClassName="underline" >
-                  Buyurtma
+                  Order
                 </NavLink>
               </Box>
             ) : null}
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/community" activeClassName="underline" >
-                Jamiyat
+                Community
               </NavLink>
             </Box>
             {verifiedMemberData ? (
               <Box className="hover-line" onClick={props.setPath}>
                 <NavLink to="/member-page" activeClassName="underline" >
-                  Sahifam
+                  My Page
                 </NavLink>
               </Box>
             ) : null}
 
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/help" activeClassName="underline" >
-                Yordam
+                Help
               </NavLink>
             </Box>
 
@@ -76,7 +76,7 @@ export function NavbarRestaurant(props: any) {
                   style={{ color: "#FFFFFF", background: "#1976d2" }}
                   onClick={props.handleLoginOpen}
                 >
-                  KIRISH
+                  LOGIN
                 </Button>
               </Box>
             ) : (
