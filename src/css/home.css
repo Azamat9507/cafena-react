@@ -1,5 +1,5 @@
 .homepage {
-  background: #0b0e11;
+  background: #000;
 }
 
 .homepage .static_frame {
@@ -393,150 +393,121 @@
   flex-direction: row;
 }
 
-/* Statistics page start css */
+/* infoProduct page start css */
 
-.homepage .events_main_page {
-  position: relative;
+.homepage .top_coffeeshop_frame {
   width: 100%;
+  height: 670px;
   display: flex;
-  flex-direction: column;
-}
-.homepage .events_main_page .events_text_page {
-  position: relative;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-.homepage .events_main_page .prev_next_frame_page {
+.homepage .category_title {
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  /* font-size: 30px; */
+  line-height: 37px;
+  margin-bottom: 40px;
+  margin-top: 70px;
+
+  /* color: #222222; */
+}
+
+.homepage .swiper-width {
+  height: 400px;
+  width: 800px;
+  cursor: pointer;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.prev_next_frame1 {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 250px;
   height: 24px;
-  margin-left: 901px;
-  margin-top: 19px;
+  margin-bottom: 20px;
 }
 
+.homepage .swiper-pagination-bullet {
+  margin-right: 5px;
+  width: 8px;
+  height: 8px;
+  text-align: center;
+  opacity: 1;
+  background: white;
+  border-radius: 50%;
+}
 
-.homepage .dot_frame_pagination1 {
+.homepage .swiper-pagination {
+  background: #007bff;
+  border-radius: 50%;
+}
+
+.homepage .dot_frame_pagination {
   position: relative;
   width: auto;
   display: flex;
 }
 
-.homepage .events_main_page .events_info1 {
-  margin-top: 75px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.homepage .events_info1 .events_info_frame1 {
-  position: relative;
-  width: auto;
-  height: 700px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.homepage .events_img1 {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  border-radius: 10px;
-  background-size: cover;
-}
-
-
-.homepage .events_desc1 {
+.card_style {
+  justify-content: flex-start;
   position: absolute;
-  padding: 10px;
-  display: flex;
+  top: 20px;
+}
+
+.homepage .product_box .products_desc {
   width: 90%;
-  height: auto;
-  bottom: 5px;
-  background: #ffffff;
-  box-shadow: 0px 40px 30px rgba(25, 25, 46, 0.04);
-  border-radius: 8px;
-}
-
-.homepage .events_desc1 .events_bott1 {
-  width: 97%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.homepage .events_desc1 .events_bott1 .bott_left1 {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.homepage .bott_left1 .event_title_speaker1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.homepage .event_title_speaker1 .event_organizator1 {
-  display: flex;
   align-items: center;
 }
 
-.homepage .event_organizator1 .spec_text_author1 {
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  line-height: 34px;
-  color: #140342;
+h1 {
+  color: #ffffff;
+  background: #C7A17A;
+  font-family: "Jost", sans-serif;
+  display: inline-block;
+  font-size: 12px;
+  width: 110px;
+  text-transform: uppercase;
+  padding: 1.5px 13px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  line-height: 22px;
+  margin-bottom: 23px;
 }
 
-.homepage .bott_left1 .text_desc1 {
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 26px;
-  color: #4f547b;
+.text_desc {
+  margin-bottom: 15px;
+  color: #a7a7a7;
 }
 
-.homepage .bott_left1 .bott_info1 {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  width: 100%;
-  height: 16px;
+.heading_title {
+  color: #ffffff;
+  font-size: 33px;
+  line-height: 38px;
+  text-transform: uppercase;
+  font-family: "Jost", sans-serif;
 }
 
-.homepage .bott_info1 .bott_info_main1 {
-  margin-left: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: auto;
-  height: 100%;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  color: #4f547b;
+p {
+  display: inline-block;
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+  color: white;
 }
 
-.homepage .swiper-wrapper1 {
-  display: flex;
-  flex-direction: row;
+.card:hover {
+  transform: scale(1.01);
+  transition: transform 0.3s ease-in-out;
 }
+
+
+
+
 
 /* end page */
 

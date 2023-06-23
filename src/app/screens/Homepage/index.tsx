@@ -7,7 +7,9 @@ import { BestDishes } from './bestDishes';
 import { Advertisements } from './advertisements';
 import { Events } from './events';
 import { Recommendations } from './recommendations';
+import { InfoProduct } from './infoProduct';
 import "../../../css/home.css";
+
 
 //REDUX
 import {useDispatch} from "react-redux";
@@ -52,6 +54,7 @@ export function Homepage() {
     <div className="homepage">
       <Statistics/>
       <Advertisements/>
+      <InfoProduct/>
       <TopRestaurants/>
       <BestRestaurants/>
       <BestDishes/>
