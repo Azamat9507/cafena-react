@@ -80,7 +80,7 @@ export function BestRestaurants() {
       />
       <Container sx={{ paddingTop: "153px"}}>
         <Stack flexDirection={"column"} alignItems={"center"}>
-          <Box className="category_title">Zo'r restaranlar</Box>
+          <Box className="category_title_shop">Zo'r restaranlar</Box>
           <Stack sx={{mt: "43px"}} flexDirection={"row"}>
             {bestRestaurants.map((ele: Restaurant) => {
               const image_path = `${serverApi}/${ele.mb_image}`;
@@ -172,7 +172,7 @@ export function BestRestaurants() {
                         }}
                       >
                         {ele.mb_views}
-                        <Visibility sx={{ fontSize: 20, marginLeft: "5px" }} />
+                        <Visibility sx={{ fontSize: 23, marginLeft: "5px" }} />
                       </Typography>
                       <Box sx={{ width: 2, bgcolor: "divider" }} />
                       <Typography
@@ -189,7 +189,7 @@ export function BestRestaurants() {
                         >
                           {ele.mb_likes}
                         </div>
-                        <Favorite sx={{ fontSize: 20, marginLeft: "5px" }} />
+                        <Favorite sx={{ fontSize: 23, marginLeft: "5px" }} />
                       </Typography>
                     </CardOverflow>
                   </Card>

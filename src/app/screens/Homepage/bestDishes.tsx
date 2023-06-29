@@ -48,7 +48,7 @@ export function BestDishes() {
     <div className="best_dishes_frame">
       <Container>
         <Stack flexDirection={"column"} alignItems={"center"}>
-          <Box className="category_title">Trendagi Ovqatlar</Box>
+          <Box className="category_title_shop">Trendagi Ovqatlar</Box>
           <Stack sx={{mt: "43px"}} flexDirection={"row"}>
             {trendProducts.map((product: Product) => {
               const image_path = `${serverApi}/${product.product_images[0]}`;

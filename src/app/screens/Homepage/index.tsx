@@ -55,8 +55,8 @@ export function Homepage() {
       <Statistics/>
       <Advertisements/>
       <InfoProduct/>
-      <TopRestaurants/>
       <BestRestaurants/>
+      <TopRestaurants/>
       <BestDishes/>
       <Events/>
       <Recommendations/>

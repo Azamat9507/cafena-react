@@ -48,7 +48,7 @@ export function Events() {
       <Container sx={{ overflow: "hidden" }}>
         <Stack className={"events_main"}>
           <Box className={"events_text"}>
-            <span className={"category_title"}>Hodisalar</span>
+            <span className={"category_title_shop"}>Hodisalar</span>
           </Box>
           <Box className={"prev_next_frame"}>
             <img

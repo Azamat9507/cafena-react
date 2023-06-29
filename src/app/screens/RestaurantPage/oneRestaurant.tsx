@@ -402,7 +402,7 @@ export function OneRestaurant(props: any) {
             alignItems: "center",
           }}
         >
-          <Box className={"category_title"}>Oshhona haqida fikrlar</Box>
+          <Box className={"category_title_shop"}>Oshhona haqida fikrlar</Box>
           <Stack
             flexDirection={"row"}
             display={"flex"}
@@ -439,7 +439,7 @@ export function OneRestaurant(props: any) {
       </div>
 
       <Container className="member_reviews">
-        <Box className={"category_title"}>Oshxona haqida</Box>
+        <Box className={"category_title_shop"}>Oshxona haqida</Box>
         <Stack
           display={"flex"}
           flexDirection={"row"}
@@ -483,7 +483,7 @@ export function OneRestaurant(props: any) {
             alignItems: "center",
           }}
         >
-          <Box className={"category_title"}>Oshxona Manzili</Box>
+          <Box className={"category_title_shop"}>Oshxona Manzili</Box>
           <iframe
             style={{ marginTop: "60px" }}
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d407.246909554427!2d69.20712229726601!3d41.28822029895093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8a31ca66d417%3A0x5755ff29b7bf33a!2sRayhon%20National%20Meals%20Restaurant!5e0!3m2!1sen!2skr!4v1677520566178!5m2!1sen!2skr"

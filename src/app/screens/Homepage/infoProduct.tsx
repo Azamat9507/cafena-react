@@ -61,7 +61,7 @@ export function InfoProduct() {
         alignItems={"center"}
         sx={{ mt: "45px" }}
       >
-        <Box className="category_title">
+        <Box className="category_title_shop">
           Choose your best tasty
         </Box>
         <Box className={"prev_next_frame1"}>

@@ -94,7 +94,7 @@ export function Recommendations() {
         alignItems={"center"}
         sx={{ mt: "45px" }}
       >
-        <Box className={"category_title"}>Recommended articles</Box>
+        <Box className={"category_title_shop"}>Recommended articles</Box>
         <Stack className={"article_main"} flexDirection={"row"}>
           <Stack className={"article_container"}>
             <Box className={"article_category"}>Most Viewed</Box>
