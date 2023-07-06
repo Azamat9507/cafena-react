@@ -1,8 +1,5 @@
 import { Box, Button, Container, Stack } from '@mui/material';
 import React, { useRef } from 'react';
-import Card from '@mui/joy/Card';
-import CardCover from '@mui/joy/CardCover';
-import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import { CssVarsProvider } from '@mui/joy/styles';
@@ -16,6 +13,8 @@ import { Definer } from '../../../lib/Definer';
 import MemberApiService from '../../apiServices/memberApiService';
 import { useHistory } from 'react-router-dom';
 import CallIcon from '@mui/icons-material/Call';
+import { SwiperSlide, Swiper } from 'swiper/react';
+
 //REDUX
 import {useSelector} from "react-redux";
 import { createSelector } from "reselect";
@@ -70,40 +69,83 @@ export function TopRestaurants() {
 
 
   return (
-    <div className="popular_shop_frame">
-      <Container>
-        <Stack 
-          flexDirection={"column"}
-          alignItems={"center"}
-          sx={{ mt: "45px" }}
+    <div className="top_coffeeshop_frame">
+    <Container>
+      <Stack
+        flexDirection={"column"}
+        alignItems={"center"}
+        sx={{ mt: "45px" }}
+      >
+        <Box className="category_title_shop">
+          Popular coffee shops
+        </Box>
+        <Box className={"prev_next_frame1"}>
+          <img
+            src={"/icons/arrow-right.svg"}
+            className={"swiper-button-prev"}
+            style={{ cursor: "pointer" }}
+            alt="arrow"
+          />
+          <img
+            src={"/icons/arrow-right.svg"}
+            className={"swiper-button-next"}
+            style={{
+              transform: "rotate(-180deg)",
+              cursor: "pointer",
+            }}
+            alt="arrow"
+          />
+        </Box>
+        <Swiper
+          className={"swiper-wrapper"}
+          slidesPerView={4}
+          spaceBetween={5} // space between sliders
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          pagination={{
+            el: ".swiper-pagination",
+            clickable: true,
+          }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: true, //slider stops when touch it
+          }}
         >
-          <Box className="category_title_shop">Popular Coffee Shops</Box>
-          <Stack sx={{mt: "20px" }} flexDirection={"row"}>
-            {topRestaurants.map((ele: Restaurant) => {
+          {topRestaurants.map((ele: Restaurant) => {
               const image_path = `${serverApi}/${ele.mb_image}`;
-              return (
-                <CssVarsProvider key={ele._id}>
-                  <Card 
-                    className="popular_card"
-                    onClick={() => chosenRestaurantHandler(ele._id)}
-                    variant="outlined"
-                    sx={{ paddingBottom: "5px" }}
-                  >
+            return (
+              <SwiperSlide
+                onClick={() => chosenRestaurantHandler(ele._id)}
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  width: "400px"
+                }}
+                className="card"
+              >
+                <CssVarsProvider>
+                <Box className="restaurant_box">
+                    <Stack
+                      className="restaurant_img"
+                      sx={{
+                        backgroundImage: `url(${image_path})`,
+                      }}
+                    >
                     <CardOverflow>
-                      <AspectRatio ratio={"1"}>
-                        <img src={image_path} alt="popular" />
-                      </AspectRatio>
                       <IconButton
                         aria-label="Like minimal photography"
                         size="md"
                         variant="solid"
-                        color="warning"
+                        color="neutral"
                         sx={{
                           position: "absolute",
                           zIndex: 2,
                           borderRadius: "20%",
-                          right: "1rem",
-                          bottom: 0,
+                          right: "2rem",
+                          // bottom: 0,
+                          mt: 30,
                           transform: "translateY(50%)",
                           color: "rgba(0,0,0,0.4)",
                         }}
@@ -122,10 +164,23 @@ export function TopRestaurants() {
                         />
                       </IconButton>
                     </CardOverflow>
-                    <Typography level="h2" sx={{ fontSize: "md", mt: 1}}>
+                  </Stack>
+                  <Stack className="restaurant_desc">
+                  <CardOverflow
+                    variant="soft"
+                    sx={{
+                      display: "flex-start",
+                      py: 0.5,
+                      // px: "var-(--Card-padding)",
+                      borderColor: "neutral.outlinedBorder",
+                      bgcolor: "background.level1",
+                      
+                    }}
+                  >  
+                    <Typography level="h2" sx={{ fontSize: "md", mt: 1 }}>
                       {ele.mb_nick} coffee
                     </Typography>
-                    <Typography level="body2" sx={{ mt: 0.1, mb: 0.2}}>
+                    <Typography level="body1" sx={{ mt: 0.1, mb: 0.2,}}>
                       <Link
                         href=""
                         startDecorator={<LocationOnRoundedIcon />}
@@ -133,17 +188,19 @@ export function TopRestaurants() {
                       >
                         {ele.mb_address} Los Angles
                       </Link>
-                    </Typography>     
-                    <Typography level="body2" sx={{ mt: 0.1,   }}>
-                      <Link
-                        href=""
-                        startDecorator={<CallIcon />}
-                        fontSize="15px"
-                        textColor="neutral.700"
-                      >
-                        {ele.mb_phone}
-                      </Link>
                     </Typography>
+                      <Typography level="body2" sx={{ mt: 0.1 }}>
+                        <Link
+                          href=""
+                          startDecorator={<CallIcon />}
+                          fontSize="15px"
+                          textColor="neutral.700"
+                          sx={{display: "flex", alignItems: "center", marginRight: '8em'}}
+                        >
+                          {ele.mb_phone}
+                        </Link>
+                      </Typography>
+                  </CardOverflow>
                     <CardOverflow
                       variant="soft"
                       sx={{
@@ -168,7 +225,6 @@ export function TopRestaurants() {
                         {ele.mb_views}
                         <Visibility sx={{ fontSize: 23, marginLeft: "5px" }} />
                       </Typography>
-                      
                       <Typography
                         level="body3"
                         sx={{
@@ -180,6 +236,9 @@ export function TopRestaurants() {
                           width: "30px",
                           height: "auto",
                         }}
+                        onClick={(e) => { 
+                          e.stopPropagation();
+                        }}
                       >
                         <div
                           ref={(element) => (refs.current[ele._id] = element)}
@@ -187,21 +246,34 @@ export function TopRestaurants() {
                         >
                           {ele.mb_likes}
                         </div>
-                        <Favorite sx={{ fontSize: 23, marginLeft: "5px" }} />
+                        <Favorite
+                            onClick={(e) => {
+                              targetLikeTop(e, ele._id);
+                            }}
+                            style={{
+                              fontSize: "25px",
+                              fill:
+                                ele?.me_liked && ele?.me_liked[0]?.my_favorite
+                                  ? "red"
+                                  : "#5a5a72",
+                            }}
+                          />
                       </Typography>
-                    </CardOverflow>
-                  </Card>
-              </CssVarsProvider>
-              );
-            })}
-          </Stack>
-          <Stack 
-            flexDirection={"row"} 
-            justifyContent={"flex-end"} 
-            style={{width: "100%", marginTop: "16px"}}
+                      </CardOverflow>
+                     </Stack>
+                  </Box>
+                </CssVarsProvider>
+              </SwiperSlide>
+            );
+          })}
+          </Swiper>
+          <Stack
+            flexDirection={"row"}
+            justifyContent={"flex-end"}
+            style={{ width: "100%", marginTop: "16px" }}
           >
-            <Button 
-              style={{background: "#F8BE69", color: "#FFFFFF"}} 
+            <Button
+              style={{ background: "#F8BE69", color: "#FFFFFF" }}
               onClick={goRestaurantsHandler}
             >
               See all

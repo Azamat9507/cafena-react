@@ -46,6 +46,11 @@ export function BestDishes() {
   };
   return (
     <div className="best_dishes_frame">
+      <img
+        src={"icons/blog-section-shape-1.png"}
+        style={{ position: "absolute", right: "5%", transform: "rotate(90deg)" }}
+        alt={"hero-shape-2-1.png"}
+      />
       <Container>
         <Stack flexDirection={"column"} alignItems={"center"}>
           <Box className="category_title_shop">Trendagi Ovqatlar</Box>

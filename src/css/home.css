@@ -146,10 +146,56 @@
 
 .homepage .best_restaurant_frame {
   width: 100%;
-  height: 775px;
+  height: 700px;
   display: flex;
-  background: #0b0e11;
+  background: #000;
 }
+
+.swiper-product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.homepage .restaurant_box {
+  margin-right: 13px;
+  margin-left: 13px;
+  margin-top: 40px;
+  border-radius: 15px 15px;
+  width: 290px;
+  height: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+
+@keyframes moveUp {
+  from {
+      transform: translateY(0);
+  }
+
+  to {
+      transform: translateY(-10px);
+  }
+}
+
+/* .restaurant_img:hover {
+  animation: moveUp 0.3s ease-in-out forwards;
+} */
+
+.homepage .restaurant_box .restaurant_img {
+  position: relative;
+  width: 290px;
+  height: 290px;
+  background-size: cover;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
 
 .homepage .best_dishes_frame {
   margin-top: 72px;
@@ -421,8 +467,8 @@
 }
 
 .homepage .swiper-wrapper {
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
 }
 
 /* infoProduct page start css */
@@ -456,8 +502,8 @@
 .prev_next_frame1 {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex;
   width: 250px;
   height: 24px;
   margin-bottom: 20px;
@@ -469,7 +515,7 @@
   height: 8px;
   text-align: center;
   opacity: 1;
-  background: white;
+  background: #ffffff;
   border-radius: 50%;
 }
 
@@ -490,12 +536,11 @@
   top: 20px;
 }
 
-.homepage .product_box .products_desc {
-  width: 90%;
+/* .homepage .restaurant_box .restaurant_desc {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 h1 {
   color: #ffffff;
@@ -602,6 +647,14 @@ p {
   flex-direction: row;
   background: #fff;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* start page top seller */
+
+.swiper_best_seller {
+  /* display: flex;
+  flex-direction: row; */
+  width: 300px;
 }
 
 .homepage .article_container .article_news {

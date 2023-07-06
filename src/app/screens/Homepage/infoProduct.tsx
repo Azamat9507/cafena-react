@@ -68,7 +68,7 @@ export function InfoProduct() {
           <img
             src={"/icons/arrow-right.svg"}
             className={"swiper-button-prev"}
-            style={{ cursor: "pointer", color: "white" }}
+            style={{ cursor: "pointer" }}
             alt="arrow"
           />
           <div className={"dot_frame_pagination swiper-pagination"}></div>
