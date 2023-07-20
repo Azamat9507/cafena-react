@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react';
-import { Container } from "@mui/material";
 import { Statistics } from './statistics';
-import { TopRestaurants } from './topRestaurants';
 import { BestRestaurants } from './bestRestaurants';
 import { BestDishes } from './bestDishes';
 import { Advertisements } from './advertisements';
@@ -9,6 +7,8 @@ import { Events } from './events';
 import { Recommendations } from './recommendations';
 import { InfoProduct } from './infoProduct';
 import "../../../css/home.css";
+import  WeatherComponent  from "./weatherComponent";
+
 
 
 //REDUX
@@ -20,6 +20,7 @@ import {
 } from "../../screens/Homepage/slice";
 import { Restaurant } from '../../../types/user';
 import RestaurantApiService from '../../apiServices/restaurantApiService';
+
 
 
 /** REDUX SLICE */
@@ -56,8 +57,8 @@ export function Homepage() {
       <Advertisements/>
       <InfoProduct/>
       <BestRestaurants/>
-      <TopRestaurants/>
       <BestDishes/>
+      <WeatherComponent/>
       <Events/>
       <Recommendations/>
     </div>

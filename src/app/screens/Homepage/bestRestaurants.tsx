@@ -81,32 +81,15 @@ export function BestRestaurants() {
     <Container>
       <Stack
         flexDirection={"column"}
-        alignItems={"center"}
+        alignItems={"flex-start"}
         sx={{ mt: "45px" }}
       >
         <Box className="category_title_shop">
           Top seller
         </Box>
-        <Box className={"prev_next_frame1"}>
-          <img
-            src={"/icons/arrow-right.svg"}
-            className={"swiper-button-prev"}
-            style={{ cursor: "pointer" }}
-            alt="arrow"
-          />
-          <img
-            src={"/icons/arrow-right.svg"}
-            className={"swiper-button-next"}
-            style={{
-              transform: "rotate(-180deg)",
-              cursor: "pointer",
-            }}
-            alt="arrow"
-          />
-        </Box>
         <Swiper
           className={"swiper-wrapper"}
-          slidesPerView={4}
+          slidesPerView={3}
           spaceBetween={5} // space between sliders
           navigation={{
             nextEl: ".swiper-button-next",
@@ -129,7 +112,7 @@ export function BestRestaurants() {
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  width: "400px"
+                  width: "auto"
                 }}
                 className="card"
               >
@@ -179,7 +162,7 @@ export function BestRestaurants() {
                     sx={{
                       display: "flex-start",
                       py: 0.5,
-                      px: "var-(--Card-padding)",
+                      // px: "var-(--Card-padding)",
                       borderColor: "neutral.outlinedBorder",
                       bgcolor: "background.level1",
                       
@@ -210,14 +193,14 @@ export function BestRestaurants() {
                       </Typography>
                   </CardOverflow>
                     <CardOverflow
-                      variant="soft"
+                      // variant="soft"
                       sx={{
                         display: "flex",
                         gap: 10,
-                        py: 0.5,
-                        px: "var-(--Card-padding)",
-                        borderColor: "neutral.outlinedBorder",
-                        bgcolor: "background.level1",
+                        // py: 0.5,
+                        // px: "var-(--Card-padding)",
+                        // borderColor: "neutral.outlinedBorder",
+                        // bgcolor: "background.level1",
                         
                       }}
                     >
@@ -277,14 +260,14 @@ export function BestRestaurants() {
         </Swiper>
         <Stack
             flexDirection={"row"}
-            justifyContent={"flex-end"}
+            justifyContent={"center"}
             style={{ width: "100%", marginTop: "16px" }}
           >
             <Button
-              style={{ background: "#F8BE69", color: "#FFFFFF" }}
+              style={{ alignContent: "center",background: "#F8BE69", color: "#FFFFFF", width: "100px"}}
               onClick={goRestaurantsHandler}
             >
-              See all
+              veiw all
             </Button>
           </Stack>
       </Stack>

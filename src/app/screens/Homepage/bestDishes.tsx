@@ -35,7 +35,7 @@ export function BestDishes() {
   const {setTrendProducts } = actionDispatch(useDispatch());
   useEffect(() => {
     const productService = new ProductApiService();
-    productService.getTargetProducts({order: "product_likes", page: 1, limit: 4}) 
+    productService.getTargetProducts({order: "product_likes", page: 1, limit: 6}) 
       .then((data) => setTrendProducts(data)) 
       .catch(err => console.log(err));
   }, []);
@@ -53,13 +53,13 @@ export function BestDishes() {
       />
       <Container>
         <Stack flexDirection={"column"} alignItems={"center"}>
-          <Box className="category_title_shop">Trendagi Ovqatlar</Box>
-          <Stack sx={{mt: "43px"}} flexDirection={"row"}>
+          <Box className="category_title_shop">Popular menu Cafena</Box>
+          <div className='menu-frame'>
             {trendProducts.map((product: Product) => {
               const image_path = `${serverApi}/${product.product_images[0]}`;
               const size_volume = 
                 product.product_collection === "drink" 
-                  ? product.product_volume + "l" 
+                  ? product.product_volume + "ml" 
                   : product.product_size + "size";
               return (
                 <Box className="dish_box">
@@ -91,7 +91,7 @@ export function BestDishes() {
                 </Box>
               )
             })}
-          </Stack>
+          </div>
         </Stack>
       </Container>
     </div>

@@ -1,3 +1,6 @@
+/* body {
+  box-sizing: border-box;
+} */
 .homepage {
   background: #000;
 }
@@ -47,7 +50,7 @@
 }
 
 .static_frame .static_width {
-  width: 1320px;
+  width: 1330px;
 }
 
 
@@ -161,9 +164,6 @@
   margin-right: 13px;
   margin-left: 13px;
   margin-top: 40px;
-  border-radius: 15px 15px;
-  width: 290px;
-  height: 390px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,10 +186,9 @@
 
 .homepage .restaurant_box .restaurant_img {
   position: relative;
-  width: 290px;
-  height: 290px;
+  width: 400px;
+  height: 220px;
   background-size: cover;
-  border-radius: 5%;
   display: flex;
   flex-direction: column;
 
@@ -198,35 +197,50 @@
 
 
 .homepage .best_dishes_frame {
-  margin-top: 72px;
   width: 100%;
-  height: 462px;
-  display: flex;
+  justify-content: center;
+}
+
+.menu-frame {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding-left: 20px; */
+  
 }
 
 .homepage .dish_box {
-  margin-right: 26px;
-  width: 273px;
-  height: 376px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 500px;
+  border: 1px solid #32323D;
+  position: relative;
+  margin: 10px;
+  padding-left: 80px;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  padding-right: 30px;
+  margin-left: 90px;
+  /* -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; */
 }
+
 /* TRENDAGI OVQATLAR RASMI*/
 .homepage .dish_box .dish_img {
-  position: relative;
-  width: 273px;
-  height: 275px;
+  width: 100px;
+  height: 100px;
+  position: absolute;
   background-size: cover;
-  border-radius: 0px 50px 0px 0px;
-  display: flex;
-  flex-direction: column;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  left: -40px;
+  z-index: 2;
+  border-radius: 50%;
 }
 /* NORMAL SIZE BELGISI */
 .homepage .dish_img .dish_sale {
   margin-top: 43px;
-  width: 77px;
-  height: 39px;
+  width: 50px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -244,12 +258,12 @@
 .homepage .view_btn {
   width: 163px;
   height: 50px;
-  margin-top: 31px;
-  margin-left: 55px;
+  /* margin-left: 250px; */
+  left: -40px;
   padding-left: 25px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: center;
   cursor: pointer;
   z-index: 3;
   opacity: 0;
@@ -270,14 +284,16 @@
 }
 /* CHICKEN MAYO CONTAINER */
 .homepage .dish_box .dish_desc {
-  width: 90%;
+  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 /* CHICKEN MAYO TITLE */
 .homepage .dish_desc .dish_title_text {
-  margin-top: 18px;
+
+  
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
@@ -287,7 +303,7 @@
 }
 /* CHICKEN MAYO 11 $ */
 .homepage .dish_desc .dish_desc_text {
-  margin-top: 15px;
+  /* margin-top: 15px; */
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
@@ -314,7 +330,7 @@
 }
 
 .homepage .events_frame {
-  margin-top: 45px;
+  margin-top: 75px;
   width: 100%;
   height: 700px;
   display: flex;
@@ -473,11 +489,7 @@
 
 /* infoProduct page start css */
 
-.homepage .top_coffeeshop_frame {
-  width: 100%;
-  height: 670px;
-  display: flex;
-}
+
 
 .homepage .category_title_shop {
 
@@ -730,6 +742,130 @@ p {
   font-size: 14px;
   line-height: 26px;
   color: #808080;
+}
+
+/* START WEATHER COMPONENT */
+
+.custom-container {
+  display: flex;
+  justify-content: center;
+  border: 1px solid;
+  align-items: center;
+  height: 500px;
+  margin-top: 50px;
+  width: 1330px;
+  border-radius: 10px 10px;
+  font-family: 'Open Sans', sans-serif;
+  background: #222;
+  /* background: url('https://source.unsplash.com/1600x900/?landscape'); */
+  font-size: 120%;
+
+}
+
+.top_coffeeshop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-weather {
+  background: rgba(230, 234, 233, 0.5);
+  /* color: white; */
+  padding: 2em;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+}
+
+.search {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+
+}
+
+.button {
+  margin: 0.5em;
+  border-radius: 50%;
+  border: none;
+  height: 44px;
+  width: 44px;
+  outline: none;
+  padding: 7px;
+  background-color: #3025252b;;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  
+
+}
+
+button:hover {
+  background: #7c7c7c7b;
+}
+
+input.search-bar {
+  border: none;
+  outline: none;
+  
+  padding: 0.3em 1em;
+  border-radius: 24px;
+  background-color: #FFFFFF;
+  color: white;
+  font-family: inherit;
+  font-size: 105%;
+  width: calc(100% - 100px);
+
+}
+
+h1.temperature {
+  margin: 0;
+  margin-bottom: 0.4em;
+}
+
+.description {
+  text-transform: capitalize;
+  margin-left: 8px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.weather.loading {
+  visibility: hidden;
+  max-height: 20px;
+  position: relative;
+  
+}
+
+.weather .loading::after {
+  visibility: visible;
+  content: "Loading...";
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 20px;
+
+}
+
+.title_weather {
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  /* font-size: 30px; */
+  line-height: 37px;
+  margin-top: 70px;
 }
 
 
