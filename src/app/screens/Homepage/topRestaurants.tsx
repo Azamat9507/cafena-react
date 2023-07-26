@@ -79,26 +79,9 @@ export function TopRestaurants() {
         <Box className="category_title_shop">
           Popular coffee shops
         </Box>
-        <Box className={"prev_next_frame1"}>
-          <img
-            src={"/icons/arrow-right.svg"}
-            className={"swiper-button-prev"}
-            style={{ cursor: "pointer" }}
-            alt="arrow"
-          />
-          <img
-            src={"/icons/arrow-right.svg"}
-            className={"swiper-button-next"}
-            style={{
-              transform: "rotate(-180deg)",
-              cursor: "pointer",
-            }}
-            alt="arrow"
-          />
-        </Box>
         <Swiper
           className={"swiper-wrapper"}
-          slidesPerView={4}
+          slidesPerView={3}
           spaceBetween={5} // space between sliders
           navigation={{
             nextEl: ".swiper-button-next",
@@ -267,18 +250,6 @@ export function TopRestaurants() {
             );
           })}
           </Swiper>
-          <Stack
-            flexDirection={"row"}
-            justifyContent={"flex-end"}
-            style={{ width: "100%", marginTop: "16px" }}
-          >
-            <Button
-              style={{ background: "#F8BE69", color: "#FFFFFF" }}
-              onClick={goRestaurantsHandler}
-            >
-              See all
-            </Button>
-          </Stack>
         </Stack>
       </Container>
     </div>

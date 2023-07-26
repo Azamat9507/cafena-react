@@ -1,167 +1,202 @@
 .footer_config {
   position: relative;
   display: flex;
+  align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 509px;
-  background-color: #2c261e;
+  height: auto;
+  background: #13131A;
+      /* filter: blur(10px); */
 }
+
+
+.footer_config .footer_cont{
+  width: auto;
+}
+
 
 .footer_config .main_footer_container {
   position: relative;
   display: flex;
   flex-direction: column;
   margin-top: 91px;
-  margin-left: 131px;
-  width: 1144px;
-  height: 377px;
+
+  width: 100%;
+  height: auto;
 }
+
 
 .main_footer_container .main_text {
   position: relative;
   width: 340px;
   height: 97.22px;
-  margin-top: 19px;
+  margin-top: 15px;
 
-  font-family: 'Poppins';
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 34px;
+  line-height: 30px;
   /* or 212% */
 
+  color: #f5f5f5;
+}
 
-  color: #E3C08D;
-  }
-/* ICONLAR SOCIAL SET */
+.main_footer_container .main {
+  position: relative;
+  width: 340px;
+  height: 97.22px;
+  margin-top: 10px;
+
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 212% */
+
+  color: #f5f5f5;
+}
+
+
 .main_footer_container .contact_links {
+  width: 180px;
+  height: 19.14px;
   position: relative;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  width: 125.28px;
-  height: 15.14px;
-  margin-top: 11.3px;
-  
-
+  margin-top: 11.3px
 }
-/* BOLIMLAR QATORI */
+
 .main_footer_container .parts {
+  width: 118px;
+  height: 188px;
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 118px;
-  height: 188px;
-  margin-left: 283px;
-  
+  padding-left: 60px;
 
 }
-/* BO'LIMLAR */
+
 .parts .part_subject {
   position: relative;
   width: 109.98px;
   height: 32.41px;
 
-  font-family: 'Poppins';
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 34px;
   /* or 142% */
-  color: #C5C8C9;
+
+  color: #c7a17a;
 }
 
-/* LINE BOLIMLAR */
 .parts .divider {
   position: relative;
   width: 45.4px;
   height: 1.91px;
   margin-top: 11.44px;
-  background: #E3C08D;
+  background: #f5f5f5;
 }
 
-/* BOSH SAHIFA OSHHONA ETC.. */
-.parts .targets {
-  position: relative;
-  width: 118.05px;
-  height: 129.63px;
-  margin-top: 19.6px;
-
-  font-family: 'Poppins';
+.targets a {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 34px;
-  /* or 142% */
-  color: #E3C08D;
+  color: #f5f5f5;
 }
 
-/* UZUN LINE */
+.parts .targets {
+  position: relative;
+  width: 130px;
+
+
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 34px;
+  color: #f5f5f5;
+}
+
+
+
+/* .targets a::before{
+  text-decoration: none;
+} */
+
 .footer_config .liner {
   position: relative;
   width: 1064px;
   height: 0px;
-  margin-top: 86px;
+  margin-top: 26px;
   opacity: 0.2;
-  border: 1px solid #C5C8C9;
+  border: 1px solid #f5f5f5;
 }
 
 .footer_config .copyrights {
   position: relative;
-  width: 344px;
-  height: 32px;
-  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
 
-  font-family: 'Poppins';
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 34px;
   /* or 212% */
 
-  color: #E3C08D;
+  color: #f5f5f5;
+}
 
-  }
-/* PAPAY subtitle icon-logo */
-  .footer_config .info {
-    position: relative;
-    width: 340px;
-    height: 206px;
-  }
+.footer_config .info {
+  position: relative;
+  width: 340px;
+  height: 206px;
+}
 
 .main_footer_container .find_us {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 297px;
-  height: 210.99px;
-  margin-left: 96.39px;
+      display: flex;
+      flex-direction: column;
+      width: 297px;
+      padding-left: 120px;
+      height: 210.99px;
+
 }
 
 .find_us .find {
   position: relative;
-  width: 116.87px;
+  width: 120px;
   height: 32.91px;
-  
-  font-family: 'Poppins';
+
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 34px;
   /* or 142% */
-  color: #C5C8C9;
+
+  color: #c7a17a;
 }
 
-/* LINE BIZNI TOP */
 .find_us .divider {
   position: relative;
   width: 45.4px;
   height: 1.91px;
   margin-top: 6.81px;
-  background: #E3C08D;
+  background: #f5f5f5;
 }
 
-/* Bizni top titles */
 .find_us .details {
   position: relative;
   display: flex;
@@ -174,15 +209,13 @@
   position: relative;
   width: 15.01px;
   height: 32.91px;
-  font-family: 'Poppins';
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 34px;
-  /* or 189% */
-
-
-  color: #C5C8C9;
+  color: #f5f5f5;
+  margin-top: 5px;
 }
 
 .details .detail_second {
@@ -191,11 +224,23 @@
   height: 32.91px;
   margin-left: 11.79px;
 
-  font-family: 'Poppins';
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 34px;
   /* or 212% */
-  color: #E3C08D;
+
+  color: #f5f5f5;
+}
+
+@media (max-width: 390px) {
+  .footer_config .liner {
+          position: relative;
+          width: 350px;
+          height: 0px;
+          margin-top: 26px;
+          opacity: 0.2;
+          border: 1px solid #f5f5f5;
+      }
 }

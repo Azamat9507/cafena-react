@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import { Statistics } from './statistics';
+import { TopRestaurants } from './topRestaurants';
 import { BestRestaurants } from './bestRestaurants';
 import { BestDishes } from './bestDishes';
 import { Advertisements } from './advertisements';
@@ -55,6 +56,7 @@ export function Homepage() {
     <div className="homepage">
       <Statistics/>
       <Advertisements/>
+      <TopRestaurants/>
       <InfoProduct/>
       <BestRestaurants/>
       <BestDishes/>

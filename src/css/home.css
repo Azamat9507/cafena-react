@@ -244,7 +244,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F8BE69;
+  background: #c7a17a;
   box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.1);
   border-radius: 0px 50px 50px 0px;
   font-family: 'Poppins';
@@ -269,7 +269,7 @@
   opacity: 0;
   transition: opacity 0.5s ease;
   background: rgba(28, 23, 23, 0.59);
-  border: 2px solid #B48B50;
+  border: 2px solid #c7a17a;
   border-radius: 10px;
   font-family: 'Poppins';
   font-style: normal;
@@ -309,7 +309,7 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 36px;
-  color: #E3C08D;
+  color: #c7a17a;
 }
 
 .homepage .ads_coffeeshop_frame {
@@ -621,6 +621,8 @@ p {
   width: 100%;
   height: auto;
   display: flex;
+  background: url("/public/home/lazarescu-alexandra-hFpqG9KU5Gc-unsplash.jpg");
+  background-size: cover;
 }
 
 .homepage .article_main {

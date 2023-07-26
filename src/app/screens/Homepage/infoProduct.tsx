@@ -8,6 +8,7 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -53,6 +54,12 @@ export function InfoProduct() {
     },
   ];
 
+  const history = useHistory();
+
+  const chosenDishHandler = (id: string) => {
+    history.push(`/restaurant/dish/${id}`);
+  };
+
   return (
     <div className="top_coffeeshop_frame">
     <Container>
@@ -63,24 +70,6 @@ export function InfoProduct() {
       >
         <Box className="category_title_shop">
           Choose your best tasty
-        </Box>
-        <Box className={"prev_next_frame1"}>
-          <img
-            src={"/icons/arrow-right.svg"}
-            className={"swiper-button-prev"}
-            style={{ cursor: "pointer" }}
-            alt="arrow"
-          />
-          <div className={"dot_frame_pagination swiper-pagination"}></div>
-          <img
-            src={"/icons/arrow-right.svg"}
-            className={"swiper-button-next"}
-            style={{
-              transform: "rotate(-180deg)",
-              cursor: "pointer",
-            }}
-            alt="arrow"
-          />
         </Box>
         <Swiper
           className={"swiper-wrapper"}
@@ -102,6 +91,7 @@ export function InfoProduct() {
           {events_list1.map(( value, number) => {
             return (
               <SwiperSlide
+                onClick={() => chosenDishHandler}
                 key={number}
                 style={{
                   display: "flex",
