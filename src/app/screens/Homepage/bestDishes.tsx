@@ -60,29 +60,19 @@ export function BestDishes() {
               const size_volume = 
                 product.product_collection === "drink" 
                   ? product.product_volume + "ml" 
-                  : product.product_size + "size";
+                  : product.product_size + " size";
               return (
-                <Box className="dish_box">
+                <Box className="dish_box"  onClick={() => chosenDishHandler(product._id)}>
                   <Stack 
                     className="dish_img" 
                     sx={{
                       backgroundImage: `url(${image_path})`,
                     }}
                   >
-                    <div className={"dish_sale"}>{size_volume}</div>
-                    <div className={"view_btn"}>
-                      <div onClick={() => chosenDishHandler(product._id)}>
-                        Batafsil ko'rish
-                      </div>
-                      <img 
-                        src="/icons/arrow_right.svg"
-                        style={{ marginLeft: "9px" }}
-                        alt=""
-                      />
-                    </div>
                   </Stack>
                   <Stack className={"dish_desc"}>
                     <span className={"dish_title_text"}>{product.product_name}</span>
+                    <div className={"dish_sale"}>{size_volume}</div>
                     <span className={"dish_desc_text"}>
                       <MonetizationOn />
                       {product.product_price}

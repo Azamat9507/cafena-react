@@ -74,7 +74,7 @@ export function TopRestaurants() {
       <Stack
         flexDirection={"column"}
         alignItems={"center"}
-        sx={{ mt: "45px" }}
+        // sx={{ mt: "4px" }}
       >
         <Box className="category_title_shop">
           Popular coffee shops

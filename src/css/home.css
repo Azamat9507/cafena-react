@@ -3,6 +3,7 @@
 } */
 .homepage {
   background: #000;
+
 }
 
 .homepage .static_frame {
@@ -133,7 +134,7 @@
 }
 
 
-@keyframes moveUp {
+/* @keyframes moveUp {
   from {
       transform: translateY(0);
   }
@@ -141,7 +142,7 @@
   to {
       transform: translateY(-10px);
   }
-}
+} */
 
 .popular_card:hover {
   animation: moveUp 0.3s ease-in-out forwards;
@@ -180,9 +181,6 @@
   }
 }
 
-/* .restaurant_img:hover {
-  animation: moveUp 0.3s ease-in-out forwards;
-} */
 
 .homepage .restaurant_box .restaurant_img {
   position: relative;
@@ -199,6 +197,9 @@
 .homepage .best_dishes_frame {
   width: 100%;
   justify-content: center;
+  background: linear-gradient(90deg, );
+  background: cover;
+  
 }
 
 .menu-frame {
@@ -211,17 +212,35 @@
 .homepage .dish_box {
   width: 500px;
   border: 1px solid #32323D;
-  position: relative;
   margin: 10px;
-  padding-left: 80px;
-  padding-top: 45px;
-  padding-bottom: 45px;
-  padding-right: 30px;
-  margin-left: 90px;
-  /* -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s; */
+    position: relative;
+    padding-left: 80px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-right: 30px;
+    margin-left: 90px;
+    cursor: pointer;
 }
+
+.homepage .dish_box::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: #32323D;
+  left: 0;
+  top: 0;
+  transition: .5s ease;
+  z-index: 1;
+  
+}
+
+.homepage .dish_box:hover::after {
+  width: 100%;
+ 
+}
+
+
 
 /* TRENDAGI OVQATLAR RASMI*/
 .homepage .dish_box .dish_img {
@@ -236,24 +255,7 @@
   z-index: 2;
   border-radius: 50%;
 }
-/* NORMAL SIZE BELGISI */
-.homepage .dish_img .dish_sale {
-  margin-top: 43px;
-  width: 50px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #c7a17a;
-  box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 0px 50px 50px 0px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  color: #FFFFFF;
-}
+
 
 .homepage .view_btn {
   width: 163px;
@@ -293,7 +295,7 @@
 /* CHICKEN MAYO TITLE */
 .homepage .dish_desc .dish_title_text {
 
-  
+  z-index: 5;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
@@ -310,6 +312,7 @@
   font-size: 24px;
   line-height: 36px;
   color: #c7a17a;
+  z-index: 6;
 }
 
 .homepage .ads_coffeeshop_frame {
@@ -482,10 +485,6 @@
   color: #4f547b;
 }
 
-.homepage .swiper-wrapper {
-  /* display: flex;
-  flex-direction: row; */
-}
 
 /* infoProduct page start css */
 
@@ -548,11 +547,6 @@
   top: 20px;
 }
 
-/* .homepage .restaurant_box .restaurant_desc {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
 
 h1 {
   color: #ffffff;
@@ -621,7 +615,7 @@ p {
   width: 100%;
   height: auto;
   display: flex;
-  background: url("/public/home/lazarescu-alexandra-hFpqG9KU5Gc-unsplash.jpg");
+  /* background: url("/public/home/beans.jpeg"); */
   background-size: cover;
 }
 
@@ -763,7 +757,7 @@ p {
 }
 
 .card-weather {
-  background: rgba(230, 234, 233, 0.5);
+  background: rgba(230, 234, 233, 1);
   /* color: white; */
   padding: 2em;
   width: 100%;
@@ -862,3 +856,267 @@ h1.temperature {
 }
 
 
+/* InfoProduct new */
+
+.homepage .best_dishes {
+  width: 100%;
+  justify-content: center;
+}
+
+.menu {
+    display: flex;
+    /* padding-left: 20px; */
+  
+}
+
+.homepage .product_box {
+  width: 500px;
+  height: 250px;
+  border: 1px solid #32323D;
+  position: relative;
+}
+
+/* TRENDAGI OVQATLAR RASMI*/
+.homepage .product_box .product_img {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  background-size: cover;
+}
+/* NORMAL SIZE BELGISI */
+.homepage .dish_sale {
+  color: #fff;
+  position: absolute;
+  top: 40px;
+  background: #32323D;
+  padding: 2px 25px;
+  border: 1px #c7a17a solid;
+  border-radius: 15px;
+  z-index: 10;
+
+
+}
+
+.homepage .view_btn {
+  width: 163px;
+  height: 50px;
+  /* margin-left: 250px; */
+  left: -40px;
+  padding-left: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: rgba(28, 23, 23, 0.59);
+  border: 2px solid #c7a17a;
+  border-radius: 10px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.homepage .dish_img:hover .view_btn {
+  opacity: 1;
+}
+/* CHICKEN MAYO CONTAINER */
+.homepage .dish_box .dish_desc {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+/* CHICKEN MAYO TITLE */
+.homepage .dish_desc .dish_title_text {
+
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #FFFFFF;
+}
+/* CHICKEN MAYO 11 $ */
+.homepage .dish_desc .dish_desc_text {
+  /* margin-top: 15px; */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #c7a17a;
+  display: flex;
+  align-items: center;
+}
+
+.homepage .ads_coffeeshop_frame {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+.homepage .ads_video {
+  width: 100%;
+  background: #0c0e12;
+  display: flex;
+  box-shadow: 0px -8px 90px rgb(215 215 255);
+  transform: scale(1.5);
+  overflow: hidden;
+}
+
+
+.machine_box {
+  width: 100%;
+  display: flex;
+  height: 50vh;
+}
+
+.machine_box .machine_right,
+.machine_box .machine_left
+ {
+  width: 50%;
+  height: 100%;
+  padding: 15px;
+  position: relative;
+}
+
+.machine_box .machine_right img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.machine_box .machine_right .call_model {
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  background: #C7A17A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  position: absolute;
+  top: 80px;
+  right: 150px;
+  cursor: pointer;
+  transition: .5s ease;
+  transform: rotate(0);
+}
+
+.machine_box .machine_right .call_model:hover {
+  transform: rotate(360deg);
+  background: #fff;
+  color: #333;
+}
+
+
+.machine_left_title {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+}
+
+
+
+
+.machine_box .machine_left Button {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 2px;
+  background: #C7A17A;
+  padding: 9.5px 34px;
+  text-decoration: none;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-weight: 500;
+}
+
+
+.machine_modal {
+  width: 70vw;
+  min-height: 30vh;
+  background: #dfdfdf;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  
+}
+
+.machine_modal .machine_left .machine_left_title, 
+.machine_modal .machine_left .machine_left_p{
+  color: #222;
+}
+
+.machine_modal .machine_left .machine_left_p {
+  font-size: 16px;
+  color: #555;
+  width: 500px;
+}
+
+.machine_modal Button {
+  background: #000;
+  width: 50px;
+  height: 35px;
+  color: #fff;
+  font-size: 1.5rem;
+  
+}
+
+
+.quite_btn {
+  position: absolute;
+  left: 93%;
+  top: 10px;
+  cursor: pointer;
+  background: #000;
+  width: 50px;
+  height: 35px;
+  color: #fff;
+  font-size: 1.5rem;
+  
+}
+
+.quite_btn span {
+  transform: rotate(45deg);
+}
+
+
+.machine_modal .machine_left Button {
+  width: 40%;
+  height: auto;
+  background: #C7A17A;
+  border: none;
+}
+
+.machine_left_btn::after {
+  background: #32323D;
+  width: 0%;
+  height: 100%;
+  border-radius: 5px;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* Use the CSS 'transform' property to rotate the element */
+  transform: rotate(180deg);
+  transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.machine_left_btn:hover::after {
+  /* Set the width to 100% to complete the rotation */
+  width: 100%;
+}

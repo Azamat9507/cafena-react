@@ -82,7 +82,6 @@ export function NavbarHome(props: any) {
                   </Button>
                 ) : null}
             </Box>
-            
             {!verifiedMemberData ? (  
               <Box>
                 <Button 
@@ -105,9 +104,7 @@ export function NavbarHome(props: any) {
                 onClick={props.handleLogOutClick} 
                 alt={""}
               />
-              
             )}
-
             <Menu
               anchorEl={props.anchorEl}
               open ={props.open}
@@ -151,10 +148,9 @@ export function NavbarHome(props: any) {
             </Menu>
           </Stack>
         </Stack>
-
         <Stack className="head_information">
             <Stack justifyContent={"column"} style={{ marginTop: "86px", marginLeft: "24px"}}>
-              <Box>
+              <Box className="title_info">
                 We have got your morning covered with
               </Box>
               <Box className="define_restaurant">
@@ -166,7 +162,6 @@ export function NavbarHome(props: any) {
               for our customers. 
               </Box>
             </Stack>
-
             <Stack>
                <Box className="big_img"></Box>
             </Stack>

@@ -181,7 +181,6 @@ function App() {
           setOrderRebuild={setOrderRebuild}
         />
       )}
-
         <Switch>
           <Route path="/restaurant">
             <RestaurantPage onAdd={onAdd}/>

@@ -6,7 +6,6 @@ import { BestDishes } from './bestDishes';
 import { Advertisements } from './advertisements';
 import { Events } from './events';
 import { Recommendations } from './recommendations';
-import { InfoProduct } from './infoProduct';
 import "../../../css/home.css";
 import  WeatherComponent  from "./weatherComponent";
 
@@ -56,10 +55,9 @@ export function Homepage() {
     <div className="homepage">
       <Statistics/>
       <Advertisements/>
-      <TopRestaurants/>
-      <InfoProduct/>
       <BestRestaurants/>
       <BestDishes/>
+      <TopRestaurants/>
       <WeatherComponent/>
       <Events/>
       <Recommendations/>

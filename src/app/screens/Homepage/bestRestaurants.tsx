@@ -260,11 +260,11 @@ export function BestRestaurants() {
         </Swiper>
         <Stack
             flexDirection={"row"}
-            justifyContent={"center"}
+            justifyContent={"flex-end"}
             style={{ width: "100%", marginTop: "16px" }}
           >
             <Button
-              style={{ alignContent: "center",background: "#F8BE69", color: "#FFFFFF", width: "100px"}}
+              style={{ alignContent: "center",background: "#C7A17A", color: "#FFFFFF", width: "100px"}}
               onClick={goRestaurantsHandler}
             >
               veiw all

@@ -95,6 +95,19 @@
     color: #D5D5D5;
 }
 
+.home_navbar .title_info {
+  position: relative;
+    width: 466px;
+    height: 28px;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #D5D5D5;
+}
+
 
 /* START BASKET */
 
