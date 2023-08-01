@@ -10,7 +10,7 @@
     width: 100%;
     height: 400px;
     display: flex;
-    background: url("/public/restaurant/header_restaurant_main.png");
+    background: url("/public/others/footer.jpeg");
     background-size: cover;
 }
 
@@ -18,8 +18,10 @@
     width: 100%;
     height: 400px;
     display: flex;
-    background: url("/public/restaurant/others_header.png");
+    background: url("/public/others/banner_other.jpg");
     background-size: cover;
+    background-position: 25% 48%;
+    
     }
 
 .home_navbar .navbar_config {

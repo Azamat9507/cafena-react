@@ -89,7 +89,7 @@ export function OneRestaurant(props: any) {
   const [ targetProductSearchObj, setTargetProductSearchObj ] = 
     useState<ProductSearchObj>({
     page: 1,
-    limit:8,
+    limit: 8,
     order: "createdAt",
     restaurant_mb_id: restaurant_id,
     product_collection: "dish",
@@ -352,7 +352,7 @@ export function OneRestaurant(props: any) {
                             : false
                         }
                       />
-                        </Badge>
+                      </Badge>
                       </Button>
                       <Button 
                         className={"view_btn"}

@@ -2,14 +2,23 @@
   position: relative;
   width: 100%;
   height: auto;
-  background: #0b0e11;
+  background: #000;
 }
 /* ALL RESTAURANT  */
+.title_shop {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 37px;
+  margin-top: 50px;
+  color: #FFFFFF;
+}
 .restaurant_page .all_restaurant .fill_search_box {
   position: relative;
   width: 100%;
-  height: 33px;
-  margin-top: 33px;
+  height: auto;
+  margin-top: 50px;
 
   display: flex;
   flex-direction: row;
@@ -25,6 +34,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background: #13131A;
+  border-radius: 25px;
+  padding: 0 25px;
 }
 
 .restaurant_page .all_restaurant .fill_box a {
@@ -118,6 +130,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  border: none;
 }
 
 .restaurant_page .all_restaurant .searchInput {
@@ -135,7 +148,9 @@
   font-size: 15px;
   line-height: 26px;
   color: #4f547b;
+  outline: none;
 }
+
 
 .restaurant_page .all_restaurant .button_search {
   position: relative;
@@ -144,12 +159,12 @@
   display: flex;
 
   border-radius: 18.5px;
-  background: #f8be69;
+  background: #d7b686;
 }
 
 .restaurant_page .all_restaurant .all_res_box {
   position: relative;
-  width: 1305px;
+  width: 1320px;
   height: auto;
   margin-top: 70px;
 
@@ -157,6 +172,31 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+/* NEW ALL_RESTAURANT_BOX */
+
+.restaurant_page .all_restaurant .allrestaurant_box {
+  margin: 13px;
+  padding: 5px;
+  width: 405px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.restaurant_page .all_restaurant .allrestaurant_img {
+  width: 405px;
+  height: 300px;
+
+  border-radius: 5px;
+  background-size: cover;
+}
+
+/* NEW ALL_RESTAURANT_BOX END */
 
 .restaurant_page .all_restaurant .restaurant_box {
   margin: 13px;
@@ -209,20 +249,14 @@
 
 .restaurant_page .all_restaurant .bottom_box {
   position: relative;
-  width: 100%;
-  height: 168px;
+  height: 120px;
   margin-top: 100px;
 
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row; */
   align-items: center;
-  justify-content: space-between;
 }
 
-.bottom_box .line_img {
-transform: scaleX(-1);
-
-}
 
   /*** START ONERESTAURANT PAGE ***/
 
@@ -1001,3 +1035,86 @@ transform: scaleX(-1);
   line-height: 22px;
   color: #ffffff;
 }
+
+
+.hover_box {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+  opacity: 0;
+  
+}
+
+.hover_box div {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #b4b4b4a9;
+  position: relative;
+}
+
+.hover_box div:hover {
+  background: #b4b4b4e4;
+}
+
+.hover_box div span {
+  position: absolute;
+  top: -7px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: blue;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.allrestaurant_box:hover .hover_box {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+.cafe_info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: linear-gradient(0deg, #33333300, rgb(0, 0, 0));
+  color: #fff;
+
+}
+
+.cafe_info div {
+  display: flex;
+  flex-direction: column;
+}
+
+.cafe_info h2 {
+  margin-bottom: 10px;
+}
+
+.cafe_info .cafe_info_nick {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+

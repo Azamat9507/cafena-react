@@ -22,6 +22,20 @@ export const sweetErrorHandling = async (
   }
 };
 
+export const auth_err1 = async (err: any, sweet_off: boolean = false) => {
+  let error_message = err.message
+
+  if (sweet_off) {
+    alert(error_message);
+  } else {
+    await Swal.fire({
+      icon: "error",
+      text: error_message,
+      showConfirmButton: false,
+    });
+  }
+};
+
 export const sweetTopSuccessAlert = async (
   msg: string,
   duration: number = 2000

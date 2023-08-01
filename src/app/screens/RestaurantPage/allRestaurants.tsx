@@ -25,6 +25,9 @@ import MemberApiService from '../../apiServices/memberApiService';
 import { useHistory } from 'react-router-dom';
 import RestaurantApiService from '../../apiServices/restaurantApiService';
 import { SearchObj } from '../../../types/others';
+import Badge from "@mui/material/Badge";
+import Checkbox from "@mui/material/Checkbox";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 //REDUX
 import { useDispatch, useSelector} from "react-redux";
 import { createSelector } from "reselect";
@@ -33,6 +36,7 @@ import { Restaurant } from '../../../types/user';
 import {Dispatch} from "@reduxjs/toolkit";
 import  { setTargetRestaurants } from "../../screens/RestaurantPage/slice";
 import { verifiedMemberData } from '../../apiServices/verify';
+
 
 
 
@@ -61,7 +65,7 @@ export function AllRestaurants() {
   const { targetRestaurants } = useSelector(targetRestaurantsRetriever);
   const [targetSearchObject, setTargetSearchObject ] = useState<SearchObj>({
     page: 1,
-    limit: 8,
+    limit: 6,
     order: "mb_point",
   });
   const refs: any = useRef([]);
@@ -74,25 +78,45 @@ useEffect(() => {
     .getRestaurants(targetSearchObject)
     .then((data) => setTargetRestaurants(data))
     .catch((err) => console.log(err));
-}, [targetSearchObject]);
+}, [targetSearchObject]); //update after data is changed
 
 /**HANDLER */
 const chosenRestaurantHandler = (id: string) => {
   history.push(`/restaurant/${id}`);
-}
+};
+const [activeLink, setActiveLink] = useState("mb_point");
+
 const searchHandler = (category: string) => {
+
+  setActiveLink(category);
   targetSearchObject.page = 1;
   targetSearchObject.order = category;
   setTargetSearchObject({...targetSearchObject});
 }
-const handlePaginationChange = (event: any, value: number) => {
-  targetSearchObject.page = value;
-  setTargetSearchObject({...targetSearchObject});
-};
+
+/** Enabling search */
+const [query, setQuery] = useState("");
+
+const filteredRestaurants = targetRestaurants.filter(
+  (product) =>
+  product.mb_nick.toLowerCase().includes(query.toLowerCase()) ||
+  product.mb_phone.toLowerCase().includes(query.toLowerCase())
+);
+
+  /**  Enabling search */
+
+  const handlePaginationChange = (event: any, value: number) => {
+    targetSearchObject.page = value;
+    setTargetSearchObject({ ...targetSearchObject }); // if value changes updates
+  };
 
 const targetLikeHandler = async (e: any, id: string ) => {
   try {
     assert.ok(verifiedMemberData, Definer.auth_err1);
+    
+    e.stopPropagation();
+
+  
 
     const memberService = new MemberApiService(),
       like_result: any = await memberService.memberLikeTarget({ 
@@ -108,6 +132,7 @@ const targetLikeHandler = async (e: any, id: string ) => {
       e.target.style.fill = "white";
       refs.current[like_result.like_ref_id].innerHTML--;
     }
+    e.stopPropagation()
     await sweetTopSmallSuccessAlert("success", 700, false);
   } catch (err: any) {
     console.log("targetLikeTop, ERROR:", err);
@@ -119,12 +144,13 @@ const targetLikeHandler = async (e: any, id: string ) => {
     <div className="all_restaurant">
       <Container>
         <Stack flexDirection={"column"} alignItems={"center"}>
+          <div className="title_shop">Welcome to Franchise</div>
           <Box className="fill_search_box">
             <Box className="fill_box" style={{ cursor: "pointer" }}>
-              <a onClick={() => searchHandler("mb_point")}>Zo'r</a>
-              <a onClick={() => searchHandler("mb_views")}>Mashhur</a>
-              <a onClick={() => searchHandler("mb_likes")}>Trendagi</a>
-              <a onClick={() => searchHandler("createdAt")}>Yangi</a>
+              <a onClick={() => searchHandler("mb_likes")}>Trending</a>
+              <a onClick={() => searchHandler("createdAt")}>New</a>
+              <a onClick={() => searchHandler("mb_point")}>Best</a>
+              <a onClick={() => searchHandler("mb_views")}>Famous</a>
             </Box>
             <Box className="search_big_box">
               <form className="search_form" action="" method="">
@@ -133,24 +159,24 @@ const targetLikeHandler = async (e: any, id: string ) => {
                   className="searchInput"
                   name="reSearch"
                   placeholder="Search"
+                  onChange={(e) => setQuery(e.target.value)}
                 />
                 <Button
                   className="button_search"
                   variant="contained"
                   endIcon={<SearchIcon />}
                 >
-                  Search
                 </Button>
               </form>
             </Box>
           </Box>
 
-          <Stack className="all_res_box">
+          {/* <Stack className="all_res_box">
             <CssVarsProvider>
-              {targetRestaurants.map((ele: Restaurant) => {
+              {filteredRestaurants.map((ele: Restaurant) => {
                 const image_path = `${serverApi}/${ele.mb_image}`;
                 return (
-                  <Card
+                <Card
                   onClick={() => chosenRestaurantHandler(ele._id)}
                   variant="outlined"
                   sx={{
@@ -195,7 +221,7 @@ const targetLikeHandler = async (e: any, id: string ) => {
                     </IconButton>
                   </CardOverflow>
                   <Typography level="h2" sx={{ fontSize: "md", mt: 2 }}>
-                    {ele.mb_nick} restaurant
+                    {ele.mb_nick} coffee 
                   </Typography>
                   <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
                     <Link
@@ -203,7 +229,7 @@ const targetLikeHandler = async (e: any, id: string ) => {
                       startDecorator={<LocationOnRoundedIcon />}
                       textColor="neutral.700"
                     >
-                      {ele.mb_address}
+                      {ele.mb_address} Los Angeles
                     </Link>
                   </Typography>
                   <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
@@ -266,13 +292,85 @@ const targetLikeHandler = async (e: any, id: string ) => {
                 );
               })}
             </CssVarsProvider>
+          </Stack> */}
+          <Stack className={"all_res_box"}>
+            {filteredRestaurants.map((ele: Restaurant) => {
+            const image_path = `${serverApi}/${ele.mb_image}`;
+            return (
+                <Box
+                  onClick={() => chosenRestaurantHandler(ele._id)}
+                  className={"allrestaurant_box"}
+                >
+                <Box
+                  className={"allrestaurant_img"}
+                  sx={{
+                    backgroundImage: `url(${image_path})`,
+                  }}
+                >
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className={"like_view_btn"}
+                  style={{ left: "36px" }}
+                >
+                  </Button>
+                </Box>
+                <Box className="cafe_info">
+                  <div className='cafe_info_nick'>
+                  <h2>
+                    {ele.mb_nick} coffee 
+                  </h2>
+                  {/* <span>
+                     {ele.mb_phone}
+                    </span> */}
+                  </div>
+                  <div>
+                    <span>
+                      {ele.mb_address} Los Angeles
+                    </span>
+                    
+                  </div>
+                </Box>
+
+
+               
+                
+               
+               <Box className="hover_box">
+                    <div onClick={(e) => targetLikeHandler(e, ele._id)}>
+                      
+                      <Favorite 
+                        
+                        style={{ 
+                          fill: 
+                            ele?.me_liked && ele?.me_liked[0]?.my_favorite 
+                              ? "red"
+                              : "white", 
+                        }}  
+                      />
+
+                      <span
+                        ref={(element) => (refs.current[ele._id] = element)}
+                      > 
+                        {" "}
+                        {ele.mb_likes}
+                      </span>
+                    </div>
+                      <div>
+                        <span>
+                       {ele.mb_views}
+                        </span>
+                      <VisibilityIcon
+                        sx={{ fontSize: 20, marginLeft: "5px" }}
+                      />
+                      </div>
+                      </Box>
+              </Box>
+            );
+            })}
           </Stack>
           <Stack className="bottom_box">
-            <img
-              className="line_img"
-              src="/restaurant/line.svg"
-              alt="lines"
-            ></img>
             <Pagination
               count={
                 targetSearchObject.page >= 3 ? targetSearchObject.page + 1 : 3
@@ -285,21 +383,15 @@ const targetLikeHandler = async (e: any, id: string ) => {
                     next: ArrowForwardIcon,
                   }}
                   {...item}
-                  color="secondary"
+                  color="primary"
                 />
               )}
               onChange={handlePaginationChange}
             />
-            <img
-              className="line_img_two"
-              src="/restaurant/line.svg"
-              alt="lines"
-            ></img>
           </Stack>
         </Stack>
       </Container>
     </div>
   );
 }
-
 
