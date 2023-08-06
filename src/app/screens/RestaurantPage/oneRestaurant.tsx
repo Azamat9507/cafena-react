@@ -42,34 +42,32 @@ import  {
 import { verifiedMemberData } from "../../apiServices/verify";
 
 
-
-
 /** REDUX SLICE */
-const actionDispatch = (dispach: Dispatch) => ({
-  setRandomRestaurants: (data: Restaurant[]) => 
-    dispach(setRandomRestaurants(data)),
-    setChosenRestaurant: (data: Restaurant) => dispach(setChosenRestaurant(data)),
-    setTargetProducts: (data: Product[]) => dispach(setTargetProducts(data)),
-
+const actionDispatch = (dispatch: Dispatch) => ({
+  setRandomRestaurants: (data: Restaurant[]) =>
+    dispatch(setRandomRestaurants(data)),
+  setChosenRestaurant: (data: Restaurant) =>
+    dispatch(setChosenRestaurant(data)),
+  setTargetProducts: (data: Product[]) => dispatch(setTargetProducts(data)),
 });
 
 /** REDUX SELECTOR */
 const randomRestaurantsRetriever = createSelector(
-  retrieveRandomRestaurants, 
-  (randomRestaurants) => ({ 
-    randomRestaurants, 
+  retrieveRandomRestaurants,
+  (randomRestaurants) => ({
+    randomRestaurants: randomRestaurants,
   })
 );
 const chosenRestaurantRetriever = createSelector(
-  retrieveChosenRestaurant, 
-  (chosenRestaurant) => ({ 
-    chosenRestaurant, 
+  retrieveChosenRestaurant,
+  (chosenRestaurant) => ({
+    chosenRestaurant: chosenRestaurant,
   })
 );
 const targetProductsRetriever = createSelector(
-  retrieveTargetProducts, 
-  (targetProducts) => ({ 
-    targetProducts, 
+  retrieveTargetProducts,
+  (targetProducts) => ({
+    targetProducts,
   })
 );
 
@@ -84,60 +82,96 @@ export function OneRestaurant(props: any) {
   const { randomRestaurants } = useSelector(randomRestaurantsRetriever);
   const { chosenRestaurant } = useSelector(chosenRestaurantRetriever);
   const { targetProducts } = useSelector(targetProductsRetriever);
-  const [ chosenRestaurantId, setchosenRestaurantId] = 
+  const [ chosenRestaurantId, setChosenRestaurantId] = 
     useState<string>(restaurant_id);
   const [ targetProductSearchObj, setTargetProductSearchObj ] = 
     useState<ProductSearchObj>({
     page: 1,
-    limit: 8,
+    limit:8,
     order: "createdAt",
     restaurant_mb_id: restaurant_id,
     product_collection: "dish",
   });
- const [productRebuild, setProductRebuild] = useState<Date>(new Date());
+
+
+  const [productRebuild, setProductRebuild] = useState<Date>(new Date());
 
   useEffect(() => {
-    const restaurantService = new RestaurantApiService();
-    restaurantService
-      .getRestaurants({page: 1, limit: 10, order: "random"})
+    // RandomShops
+    const shopService = new RestaurantApiService();
+    shopService
+      .getRestaurants({ page: 1, limit: 10, order: "random" })
       .then((data) => setRandomRestaurants(data))
       .catch((err) => console.log(err));
 
-    restaurantService
+    shopService
       .getChosenRestaurant(chosenRestaurantId)
-      .then(data => setChosenRestaurant(data))
-      .catch(err => console.log(err));
+      .then((data) => setChosenRestaurant(data))
+      .catch((err) => console.log(err));
 
-
+    // ChosenProduct
     const productService = new ProductApiService();
     productService
       .getTargetProducts(targetProductSearchObj)
-      .then(data => setTargetProducts(data))
-      .catch(err => console.log(err));
-  }, [ chosenRestaurantId, targetProductSearchObj, productRebuild]);
+      .then((data) => setTargetProducts(data))
+      .catch((err) => console.log(err));
+  }, [chosenRestaurantId, targetProductSearchObj, productRebuild]);
 
-  /** HANDLERS */
+ 
+  /* HANDLERS */
   const chosenRestaurantHandler = (id: string) => {
-    setchosenRestaurantId(id);
+    setChosenRestaurantId(id);
     targetProductSearchObj.restaurant_mb_id = id;
-    setTargetProductSearchObj({...targetProductSearchObj});
-    history.push(`/restaurant/${id}`)
+    setTargetProductSearchObj({ ...targetProductSearchObj });
+    history.push(`/restaurant/${id}`);
   };
 
+
+  /** Enabling search */
+  const [query, setQuery] = useState("");
+
+  const filteredProducts = targetProducts.filter(
+    (product) =>
+      product.product_name.toLowerCase().includes(query.toLowerCase()) ||
+      product.product_description.toLowerCase().includes(query.toLowerCase()) ||
+      product.product_collection.toLowerCase().includes(query.toLowerCase())
+  );
+
+  /**  Enabling search */
   const searchCollectionHandler = (collection: string) => {
     targetProductSearchObj.page = 1;
     targetProductSearchObj.product_collection = collection;
     setTargetProductSearchObj({ ...targetProductSearchObj });
   };
+  
   const searchOrderHandler = (order: string) => {
     targetProductSearchObj.page = 1;
     targetProductSearchObj.order = order;
     setTargetProductSearchObj({ ...targetProductSearchObj });
   };
-  const chosenDishHandler = (id: string) => {
-    history.push(`/restaurant/dish/${id}`);
+  const chosenProductHandler = (id: string) => {
+    history.push(`/restaurant/products/${id}`);
   };
 
+  
+const handleSingleSelection = (groupName: string, selectedValue: string) => {
+  const checkboxes = document.querySelectorAll(
+    `input[name=${groupName}]`
+  ) as NodeListOf<HTMLInputElement>;
+  checkboxes.forEach((checkbox: HTMLInputElement) => {
+    checkbox.checked = checkbox.value === selectedValue;
+  });
+
+  // Call the appropriate handler function based on the selected value
+  if (groupName === "filter") {
+    searchCollectionHandler(selectedValue);
+  } else if (groupName === "sort") {
+    searchOrderHandler(selectedValue);
+  }
+};
+
+
+  // Like handle
   const targetLikeProduct = async (e: any) => {
     try {
       assert.ok(verifiedMemberData, Definer.auth_err1);
@@ -149,7 +183,7 @@ export function OneRestaurant(props: any) {
         });
       assert.ok(like_result, Definer.general_err1);
 
-      await sweetTopSmallSuccessAlert("succes", 800, false);
+      await sweetTopSmallSuccessAlert("Success!", 900, false);
       setProductRebuild(new Date());
     } catch (err: any) {
       console.log("targetLikeProduct, ERROR:", err);
@@ -158,219 +192,233 @@ export function OneRestaurant(props: any) {
   };
 
   return (
-    <div className="single_restaurant">
+    <div className="single_res">
+      <img className="back12" src="/icons/bit_back4.svg" alt="" />
+      <img className="back13" src="/icons/bit_back3.svg" alt="" />
+      <img className="back14" src="/icons/bit_back4.svg" alt="" />
+
       <Container>
         <Stack flexDirection={"column"} alignItems={"center"}>
-          <Stack className={"avatar_big_box"}>
-            <Box className={"top_text"}>
-              <p>Texas De Brazil Restaurant</p>
-              <Box className={"Single_search_big_box"}>
-                <form className={"Single_search_form"} action={""} method={""}>
-                  <input 
-                    type={"search"} 
-                    className={"Single_searchInput"} 
-                    name={"Single_resSearch"}
-                    placeholder={"Search"}
-                  />
-                  <Button
-                    className={"Single_button_search"}
-                    variant="contained"
-                    endIcon={<SearchIcon />}
-                  >
-                    Izash
-                  </Button>
-                </form>
-              </Box>
-            </Box>
-          </Stack>
-          {/* SECOND STACK SLIDER OF PAGE */}
-          <Stack 
+        <div className="other_shop_see">Welcome to Cafena</div>
+          <Stack
             style={{ width: "100%", display: "flex" }}
             flexDirection={"row"}
-            sx={{ mt: "35px"}}
+            sx={{ mt: "35px" }}
           >
-            <Box className={"prev_btn restaurant-prev"}>
-              <ArrowBackIosNewIcon 
-                sx={{ fontSize: 40 }}
-                style={{color: "white" }}
+            <Box className="prev_btn shop-prev">
+              <ArrowBackIosNewIcon
+                sx={{ fontSize: 40, color: "#575656", cursor: "pointer" }}
               />
             </Box>
-            <Swiper 
-              className={"restaurant_avatars_wrapper"}
+            <Swiper
+              className={"shop_avatars_wrapper"}
               slidesPerView={7}
               centeredSlides={false}
               spaceBetween={30}
-              navigation={{ 
-                nextEl: ".restaurant-next", 
-                prevEl: ".restaurant-prev",
-              }}          
+              // style={{ cursor: "pointer" }}
+              navigation={{
+                nextEl: ".shop-next",
+                prevEl: ".shop-prev",
+              }}
             >
               {randomRestaurants.map((ele: Restaurant) => {
                 const image_path = `${serverApi}/${ele.mb_image}`;
                 return (
-                  <SwiperSlide 
+                  <SwiperSlide
                     onClick={() => chosenRestaurantHandler(ele._id)}
                     style={{ cursor: "pointer" }}
                     key={ele._id}
-                    className={"restaurant_avatars"}
+                    className="shop_avatars"
                   >
-                    <img src={image_path}/>
+                    <img src={image_path} alt="" />
                     <span>{ele.mb_nick}</span>
                   </SwiperSlide>
                 );
               })}
             </Swiper>
-            <Box 
-              className={"next_btn restaurant-next"}
-              style={{ color: "white" }}
-            >
-              <ArrowForwardIosIcon sx={{ fontSize: 40}} />
+            <Box className="next_btn shop-next" style={{ color: "#fff" }}>
+              <ArrowForwardIosIcon
+                sx={{ fontSize: 40, color: "#575656", cursor: "pointer" }}
+              />
+            </Box>
+          </Stack>
+          <Stack className="avatar_big_box">
+            <Box className="top_text">
+              <p>{chosenRestaurant?.mb_nick} coffee's menu</p>
+              <Box className="Single_search_big_box">
+                <form className="Single_search_form" action="" method="">
+                  <input
+                    type="search"
+                    className="Single_searchInput"
+                    name="Single_resSearch"
+                    placeholder="Input product name"
+                    onChange={(e) => setQuery(e.target.value)}
+                  />
+                </form>
+
+                <Box className={"drop_down"}>
+                  <div className="dishs_filter_box">
+                    <Button className="checkbox_list"
+                      variant="contained"
+                      name="filter"
+                      color="secondary"
+                      onClick={() => handleSingleSelection("filter", "etc")}
+                    >
+                      Others
+                    </Button>
+                    <Button className="checkbox_list"
+                      sx={{ml: 3}}
+                      variant="contained"
+                      name="filter"
+                      color="secondary"
+                      onClick={() => handleSingleSelection("filter", "dessert")}
+                    >
+                      Dessert
+                    </Button>
+                    <Button className="checkbox_list"
+                      sx={{ml: 3}}
+                      variant="contained"
+                      name="filter"
+                      color="secondary"
+                      onClick={() => handleSingleSelection("filter", "drink")}
+                    >
+                      Drinks
+                    </Button>
+                    <Button className="checkbox_list"
+                      sx={{ml: 3}}
+                      variant="contained"
+                      name="filter"
+                      color="secondary"
+                      onClick={() => handleSingleSelection("filter", "salad")}
+                    >
+                      Salads
+                    </Button>
+                    <Button className="checkbox_list"
+                      sx={{ml: 3}}
+                      variant="contained"
+                      name="filter"
+                      color="secondary"
+                      onClick={() => handleSingleSelection("filter", "dish")}
+                    >
+                      Food
+                    </Button>
+                  </div>
+                </Box>
+
+                <Box className={"drop_down_right"}>
+                  <div className="checkbox_list">
+                  <Button className="checkbox_list"
+                      sx={{ml: 3}}
+                      variant="contained"
+                      name="sort"
+                      color="secondary"
+                      onClick={() => handleSingleSelection("sort", "createdAt")}
+                    >
+                      new added
+                    </Button>
+                    <Button className="checkbox_list"
+                      sx={{ml: 3}}
+                      variant="contained"
+                      name="sort"
+                      color="secondary"
+                      onClick={() => handleSingleSelection("sort", "product_price")}
+                    >
+                      price
+                    </Button>
+                    <Button className="checkbox_list"
+                      sx={{ml: 3}}
+                      variant="contained"
+                      name="sort"
+                      color="secondary"
+                      onClick={() => handleSingleSelection("sortr", "product_likes")}
+                    >
+                      Most liked
+                    </Button>
+                    <Button className="checkbox_list"
+                      sx={{ml: 3}}
+                      variant="contained"
+                      name="sort"
+                      color="secondary"
+                      onClick={() => handleSingleSelection("sort", "product_views")}
+                    >
+                      Most views
+                    </Button>
+                  </div>
+                </Box>
+              </Box>
             </Box>
           </Stack>
 
           <Stack
-            display={"flex"} flexDirection={"row"}
-            justifyContent={"flex-end"}
-            width={"90%"}
-            sx={{ mt: "65px" }}
-          >
-            <Box className={"dishs_filter_box"}>
-            <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => searchOrderHandler("createdAt")}
-              >
-                new
-              </Button>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => searchOrderHandler("product_price")}
-              >
-                price
-              </Button>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => searchOrderHandler("product_likes")}
-              >
-                likes
-              </Button>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => searchOrderHandler("product_views")}
-              >
-                views
-              </Button>
-            </Box>
-          </Stack>   
-
-          <Stack
-            style={{width: "100%", display: "flex", minHeight: "600px" }}
+            style={{ width: "100%", display: "flex"}}
             flexDirection={"row"}
           >
-            <Stack className={"dish_category_box"}>
-              <div className={"dish_category_main"}>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => searchCollectionHandler("etc")}
-                >
-                  boshqa
-                </Button>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => searchCollectionHandler("dessert")}
-                >
-                  desert
-                </Button>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => searchCollectionHandler("drink")}
-                >
-                  ichimlik
-                </Button>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => searchCollectionHandler("salad")}
-                >
-                  salad
-                </Button>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => searchCollectionHandler("dish")}
-                >
-                  ovqatlar
-                </Button>
-              </div>
-            </Stack>
-
-            <Stack className={"dish_wrapper"}>
-              {targetProducts.map((product: Product) => {
+            <Stack className={"product_wrapper"}>
+              {filteredProducts.map((product: Product) => {
                 const image_path = `${serverApi}/${product.product_images[0]}`;
-                const size_volume = 
-                  product.product_collection === "drink" 
-                  ? product.product_volume + "l"
-                  : product.product_size + "size";
 
                 return (
+                  <Box
+                    className={"product_box"}
+                    key={`${product._id}`}
+                    onClick={() => chosenProductHandler(product._id)}
+                  >
                     <Box
-                      onClick={() => chosenDishHandler(product._id)}
-                      className={"dish_box"}
-                      key={product._id}
-                    >
-                    <Box
-                      onClick={() => chosenDishHandler(product._id)}
-                      className={"dish_img"}
+                      className="product_img"
                       sx={{
                         backgroundImage: `url(${image_path})`,
                       }}
+                      key={product._id}
                     >
-                    <div className={"dish_sale"}>{size_volume} </div>
-                    <Button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                      }}
-                      className={"like_view_btn"}
-                      style={{ left: "36px" }}
-                    >
-                    <Badge badgeContent={product.product_likes} color="primary">
-                      <Checkbox
-                        icon={<FavoriteBorder style={{ color: "white" }} />}
-                        id={product._id}
-                        checkedIcon={<Favorite style={{ color: "red" }} />}
-                        onClick={targetLikeProduct}
-                        checked={
-                          product?.me_liked &&
-                          product?.me_liked[0]?.my_favorite
-                            ? true
-                            : false
-                        }
-                      />
-                      </Badge>
+                      <Button
+                        className={"like_view_btn"}
+                        style={{ left: "36px" }}
+                      >
+                        {/* hover -> */}
+                        <Badge
+                          badgeContent={product.product_likes}
+                          color={"primary"}
+                          onClick={(e) => {
+                            props.onAddFav(product);
+                            e.stopPropagation();
+                          }}
+                        >
+                          <Checkbox
+                            icon={<FavoriteBorder style={{ color: "white" }} />}
+                            id={product._id}
+                            checkedIcon={<Favorite style={{ color: "red" }} />}
+                            onClick={targetLikeProduct}
+                            /* @ts-ignore */
+                            checked={
+                              product?.me_liked &&
+                              product?.me_liked[0]?.my_favorite
+                                ? true
+                                : false
+                            }
+                          />
+                        </Badge>
                       </Button>
-                      <Button 
+                      <Button
                         className={"view_btn"}
-                        onClick={(e) => { 
+                        onClick={(e) => {
                           props.onAdd(product);
                           e.stopPropagation();
                         }}
                       >
                         <img
-                          src={"/icons/shopping_card.svg"}
+                          src="/icons/shopping_card.svg"
                           style={{ display: "flex" }}
+                          alt=""
                         />
                       </Button>
                       <Button
                         className={"like_view_btn"}
                         style={{ right: "36px" }}
                       >
-                        <Badge badgeContent={product.product_views} color="primary">
+                        <Badge
+                          badgeContent={product.product_views}
+                          color="primary"
+                        >
                           <Checkbox
                             icon={
                               <RemoveRedEyeIcon style={{ color: "white" }} />
@@ -379,118 +427,20 @@ export function OneRestaurant(props: any) {
                         </Badge>
                       </Button>
                     </Box>
-                    <Box className={"dish_desc"}>
-                      <span className={"dish_title_text"}>{product.product_name}</span>
-                      <div className={"dish_desc_text"}>
-                        <MonetizationOnIcon /> {product.product_price}
-                      </div>
+
+                    <Box className={"product_desc"}>
+                      <span className={"product_title_text"}>
+                        {product.product_name}
+                      </span>
+                      <span className={"product_price_text"}>
+                        $ {product.product_price}
+                      </span>
                     </Box>
                   </Box>
                 );
               })}
             </Stack>
           </Stack>
-        </Stack>
-      </Container>
-
-      <div className={"review_for_restaurant"}>
-        <Container
-          sx={{ mt: "100px" }}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Box className={"category_title_shop"}>Oshhona haqida fikrlar</Box>
-          <Stack
-            flexDirection={"row"}
-            display={"flex"}
-            justifyContent={"space-between"}
-            width={"100%"}
-          >
-            {Array.from(Array(4).keys()).map((ele, index) => {
-              return (
-                <Box className={"review_box"} key={index}>
-                  <Box display={"flex"} justifyContent={"center"}>
-                    <img
-                      src={"/community/cute_girl.jpg"}
-                      className={"review_img"}
-                    />
-                  </Box>
-                  <span className={"review_name"}>Munisa Rizayeva</span>
-                  <span className={"review_prof"}>Foydalanuvchi</span>
-                  <p className={"review_desc"}>
-                    Menga bu oshxonaning taomi juda yoqadi. Hammaga tafsiya
-                    qilaman!!!
-                  </p>
-                  <div className={"review_stars"}>
-                    <StarIcon style={{ color: "#F2BD57" }} />
-                    <StarIcon style={{ color: "#F2BD57" }} />
-                    <StarIcon style={{ color: "#F2BD57" }} />
-                    <StarIcon style={{ color: "whitesmoke" }} />
-                    <StarIcon style={{ color: "whitesmoke" }} />
-                  </div>
-                </Box>
-              );
-            })}
-          </Stack>
-        </Container>
-      </div>
-
-      <Container className="member_reviews">
-        <Box className={"category_title_shop"}>Oshxona haqida</Box>
-        <Stack
-          display={"flex"}
-          flexDirection={"row"}
-          width={"90%"}
-          sx={{ mt: "70px" }}
-        >
-          <Box
-            className={"about_left"}
-            sx={{
-              backgroundImage: `url(${serverApi}/${chosenRestaurant?.mb_image})`,
-            }}
-          >
-            <div className={"about_left_desc"}>
-              <span>{chosenRestaurant?.mb_nick}</span>
-              <p>{chosenRestaurant?.mb_description}</p>
-            </div>
-          </Box>
-          <Box className={"about_right"}>
-            {Array.from(Array(3).keys()).map((ele, index) => {
-              return (
-                <Box display={"flex"} flexDirection={"row"} key={index}>
-                  <div className={"about_right_img"}></div>
-                  <div className={"about_right_desc"}>
-                    <span>Bizning mohir oshpazlarimiz</span>
-                    <p>
-                      Bizning oshpazlarimiz dunyo taniydigan oliygohlarda malaka
-                      oshirib kelishdan
-                    </p>
-                  </div>
-                </Box>
-              );
-            })}
-          </Box>
-        </Stack>
-
-        <Stack
-          sx={{ mt: "60px" }}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Box className={"category_title_shop"}>Oshxona Manzili</Box>
-          <iframe
-            style={{ marginTop: "60px" }}
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d407.246909554427!2d69.20712229726601!3d41.28822029895093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8a31ca66d417%3A0x5755ff29b7bf33a!2sRayhon%20National%20Meals%20Restaurant!5e0!3m2!1sen!2skr!4v1677520566178!5m2!1sen!2skr"
-            width="1320"
-            height="500"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
         </Stack>
       </Container>
     </div>

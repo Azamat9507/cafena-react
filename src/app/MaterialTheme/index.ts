@@ -19,11 +19,11 @@ const light = {
 
     },
     secondary: {
-      main: "#c40909",
+      main: "#c7a17a",
     },
     text: {
       primary: "#172b4d",
-      secondary: "#6b778c",
+      secondary: "#FFFFFF",
       dark: common.black,
     },
   },

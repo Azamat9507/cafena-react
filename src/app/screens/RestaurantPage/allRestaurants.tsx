@@ -171,128 +171,6 @@ const targetLikeHandler = async (e: any, id: string ) => {
             </Box>
           </Box>
 
-          {/* <Stack className="all_res_box">
-            <CssVarsProvider>
-              {filteredRestaurants.map((ele: Restaurant) => {
-                const image_path = `${serverApi}/${ele.mb_image}`;
-                return (
-                <Card
-                  onClick={() => chosenRestaurantHandler(ele._id)}
-                  variant="outlined"
-                  sx={{
-                    minHeight: 410,
-                    minWidth: 290,
-                    mx: "17px",
-                    my: "20px",
-                    cursor: "pointer"
-                  }}
-                >
-                  <CardOverflow>
-                    <AspectRatio ratio="1">
-                      <img src={image_path} alt="" />
-                    </AspectRatio>
-                    <IconButton
-                      aria-labelledby="Like minimal photography"
-                      size="md"
-                      variant="solid"
-                      color="neutral"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                      }}
-                      sx={{
-                        position: "absolute",
-                        zIndex: 2,
-                        borderRadius: "50%",
-                        right: "1rem",
-                        bottom: 0,
-                        transform: "translateY(50%)",
-                        color: "rgba(0,0,0,.4)",
-                      }}
-                    >
-                      <Favorite 
-                        onClick={(e) => targetLikeHandler(e, ele._id)}
-                        style={{ 
-                          fill: 
-                            ele?.me_liked && ele?.me_liked[0]?.my_favorite 
-                              ? "red"
-                              : "white", 
-                        }}  
-                      />
-                    </IconButton>
-                  </CardOverflow>
-                  <Typography level="h2" sx={{ fontSize: "md", mt: 2 }}>
-                    {ele.mb_nick} coffee 
-                  </Typography>
-                  <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
-                    <Link
-                      href=""
-                      startDecorator={<LocationOnRoundedIcon />}
-                      textColor="neutral.700"
-                    >
-                      {ele.mb_address} Los Angeles
-                    </Link>
-                  </Typography>
-                  <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
-                    <Link
-                      href=""
-                      startDecorator={<CallIcon />}
-                      textColor="neutral.700"
-                    >
-                     {ele.mb_phone}
-                    </Link>
-                  </Typography>
-                  <CardOverflow
-                    variant="soft"
-                    sx={{
-                      display: "flex",
-                      gap: 1.5,
-                      py: 1.5,
-                      px: "var(--Card-padding)",
-                      borderTop: "1px solid",
-                      borderColor: "neutral.outlinedBorder",
-                      bgcolor: "background.level1",
-                    }}
-                  >
-                    <Typography
-                      level="body3"
-                      sx={{
-                        fontWeight: "md",
-                        color: "text.secondary",
-                        alignItems: "center",
-                        display: "flex",
-                      }}
-                    >
-                      {ele.mb_views}
-                      <VisibilityIcon
-                        sx={{ fontSize: 20, marginLeft: "5px" }}
-                      />
-                    </Typography>
-                    <Box sx={{ width: 2, bgcolor: "divider" }} />
-                    <Typography
-                      level="body3"
-                      sx={{
-                        fontWeight: "md",
-                        color: "text.secondary",
-                        alignItems: "center",
-                        display: "flex",
-                      }}
-                    >
-                      <div
-                        ref={(element) => (refs.current[ele._id] = element)}
-                      > 
-                        {" "}
-                        {ele.mb_likes}
-                      </div>
-                      <FavoriteIcon
-                        sx={{ fontSize: 20, marginLeft: "5px" }}
-                      />
-                    </Typography>
-                  </CardOverflow>
-                </Card>
-                );
-              })}
-            </CssVarsProvider>
-          </Stack> */}
           <Stack className={"all_res_box"}>
             {filteredRestaurants.map((ele: Restaurant) => {
             const image_path = `${serverApi}/${ele.mb_image}`;
@@ -322,8 +200,8 @@ const targetLikeHandler = async (e: any, id: string ) => {
                     {ele.mb_nick} coffee 
                   </h2>
                   {/* <span>
-                     {ele.mb_phone}
-                    </span> */}
+                    {ele.mb_phone}
+                  </span> */}
                   </div>
                   <div>
                     <span>
