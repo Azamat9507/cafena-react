@@ -1,7 +1,7 @@
 .order_page {
     width: 100%;
     height: auto;
-    background: #0b0e11;
+    background: #000;
 
     display: flex;
   }
@@ -29,7 +29,9 @@
   flex-direction: column;
   align-items: center;
   background: #FFFFFF;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 16px rgba(242, 189, 87, 0.04);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
 }
 
@@ -44,6 +46,7 @@
   width: 117px;
   height: 112px;
   border-radius: 37px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .order_page .order_info_box .order_user_icon_box {
@@ -51,7 +54,7 @@
   padding: 3px;
   width: 30px;
   height: 30px;
-  top: 90px;
+  top: 87px;
   right: 0px;
   display: flex;
   background: rgba(0, 0, 0, 0.25);
@@ -91,16 +94,16 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #616164;
+  color: #000;
 }
 
 .order_page .order_info_box .card_input {
-  margin-top: 10px;
-  padding: 10px;
+  margin-top: 15px;
   width: 100%;
+  padding: 10px;
   height: 40px;
-  background: #F5F5F5;
-  border-radius: 10px;
+  background: transparent;
+  border-radius: 5px;
 
   font-family: 'Nunito';
   font-style: normal;
@@ -112,13 +115,13 @@
   color: #434141;
 }
 
-.order_page .order_info_box .card_half_input {
+.order_page .order_info_box .card_date {
   margin-top: 10px;
   padding: 10px;
   width: 49%;
   height: 40px;
-  background: #F5F5F5;
-  border-radius: 16px;
+  background: transparent;
+  border-radius: 5px;
 
   font-family: 'Nunito';
   font-style: normal;
@@ -162,8 +165,9 @@
 .order_page  .order_main_content .order_main_box {
   position: relative;
   width: 100%;
-  max-height: 284px;
+  height: auto;
   margin-bottom: 25px;
+  -webkit-backdrop-filter: blur(3px);
 
   background: #FFFFFF;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 16px rgba(242, 189, 87, 0.04);
@@ -174,7 +178,6 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-height: 203px;
   margin-top: 15px;
 
   display: flex;
@@ -193,14 +196,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
 }
 
 .order_page .order_box_scroll .ordersName_price .orderDishImg {
   position: relative;
   width: 50px;
   height: 47px;
-
-  border-radius: 29px;
+  border-radius: 10px;
   background-size: cover;
 }
 
@@ -254,36 +258,32 @@
 }
 
 .black_solid {
-  border-width:  0.5px;
-  border-style: solid;
-  border-color: #000000;
-  background: #D9D9D9;
+  border-top: 1px solid black;
 }
 
 .blue_solid {
-  border-width: 0.5px;
-  border-style: solid;
-  border-color: #00a9ff;
-  background: rgb(140 102 242 / 81%);
+  border-top: 3px solid red;
 }
 
 .red_solid {
-  border-width: 0.5px;
-  border-style: solid;
-  border-color: #ff5757;
-  background: rgb(255 52 52);
+  border-width: 1px 0px;
+  border-top: 3px solid rgb(38, 114, 38);
+  border-color: green;
 }
 
 .order_page .order_main_content .order_main_box .total_price_box .boxTotal {
   position: relative;
-  max-width: 535px;
+  width: 500px;
   height: 100%;
+  color: #1f1f1f;
+  margin-right: 90px;
 
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
 }
+
 
 .order_page  .total_price_box .boxTotal p {
   margin-left: 20px;
@@ -292,14 +292,5 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 36px;
-  color: #000000;
-}
-
-.order_page  .total_price_box .boxTotal .data_compl {
-  font-family: 'Commissioner';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 36px;
-  color: #000000;
+  color: #000;
 }

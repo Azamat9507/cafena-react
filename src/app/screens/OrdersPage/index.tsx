@@ -61,7 +61,8 @@ export function OrdersPage(props: any) {
   return (
     <div className={"order_page"}>
       <Container
-        style={{ display: "flex", flexDirection: "row" }}
+        maxWidth="lg"
+        style={{ display: "flex", flexDirection: "row-reverse" }}
         sx={{ mt: "50px", mb: "50px" }}
       >
         <Stack className={"order_left"}>
@@ -74,9 +75,23 @@ export function OrdersPage(props: any) {
                   aria-label="basic tabs example"
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  <Tab label="Buyurtmalarim" value={"1"} />
-                  <Tab label="Jarayon" value={"2"} />
-                  <Tab label="Yakunlangan" value={"3"} />
+                  <Tab 
+                    label="My orders" 
+                    value={"1"} 
+                    style={{
+                      marginRight: "150px",
+                      marginLeft: "115px",
+                      color: "#ffffff",
+                    }}
+                  />
+                  <Tab 
+                    label="In process" value={"2"} 
+                    style={{ marginRight: "150px", color: "#ffffff" }}
+                  />
+                  <Tab 
+                    label="Finished" value={"3"} 
+                    style={{ marginRight: "150px", color: "#ffffff" }}
+                  />
                 </TabList>
               </Box>
             </Box>
@@ -119,14 +134,14 @@ export function OrdersPage(props: any) {
               <div style={{ display: "flex" }}>
                 <LocationOnIcon />
               </div>
-              <div className={"spec_address_txt"}>{verifiedMemberData?.mb_address ?? "manzil kiritilmagan"}</div>
+              <div className={"spec_address_txt"}>{verifiedMemberData?.mb_address ?? "South Korea"}</div>
             </Box>
           </Box>
           <Box className={"order_info_box"} sx={{ mt: "15px" }}>
             <input
               type={"text"}
               name={"card_number"}
-              placeholder={"Card number : 5243 4090 2002 7495"}
+              placeholder={"Input your card number"}
               className={"card_input"}
             />
             <div
@@ -139,20 +154,20 @@ export function OrdersPage(props: any) {
               <input
                 type={"text"}
                 name={"card_period"}
-                placeholder={"07 / 24"}
-                className={"card_half_input"}
+                placeholder={"MM / YY"}
+                className={"card_date"}
               />
               <input
                 type={"text"}
                 name={"card_cvv"}
-                placeholder={"CVV : 010"}
-                className={"card_half_input"}
+                placeholder={"CVV:"}
+                className={"card_date"}
               />
             </div>
             <input
               type={"text"}
               name={"card_creator"}
-              placeholder={"Solijonov Azamat"}
+              placeholder={"Input your name"}
               className={"card_input"}
             />
             <div className={"cards_box"}>

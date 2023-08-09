@@ -38,7 +38,7 @@ export default function PausedOrders(props: any) {
         sweetFailureProvider("Please login first", true)
       }
 
-      let confirmation = window.confirm("Buyurtmani bekor qilishni hohlayliysizmi?");
+      let confirmation = window.confirm("Do you want to cancel your order");
         if(confirmation) {
           const orderService = new OrderApiService();
           await orderService.updateOrderStatus(data);
@@ -59,7 +59,7 @@ export default function PausedOrders(props: any) {
         await sweetFailureProvider("Please login first", true)
       }
 
-      let confirmation = window.confirm("Buyurtmangizni to'lashni tasdiqlaysizmi?");
+      let confirmation = window.confirm("Proceed to ckeckout?");
         if(confirmation) {
           const orderService = new OrderApiService();
           await orderService.updateOrderStatus(data);
@@ -104,44 +104,45 @@ export default function PausedOrders(props: any) {
 
               <Box className={"total_price_box black_solid"}>
                 <Box className={"boxTotal"}>
-                  <p>mahsulot narxi</p>
+                  <p>Price</p>
                   <p>${order.order_total_amount - order.order_delivery_cost}</p>
                   <img src={"/icons/plus.svg"} style={{ marginLeft: "20px" }} />
-                  <p>yetkazish xizmati</p>
+                  <p>Delivery fee</p>
                   <p>${order.order_delivery_cost}</p>
                   <img
                     src={"/icons/pause.svg"}
                     style={{ marginLeft: "20px" }}
                   />
-                  <p>jami narx</p>
+                  <p>Total price</p>
                   <p>${order.order_total_amount}</p>
                 </Box>
                 <Button 
                   value={order._id}
                   onClick={deleteOrderHandler}
                   variant="contained"
-                    color="secondary"
                     style={{
-                    borderRadius: "10px",
+                    background: "red",
+
+                    borderRadius: "5px",
                     boxShadow:
                       "0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
                   }}
                 >
-                  Bekor qilish
+                  Cancel
                 </Button>
                 <Button
                   value={order._id}
                   onClick={processOrderHandler}
                   variant="contained"
                   style={{
-                    background: "#0288D1",
-                    color: "#FFFFFF",
-                    borderRadius: "10px",
+                    background: "rgb(58, 191, 58)",
+                    color: "primary",
+                    borderRadius: "5px",
                     boxShadow:
                       "0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
                   }}
                 >
-                  To'lash
+                  Confirm
                 </Button>
               </Box>
             </Box>

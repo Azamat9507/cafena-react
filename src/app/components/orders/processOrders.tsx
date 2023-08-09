@@ -37,7 +37,8 @@ export default function ProcessOrders(props: any) {
       }
 
       let confirmation = window.confirm(
-        "Buyurtmani olganizni tasdiqlaysizmi?");
+        "Confirm your order"
+      );
         if(confirmation) {
           const orderService = new OrderApiService();
           await orderService.updateOrderStatus(data);
@@ -83,19 +84,19 @@ export default function ProcessOrders(props: any) {
 
               <Box className={"total_price_box blue_solid"}>
                 <Box className={"boxTotal"}>
-                  <p>mahsulot narxi</p>
+                  <p>Price</p>
                   <p>${order.order_total_amount - order.order_delivery_cost}</p>
                   <img src={"/icons/plus.svg"} style={{ marginLeft: "20px" }} />
-                  <p>yetkazish xizmati</p>
+                  <p>Delivery fee</p>
                   <p>${order.order_delivery_cost}</p>
                   <img
                     src={"/icons/pause.svg"}
                     style={{ marginLeft: "20px" }}
                   />
-                  <p>jami narx</p>
+                  <p>Total:</p>
                   <p>${order.order_total_amount}</p>
                 </Box>
-                <p className={"data_compl"}>
+                <p style={{ fontSize: "16px", fontWeight: "400", color: "#000"}}>
                   {moment(order.createdAt).format("YY-MM-DD HH:mm")}
                 </p>
                 <Button
@@ -103,14 +104,14 @@ export default function ProcessOrders(props: any) {
                   onClick={finishOrderHandler}
                   variant="contained"
                   style={{
-                    background: "#0288D1",
+                    background: "rgb(58, 191, 58)",
                     color: "#FFFFFF",
-                    borderRadius: "10px",
+                    borderRadius: "5px",
                     boxShadow:
                       "0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);",
                   }}
                 >
-                  yakunlash
+                  Pay
                 </Button>
               </Box>
             </Box>
