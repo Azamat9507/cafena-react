@@ -8,7 +8,7 @@
   display: flex;
   width: 100%;
   height: 100%;
-  background: #0b0e11;
+  background: #000;
 }
 
 .community_page .chat_frame {
@@ -23,11 +23,7 @@
 }
 
 .community_page .community_all_frame {
-  width: 68%;
-  height: 1150px;
-  background: #0b0e11;
-  border: 1px solid #ffffff;
-  border-radius: 34px;
+  width: 80%;
 }
 
 .community_page .chat_frame .chat_top {
@@ -179,7 +175,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  color: #d4d4d4;
+  color: #000;
 }
 
 .community_page .article_share {
@@ -188,6 +184,7 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
+
 }
 
 
@@ -273,7 +270,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 36px;
-  color: #c4cfff;
+  color: #000;
 }
 
 .community_page .user_name .review_user {
@@ -282,7 +279,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 36px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .community_page .user_info_main .user_review_desc {
@@ -292,7 +289,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .community_page .all_article_box {
@@ -302,7 +299,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #182226;
+  background: #fff;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
 }
@@ -310,7 +307,8 @@
 .community_page .all_article_box .all_article_img {
   width: 155px;
   height: 155px;
-  border-radius: 30px 0px 0px 30px;
+  margin-left: 10px;
+  border-radius: 30px;
   background-size: cover;
 }
 
@@ -329,7 +327,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  color: #ffffff;
+  color: #000;
 }
 
 .community_page .all_article_title {
@@ -338,7 +336,7 @@
   font-weight: 600;
   font-size: 22px;
   line-height: 33px;
-  color: #e3c08d;
+  color: #000;
 }
 
 .community_page .all_article_desc {
@@ -348,5 +346,26 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 26px;
-  color: #ffffff;
+  color: #000;
+}
+
+.article_time_desc {
+  margin-right: ;
+
+}
+
+.walpaper02{
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 10px;
+  top: 800px
+}
+
+.walpaper01 {
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 10px;
+  top: 500px;
+  width: 400px;
+
 }

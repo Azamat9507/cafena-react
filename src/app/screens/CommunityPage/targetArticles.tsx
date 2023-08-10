@@ -80,7 +80,7 @@ export function TargetArticles(props: any) {
                   <Box
                     className={"article_share_main"}
                     style={{
-                      color: "#fff",
+                      color: "#000",
                       marginLeft: "150px",
                       display: "flex",
                       alignItems: "center",
@@ -89,8 +89,8 @@ export function TargetArticles(props: any) {
                     <span>{moment().format("YY-MM-DD HH:mm")}</span>
                     <Checkbox
                       sx={{ ml: "40px" }}
-                      icon={<FavoriteBorder />}
-                      checkedIcon={<Favorite style={{ color: "red" }} />}
+                      icon={<FavoriteBorder sx={{color: "black"}}/>}
+                      checkedIcon={<Favorite style={{  color: "red" }} />}
                       onClick={targetLikeHandler}
                       id={article?._id}
                       checked={article?.me_liked && article.me_liked[0]?.my_favorite 
@@ -101,7 +101,7 @@ export function TargetArticles(props: any) {
                       {article?.art_likes}
                     </span>
                     <RemoveRedEyeIcon />
-                    <span style={{ marginLeft: "18px" }}>
+                    <span style={{ marginLeft: "10px" }}>
                       {article?.art_views}
                     </span>
                   </Box>
