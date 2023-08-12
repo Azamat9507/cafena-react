@@ -17,97 +17,116 @@ export function HelpPage() {
   const [value, setValue] = React.useState("1");
   const faq = [
     {
-      question: "To'lov qanday amalga oshiriladi?",
+      question: "How is payment made?",
       answer:
-        " To’lovni Payme, click ilovalari orqali amalga oshirishingiz mumkin!",
+        " You can pay through Payme, Visa card and Master card applications!",
     },
     {
-      question: "Buyurtmalar qancha vaqtda yetib keladi?",
+      question: "How long does it take for orders to arrive?",
       answer:
-        " Buyurtmalar harid qilgan narsangizga qarab har xil vaqtda yetkazilishi\n" +
-        "                                                mumkin. Maximum 1 soat ichida!",
-    },
-    {
-      question:
-        "saytdan foydalansam ma'lumotlarim havfsizligiga kafolat bormi?",
-      answer:
-        "albatta, bizning dasturchilamiz sizning ma'lumotlaringiz havfsizligiga kafolat berishadi",
-    },
-    {
-      question: "saytda muammo yuzaga kelsa kimga murojaat qilaman?",
-      answer:
-        "Hurmatli mijoz, iltimos adminga xat yo'llash bo'limidan foydalaning",
+        " Orders may be delivered at different times depending on what you have purchased" +
+        "                                                purchased. Maximum within 20 minutes!",
     },
     {
       question:
-        "Men foydalanuvchi emas Biznesmen sifatida faoliyat  yuritmoqchiman. Nima qilishim kerak?",
+        "Is there a guarantee that my data will be safe if I use the site?",
       answer:
-        "Hurmatli mijoz, saytda ko'rsatilgan telefon raqamlarga qo'ng'iroq qilishingizni so'rab qolamiz!",
+        "Of course, our developers guarantee that your data is safe",
+    },
+    {
+      question: "Who do I contact if I have a problem with the site?",
+      answer:
+        "Dear customer, please use the mail admin section",
     },
     {
       question:
-        "Men Koreya davlatidaman. O'zbekistondagi oilam uchun Ovqat buyurtma qilmoqchiman. Visa yoki master kartasidan foydalana olamanmi?",
+        "I want to act as a businessman, not a user. What should I do?",
       answer:
-        "Albatta, chet eldan turib nafaqat  visa va master balkim paypal dasturidan foydalangan holda buyurtma qilishingiz mumkin! ",
+        "Dear customer, we ask you to call the phone numbers indicated on the site!",
     },
     {
       question:
-        "buyurtmani bekor qilmoqchiman lekin buni qanday qilishni bilmayman",
+        "I am in Korea. I want to order a coffee machine for my family in Uzbekistan. Can I use Visa or MasterCard?",
       answer:
-        "Buyurtmani bekor qilish uchun Avvalo login qiling va buyurtmalarim bo'limidan kerakli bo'lgan buyurtmangizni bekor qilish tugmasi orqali bekor qilsangiz bo'ladi!",
-    },
-    {
-      question: "Buyurtmani To'lov qilish uchun nima qilishim kerak?",
-      answer:
-        "Buyurtma uchun to'lovni amalga oshirish uchun login qilishingiz va buyurtmalarim sahifasiga o'tishingiz lozim. Ochilgan sahifadan to'lov qilish tugmasi orqali to'lovni amalga oshira olasiz",
-    },
-    {
-      question: "karta ma'lumotlarimni qayerga kiritaman?",
-      answer:
-        "Karta ma'lumotlarini Buyurtmalarim sahifasining o'ng tomonida joylashgan maxsus joyga kiritishingiz darkor",
+        "Of course, you can order from abroad using not only visa and master, but also paypal! ",
     },
     {
       question:
-        "Buyurtmani yakunlagandan so'ng o'zimni fikrimni yozib qoldirishim shartmi?",
+        "I want to cancel the order but I don't know how to do it",
       answer:
-        "Hurmatli mijoz, sizni fikr qoldirishga majburlamaymiz, lekin fikringiz biz uchun juda qadrli hisoblanadi!",
+        "To cancel an order, please log in first and cancel your desired order from the My Orders section using the cancel button!",
     },
     {
-      question: "Maqola yozishni xohlayman",
+      question: 
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed qui expedita quos ab iusto ullam?",
       answer:
-        "Maqola yozish uchun sahifam bo'limidan maqola yozish tugmasini bossangiz kifoya!",
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi eos eum iste exercitationem sequi magnam",
     },
     {
-      question: "Jonli muloqatga men ham qatnasha olamanmi?",
+      question: 
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro, nam?",
       answer:
-        "albatta buning uchun saytimizdan ro'yhatdan o'ting va Jamiyat bo'limidan bemalol foydalanishingiz va o'z fikrlaringizni yozib qoldirishingiz mumkin!",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere iste alias fuga labore asperiores totam.",
     },
     {
       question:
-        "Biror bir sahifani ko'p kuzatsam uni o'zimni sahifamdan tezda topib olishim uchun nima qilishim kerak?",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, mollitia aspernatur. Modi, veniam voluptatum?",
       answer:
-        "Buning uchun siz kuzatmoqchi bo'lgan foydalanuvchingizda follow bo'lishingiz kifoya qiladi!",
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos id sequi eveniet facere amet.",
     },
     {
-      question: "Sayt rivoji uchun o'z hissamni qo'shmoqchiman",
+      question: "Lorem ipsum dolor sit amet consectetur?",
       answer:
-        "Albatta buning uchun adminga xat qoldirishigniz yoki berilgan telefon raqamlariga bog'lansangiz to'liqroq ma'lumot beriladi!",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta deleniti officiis omnis sunt.",
+    },
+    {
+      question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat consequatur expedita aspernatur?",
+      answer:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dignissimos tempore saepe delectus veritatis",
+    },
+    {
+      question:
+       " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non, reprehenderit praesentium. Porro, at.",
+      answer:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis aut cumque pariatur minima autem?",
+    },
+    {
+      question: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo obcaecati quidem sit!",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga necessitatibus id nam odit sequi!",
     },
   ];
   const rules = [
-    `Saytdan to'laqonli yani buyurtmalar qilish, jonli
-    muloqotlardan foydalanishingiz uchun ro'yxatdan
-    o'tishingiz shart.`,
-    `Buyurtmalaringizga to'lovni amalga oshirganingizdan so'ng
-    bekor qilishning imkoni yo'q shu sababli to'lovlarni
-    amalga oshirishdan avval tekshirib oling.`,
-    `Jonli muloqot vaqtida bexayo so'zlarni ishlatish mutlaqo
-    taqiqlanadi.`,
-    `Shaxsiy reklamalarni adminning ruxsatisiz yozish va
-    tarqatish mumkun emas.`,
-    `Maqolalaringiz odob doirasidan chiqib ketmasligi shart.`,
-    `Barcha xarakatlaringiz adminlarimiz nazorati ostida
-    bo'lani sabab iltimos talablarimizni xurmat qiling.`,
+    `Welcome to our Coffee Shop's online platform! To ensure a pleasant and respectful experience for all users, we kindly ask you to adhere to the following rules:`,
+    `1. Respectful Communication:`,
+    `* Do not engage in any form of harassment, hate speech, or offensive language.
+      Keep discussions and comments relevant to the coffee shop and its offerings.`,
+
+    `2. Appropriate Content:`,
+    `* Only post content that is related to our coffee shop, its products, services, and events.
+      Do not share inappropriate, offensive, or explicit content.`,
+
+    `3. Accurate Information:`,
+    `* Provide accurate and honest information when posting reviews, ratings, or comments.
+    Do not spread false information or engage in misleading practices.`,
+    
+    `4. Privacy and Data Security:`,
+    `* Do not share personal information, contact details, or sensitive data in public comments or discussions.
+    Be cautious when sharing personal information in private messages.`,
+
+    `5. Intellectual Property:`,
+    `* Respect copyright and intellectual property rights. Do not share content that you do not have the right to distribute. If sharing images or content from our coffee shop, give appropriate credit.`,
+    `6. No Spam or Self-Promotion:`,
+    `* Do not engage in spamming or self-promotion of products, services, or websites unrelated to the coffee shop.
+    Only share promotional content if it is directly related to coffee shop events or offers.`,
+
+    `7. Feedback and Reviews:`,
+    `* Constructive criticism and feedback are welcome, but keep it respectful and focused on improving the coffee shop's experience.
+    Do not use reviews or comments to air personal grievances unrelated to the coffee shop.`,
+
+    `8. Community Guidelines:`,
+    `* Follow any additional community guidelines or rules provided by the coffee shop.
+    Report any violations or inappropriate behavior to the coffee shop's support team.`,
   ];
 
   /** HANDLERS **/
@@ -127,9 +146,9 @@ export function HelpPage() {
                 aria-label="lab API tabs example"
                 style={{ display: "flex", justifyContent: "space-between"}}
               >
-                <Tab label="Qoidalar" value={"1"} />
+                <Tab label="Rules" value={"1"} />
                 <Tab label="FAQ" value={"2"} />
-                <Tab label="Adminga xat" value={"3"} />
+                <Tab label="Send an Email" value={"3"} />
               </TabList>
             </Box>
           </Box>
@@ -168,11 +187,7 @@ export function HelpPage() {
                 <Stack className={"admin_letter_box"}>
                   <Stack className={"admin_letter_container"}>
                     <Box className={"admin_letter_frame"}>
-                      <span>Adminga Xabar Qoldirish</span>
-                      <p>
-                        Assalomu alaykum! Adminga xabar qoldirish uchun pasdagi
-                        formlarni to’ldiring!{" "}
-                      </p>
+                      <span>Send an email to Admin</span>
                     </Box>
                     <form
                       action={"#"}
@@ -180,26 +195,26 @@ export function HelpPage() {
                       className={"admin_letter_frame"}
                     >
                       <div className={"admin_input_box"}>
-                        <label>Ism</label>
+                        <label>Name</label>
                         <input
                           type={"text"}
                           name={"mb_nick"}
-                          placeholder={"Ism"}
+                          placeholder={"Input your name"}
                         />
                       </div>
                       <div className={"admin_input_box"}>
-                        <label>Elektron Manzil</label>
+                        <label>E-mail address</label>
                         <input
                           type={"text"}
                           name={"mb_email"}
-                          placeholder={"Elektron Manzil"}
+                          placeholder={"Input your e-mail address"}
                         />
                       </div>
                       <div className={"admin_input_box"}>
-                        <label>Xabar</label>
+                        <label>Message</label>
                         <textarea
                           name={"mb_msg"}
-                          placeholder={"Xabar"}
+                          placeholder={"Input your message here"}
                         ></textarea>
                       </div>
                       <Box
@@ -207,8 +222,8 @@ export function HelpPage() {
                         justifyContent={"flex-end"}
                         sx={{ mt: "30px" }}
                       >
-                        <Button type={"submit"} variant="contained">
-                          Jo'natish
+                        <Button sx={{backgroundColor: "green"}} type={"submit"} variant="contained">
+                          Send
                         </Button>
                       </Box>
                     </form>
