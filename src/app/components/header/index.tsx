@@ -90,7 +90,7 @@ export function NavbarHome(props: any) {
                   width: "100px", 
                   background: "#C7A17A",
                   height: "48px",
-                  borderRadius: 24 
+                  borderRadius: "24px",
                 }}
                   onClick={props.handleLoginOpen}
                 >
@@ -99,7 +99,7 @@ export function NavbarHome(props: any) {
               </Box>
             ) : (
               <img
-                style={{ width: "48px", height: "48px" }}
+                style={{ borderRadius: "50%", width: "55px", height: "55px" }}
                 src={verifiedMemberData.mb_image}
                 onClick={props.handleLogOutClick} 
                 alt={""}

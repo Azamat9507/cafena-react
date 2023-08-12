@@ -26,6 +26,7 @@ import MemberApiService from './apiServices/memberApiService';
 import "../app/apiServices/verify";
 import { CartItem } from '../types/others';
 import { Product } from '../types/product';
+import { CommunityChats } from "./components/header/communityChats";
 
 
 function App() {
@@ -210,6 +211,7 @@ function App() {
         </Switch>
 
         <Footer />
+        <CommunityChats />
 
         <AuthenticationModal 
           loginOpen={loginOpen}
