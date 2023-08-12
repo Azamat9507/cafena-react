@@ -94,7 +94,7 @@ export function MemberPosts(props: any) {
                   <Box
                     className={"article_share_main"}
                     style={{
-                      color: "#fff",
+                      color: "#000",
                       marginLeft: "150px",
                       display: "flex",
                       alignItems: "center",
@@ -103,7 +103,7 @@ export function MemberPosts(props: any) {
                     <span>{moment(article?.createdAt).format("YY-MM-DD HH:mm")}</span>
                     <Checkbox
                       sx={{ ml: "40px" }}
-                      icon={<FavoriteBorder />}
+                      icon={<FavoriteBorder sx={{color:"#000"}}  />}
                       id={article?._id}
                       checkedIcon={<Favorite style={{ color: "red" }} />}
                       checked={article?.me_liked && article.me_liked[0]?.my_favorite 

@@ -2,7 +2,6 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import { Box, Container, Stack } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import TelegramIcon from "@mui/icons-material/Telegram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import Button from "@mui/material/Button";
 import Tab from "@mui/material/Tab";
@@ -42,6 +41,7 @@ import { sweetErrorHandling, sweetFailureProvider } from "../../../lib/sweetAler
 import CommunityApiService from "../../apiServices/communityApiService";
 import MemberApiService from "../../apiServices/memberApiService";
 import { verifiedMemberData } from "../../apiServices/verify";
+import { LinkedIn } from "@mui/icons-material";
 
 
 /** REDUX SLICE */
@@ -140,7 +140,7 @@ export function VisitMyPage(props: any) {
             <Stack className={"my_page_left"}>
               <Box display={"flex"} flexDirection={"column"}>
                 <TabPanel value={"1"}>
-                  <Box className={"menu_name"}>Mening Maqolalarim</Box>
+                  <Box className={"menu_name"}>My articles</Box>
                   <Box className={"menu_content"}>
                     <MemberPosts 
                     chosenMemberBoArticles={chosenMemberBoArticles}
@@ -203,7 +203,7 @@ export function VisitMyPage(props: any) {
                 </TabPanel>
 
                 <TabPanel value={"4"}>
-                  <Box className={"menu_name"}>Maqola yozish</Box>
+                  <Box className={"menu_name"}>Write an article</Box>
                   <Box className={"write_content"}>
                     <TuiEditor 
                       setValue={setValue}
@@ -213,7 +213,7 @@ export function VisitMyPage(props: any) {
                 </TabPanel>
 
                 <TabPanel value={"5"}>
-                  <Box className={"menu_name"}>Tanlangan Maqola</Box>
+                  <Box className={"menu_name"}>Chosen article</Box>
                   <Box className={"menu_content"}>
                   <TViewer chosenSingleBoArticle={chosenSingleBoArticle} />
                   </Box>
@@ -221,7 +221,7 @@ export function VisitMyPage(props: any) {
                 </TabPanel>
 
                 <TabPanel value={"6"}>
-                  <Box className={"menu_name"}>Ma'lumotlarni o'zgartirish</Box>
+                  <Box className={"menu_name"}>Edit Information</Box>
                   <Box className={"menu_content"}>
                     <MySettings />
                   </Box>
@@ -260,10 +260,18 @@ export function VisitMyPage(props: any) {
                     {choosenMember?.mb_type}</span>
                 </Box>
                 <Box className={"user_media_box"}>
-                  <FacebookIcon />
-                  <InstagramIcon />
-                  <TelegramIcon />
-                  <YouTubeIcon />
+                  <a href="https://www.facebook.com/azamat.solijonov.94">
+                    <FacebookIcon />
+                  </a>
+                  <a href="https://www.instagram.com/azamat_solijonov/">
+                    <InstagramIcon />
+                  </a>
+                  <a href="https://www.youtube.com/">
+                    <YouTubeIcon />
+                  </a>
+                  <a href="https://www.linkedin.com/in/azamat-solijonov-b0b721232/">
+                    <LinkedIn />
+                  </a>
                 </Box>
                 <Box className={"user_media_box"}>
                   <p className={"follows"}>
@@ -272,7 +280,7 @@ export function VisitMyPage(props: any) {
                     Followings: {choosenMember?.mb_follow_cnt}</p>
                 </Box>
                 <p className={"user_desc"}>{ choosenMember?.mb_description ?? 
-                  "qushimcha malumot kiritilmagan"}
+                  "No more infromation"}
                 </p>
                 <Box
                   display={"flex"}
@@ -288,10 +296,11 @@ export function VisitMyPage(props: any) {
                       value={"4"}
                       component={(e) => (
                         <Button
+                          sx={{backgroundColor: "green"}}
                           variant={"contained"}
                           onClick={() => setValue("4")}
                         >
-                          Maqola Yozish
+                          Write an article
                         </Button>
                       )}
                     />
@@ -306,7 +315,7 @@ export function VisitMyPage(props: any) {
                   value={value}
                   onChange={handleChange}
                   aria-label="Vertical tabs example"
-                  sx={{ borderRight: 1, borderColor: 'divider', width: "95%" }}
+                  sx={{ borderColor: 'divider', width: "100%" }}
                 >
                   <Tab
                     style={{ flexDirection: "column" }}
@@ -317,7 +326,7 @@ export function VisitMyPage(props: any) {
                         onClick={() => setValue("1")}
                       >
                         <img src={"/icons/post.svg"} />
-                        <span>Maqolalarim</span>
+                        <span>My articles</span>
                       </div>
                     )}
                   />
@@ -330,9 +339,9 @@ export function VisitMyPage(props: any) {
                         onClick={() => setValue("2")}
                       >
                         <img src={"/icons/followers.svg"} />
-                        <span>Follower</span>
+                        <span>Followers</span>
                       </div>
-                    )} 
+                    )}
                   />
                   <Tab
                     style={{ flexDirection: "column" }}

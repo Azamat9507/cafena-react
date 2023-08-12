@@ -79,8 +79,8 @@ export function MySettings(props: any) {
           height={"100px"}
         />
         <div className={"media_change_box"}>
-          <span>Rasm Yuklash</span>
-          <p>JPG, JPEG, PNG rasmlarini yuklay olasiz!</p>
+          <span>Upload photo</span>
+          <p>Upload only JPG, JPEG, PNG images!</p>
           <div className={"up_del_box"}>
             <Button 
               component="label" style={{ minWidth: "0" }} 
@@ -93,7 +93,7 @@ export function MySettings(props: any) {
       </Box>
       <Box className={"input_frame"}>
         <div className={"long_input"}>
-          <label className={"spec_label"}>Ism</label>
+          <label className={"spec_label"}>Name</label>
           <input
             className={"spec_input mb_nick"}
             type="text"
@@ -105,7 +105,7 @@ export function MySettings(props: any) {
       </Box>
       <Box className={"input_frame"}>
         <div className={"short_input"}>
-          <label className={"spec_label"}>Telefon Raqam</label>
+          <label className={"spec_label"}>Phone Number</label>
           <input
             className={"spec_input mb_phone"}
             type="text"
@@ -115,7 +115,7 @@ export function MySettings(props: any) {
           />
         </div>
         <div className={"short_input"}>
-          <label className={"spec_label"}>Manzil</label>
+          <label className={"spec_label"}>Address</label>
           <input
             className={"spec_input  mb_address"}
             type="text"
@@ -127,10 +127,10 @@ export function MySettings(props: any) {
       </Box>
       <Box className={"input_frame"}>
         <div className={"long_input"}>
-          <label className={"spec_label"}>Ma'lumot</label>
+          <label className={"spec_label"}>Description</label>
           <textarea
             className={"spec_textarea mb_description"}
-            placeholder={verifiedMemberData?.mb_description ?? "mavjud emas"}
+            placeholder={verifiedMemberData?.mb_description ?? "No description"}
             name="mb_description"
             onChange={changeMemberDescriptionHandler}
           />
@@ -141,7 +141,7 @@ export function MySettings(props: any) {
           variant={"contained"} 
           onClick={handleSubmitButton}
         >
-          Saqlash
+          Save
         </Button>
       </Box>
     </Stack>
