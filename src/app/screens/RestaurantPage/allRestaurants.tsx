@@ -144,7 +144,7 @@ const targetLikeHandler = async (e: any, id: string ) => {
     <div className="all_restaurant">
       <Container>
         <Stack flexDirection={"column"} alignItems={"center"}>
-          <div className="title_shop">Welcome to Franchise</div>
+          <div className="title_shop">Welcome to Franchises</div>
           <Box className="fill_search_box">
             <Box className="fill_box" style={{ cursor: "pointer" }}>
               <a onClick={() => searchHandler("mb_likes")}>Trending</a>

@@ -241,3 +241,12 @@
   }
   
   /* END BASKET */
+
+
+  .scroll_btn:hover {
+    bottom: 80px;
+    cursor: pointer;
+    transform: scale(1.03);
+    background-color: #C7A17A;
+    border: 1px solid #cb8c4c;
+}

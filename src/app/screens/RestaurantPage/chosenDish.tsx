@@ -200,28 +200,6 @@ const [comments, setComments] = useState<{ [productId: string]: Comment[] }>(
     }
   };
 
-  const handleDeleteComment = async (commentId: number) => {
-    try {
-      const response = await fetch(`${serverApi}/comments/${commentId}`, {
-        method: "DELETE",
-      });
-      if (response.ok) {
-        // Remove the deleted comment from the state
-        setComments(prevComments => ({
-          ...prevComments,
-          [chosenProduct?._id ?? ""]: prevComments[chosenProduct?._id ?? ""].filter(comment => comment.id !== commentId),
-        }));
-        sweetTopSmallSuccessAlert("Comment deleted!", 800, false);
-      } else {
-        throw new Error("Failed to delete comment");
-      }
-    } catch (error) {
-      console.error(error);
-      sweetErrorHandling(error).then();
-    }
-  };
-  
-
 
 useEffect(() => {
   const fetchComments = async () => {

@@ -1,12 +1,81 @@
 import { Logout } from "@mui/icons-material";
+import React, { useState, useEffect, useRef } from "react";
 import { Badge, Box, Button, Container, IconButton, ListItemIcon, Menu, MenuItem, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./basket";
 import { verifiedMemberData } from "../../apiServices/verify";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 export function NavbarHome(props: any) {
+
+  const handleClick = () => {
+    const element = document.getElementById("video");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+   const handleClickHome = () => {
+     const element = document.getElementById("home");
+     if (element) {
+       element.scrollIntoView({ behavior: "smooth" });
+     }
+   };
+
+   const styles = `
+  .color {
+    color: #fff;
+  }
+  
+  .scroll_btn {
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    z-index: 999;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    border: 2px solid #C7A17A;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 20px;
+    width: 60px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .scroll-button:hover {
+ background-color: #C7A17A;
+    color: #C7A17A;
+  }
+`;
+  
+   useEffect(() => {
+     const handleScroll = () => {
+       const scrollTop =
+         window.scrollY || document.documentElement.scrollTop;
+       const navbar = document.getElementById("navbar");
+
+       if (scrollTop > lastScrollTop) {
+         navbar!.style.top = "-100px";
+       } else {
+         navbar!.style.top = "0";
+       }
+
+       lastScrollTop = scrollTop;
+     };
+
+     let lastScrollTop = 0;
+     window.addEventListener("scroll", handleScroll);
+
+     return () => {
+       window.removeEventListener("scroll", handleScroll);
+     };
+   }, []);
+  
   return ( 
-    <div className="format home_navbar">
+    <div className="format home_navbar" id="home">
       <Container>
         <Stack 
           flexDirection={"row"} 
@@ -30,13 +99,13 @@ export function NavbarHome(props: any) {
             </Box>
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/restaurant" activeClassName="underline" >
-              Cafe
+              Franchise
               </NavLink>
             </Box>
             {verifiedMemberData ? (
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/orders" activeClassName="underline" >
-                Order
+                My Order
               </NavLink>
             </Box>
             ) : null}
@@ -167,6 +236,13 @@ export function NavbarHome(props: any) {
             </Stack>
         </Stack>
       </Container>
+      <style>{styles}</style>
+
+      <div className="scroll_btn">
+        <Button style={{ color: "white" }} onClick={handleClickHome}>
+          <ArrowUpwardIcon />
+        </Button>
+      </div>
     </div>
   )
 }

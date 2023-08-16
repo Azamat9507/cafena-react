@@ -1,12 +1,72 @@
 import { Logout } from "@mui/icons-material";
 import { Badge, Box, Button, Container, IconButton, ListItemIcon, Menu, MenuItem, Stack } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Basket from "./basket";
 import { verifiedMemberData } from "../../apiServices/verify";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 export function NavbarRestaurant(props: any) {
-    return <div className="format_restaurant home_navbar">
+
+  const handleClickShop = () => {
+    const element = document.getElementById("restaurant");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+ 
+ const styles = `
+  .color {
+  color: #fff;
+ }
+ 
+ .scroll_btn {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  z-index: 999;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  border: 2px solid #C7A17A;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 20px;
+  width: 60px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+ }
+ 
+.scroll-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #C7A17A;
+}
+`;
+ 
+   useEffect(() => {
+     const handleScroll = () => {
+       const scrollTop = window.scrollY || document.documentElement.scrollTop;
+       const navbar = document.getElementById("navbar");
+
+       if (scrollTop > lastScrollTop) {
+         navbar!.style.top = "-80px";
+       } else {
+         navbar!.style.top = "0";
+       }
+
+       lastScrollTop = scrollTop;
+     };
+
+     let lastScrollTop = 0;
+     window.addEventListener("scroll", handleScroll);
+
+     return () => {
+       window.removeEventListener("scroll", handleScroll);
+     };
+   }, []);
+    return <div className="format_restaurant home_navbar" id="restaurant">
          <Container>
         <Stack 
           flexDirection={"row"} 
@@ -30,13 +90,13 @@ export function NavbarRestaurant(props: any) {
             </Box>
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/restaurant" activeClassName="underline" >
-                Cafe
+              Franchise
               </NavLink>
             </Box>
             {verifiedMemberData ? (
             <Box className="hover-line" onClick={props.setPath}>
               <NavLink to="/orders" activeClassName="underline" >
-                Order
+                My Order
               </NavLink>
             </Box>
             ) : null}
@@ -149,5 +209,12 @@ export function NavbarRestaurant(props: any) {
           </Stack>
         </Stack>
       </Container>
+      <style>{styles}</style>
+
+      <div className="scroll_btn">
+        <Button style={{ color: "white" }} onClick={handleClickShop}>
+          <ArrowUpwardIcon />
+        </Button>
+      </div>
     </div>;
 }
