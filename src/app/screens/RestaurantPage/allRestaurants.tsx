@@ -5,11 +5,6 @@ import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { CssVarsProvider } from "@mui/joy/styles";
-import Card from "@mui/joy/Card";
-import CardOverflow from "@mui/joy/CardOverflow";
-import AspectRatio from "@mui/joy/AspectRatio";
-import IconButton from "@mui/joy/IconButton";
 import Favorite from "@mui/icons-material/Favorite";
 import Typography from "@mui/joy/Typography";
 import Link from "@mui/joy/Link";
@@ -175,75 +170,75 @@ const targetLikeHandler = async (e: any, id: string ) => {
             {filteredRestaurants.map((ele: Restaurant) => {
             const image_path = `${serverApi}/${ele.mb_image}`;
             return (
-                <Box
-                  onClick={() => chosenRestaurantHandler(ele._id)}
-                  className={"allrestaurant_box"}
-                >
-                <Box
-                  className={"allrestaurant_img"}
-                  sx={{
-                    backgroundImage: `url(${image_path})`,
-                  }}
-                >
-                <Button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                  }}
-                  className={"like_view_btn"}
-                  style={{ left: "36px" }}
-                >
-                  </Button>
-                </Box>
-                <Box className="cafe_info">
-                  <div className='cafe_info_nick'>
-                  <h2>
-                    {ele.mb_nick} coffee 
-                  </h2>
-                  {/* <span>
-                    {ele.mb_phone}
-                  </span> */}
-                  </div>
-                  <div>
-                    <span>
-                      {ele.mb_address} Los Angeles
-                    </span>
-                    
-                  </div>
-                </Box>
+              <Box
+                onClick={() => chosenRestaurantHandler(ele._id)}
+                className={"allrestaurant_box"}
+              >
+              <Box
+                className={"allrestaurant_img"}
+                sx={{
+                  backgroundImage: `url(${image_path})`,
+                }}
+              >
+              <Button
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+                className={"like_view_btn"}
+                style={{ left: "36px" }}
+              >
+                </Button>
+              </Box>
+              <Box className="cafe_info">
+                <div className='cafe_info_nick'>
+                <h2>
+                  {ele.mb_nick} coffee 
+                </h2>
+                {/* <span>
+                  {ele.mb_phone}
+                </span> */}
+                </div>
+                <div>
+                  <span>
+                    {ele.mb_address} Los Angeles
+                  </span>
+                  
+                </div>
+              </Box>
 
 
                
                 
                
-               <Box className="hover_box">
-                    <div onClick={(e) => targetLikeHandler(e, ele._id)}>
-                      
-                      <Favorite 
-                        
-                        style={{ 
-                          fill: 
-                            ele?.me_liked && ele?.me_liked[0]?.my_favorite 
-                              ? "red"
-                              : "white", 
-                        }}  
-                      />
+              <Box className="hover_box">
+                <div onClick={(e) => targetLikeHandler(e, ele._id)}>
+                  
+                  <Favorite 
+                    
+                    style={{ 
+                      fill: 
+                        ele?.me_liked && ele?.me_liked[0]?.my_favorite 
+                          ? "red"
+                          : "white", 
+                    }}  
+                  />
 
-                      <span
-                        ref={(element) => (refs.current[ele._id] = element)}
-                      > 
-                        {" "}
-                        {ele.mb_likes}
-                      </span>
-                    </div>
-                      <div>
-                        <span>
-                       {ele.mb_views}
-                        </span>
-                      <VisibilityIcon
-                        sx={{ fontSize: 20, marginLeft: "5px" }}
-                      />
-                      </div>
-                      </Box>
+                  <span
+                    ref={(element) => (refs.current[ele._id] = element)}
+                  > 
+                    {" "}
+                    {ele.mb_likes}
+                  </span>
+                </div>
+                  <div>
+                    <span>
+                    {ele.mb_views}
+                    </span>
+                  <VisibilityIcon
+                    sx={{ fontSize: 20, marginLeft: "5px" }}
+                  />
+                  </div>
+                  </Box>
               </Box>
             );
             })}

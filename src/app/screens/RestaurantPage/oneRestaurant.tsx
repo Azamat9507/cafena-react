@@ -87,7 +87,7 @@ export function OneRestaurant(props: any) {
   const [ targetProductSearchObj, setTargetProductSearchObj ] = 
     useState<ProductSearchObj>({
     page: 1,
-    limit:8,
+    limit: 8,
     order: "createdAt",
     restaurant_mb_id: restaurant_id,
     product_collection: "dish",
@@ -97,14 +97,14 @@ export function OneRestaurant(props: any) {
   const [productRebuild, setProductRebuild] = useState<Date>(new Date());
 
   useEffect(() => {
-    // RandomShops
-    const shopService = new RestaurantApiService();
-    shopService
+    
+    const restaurantService = new RestaurantApiService();
+    restaurantService
       .getRestaurants({ page: 1, limit: 10, order: "random" })
       .then((data) => setRandomRestaurants(data))
       .catch((err) => console.log(err));
 
-    shopService
+    restaurantService
       .getChosenRestaurant(chosenRestaurantId)
       .then((data) => setChosenRestaurant(data))
       .catch((err) => console.log(err));
@@ -262,9 +262,9 @@ const handleSingleSelection = (groupName: string, selectedValue: string) => {
                       variant="contained"
                       name="filter"
                       color="secondary"
-                      onClick={() => handleSingleSelection("filter", "etc")}
+                      onClick={() => handleSingleSelection("filter", "dish")}
                     >
-                      Others
+                      Food
                     </Button>
                     <Button className="checkbox_list"
                       sx={{ml: 3}}
@@ -298,9 +298,9 @@ const handleSingleSelection = (groupName: string, selectedValue: string) => {
                       variant="contained"
                       name="filter"
                       color="secondary"
-                      onClick={() => handleSingleSelection("filter", "dish")}
+                      onClick={() => handleSingleSelection("filter", "etc")}
                     >
-                      Food
+                      Others
                     </Button>
                   </div>
                 </Box>
@@ -356,7 +356,7 @@ const handleSingleSelection = (groupName: string, selectedValue: string) => {
             <Stack className={"product_wrapper"}>
               {filteredProducts.map((product: Product) => {
                 const image_path = `${serverApi}/${product.product_images[0]}`;
-
+                console.log("keldi")
                 return (
                   <Box
                     className={"product_box"}

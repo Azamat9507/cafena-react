@@ -1120,3 +1120,8 @@ h1.temperature {
   /* Set the width to 100% to complete the rotation */
   width: 100%;
 }
+
+.machine_left > .machine_left_p {
+  color: #ffffff;
+  font-size: 18px;
+}
