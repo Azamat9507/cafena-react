@@ -67,7 +67,6 @@ export function TopRestaurants() {
     }
   };
 
-
   return (
     <div className="top_coffeeshop_frame">
     <Container>
@@ -98,6 +97,7 @@ export function TopRestaurants() {
         >
           {topRestaurants.map((ele: Restaurant) => {
               const image_path = `${serverApi}/${ele.mb_image}`;
+
             return (
               <SwiperSlide
                 onClick={() => chosenRestaurantHandler(ele._id)}
@@ -132,7 +132,7 @@ export function TopRestaurants() {
                           transform: "translateY(50%)",
                           color: "rgba(0,0,0,0.4)",
                         }}
-                        onClick={(e) => { 
+                        onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                           e.stopPropagation();
                         }}
                       >
@@ -163,7 +163,7 @@ export function TopRestaurants() {
                     <Typography level="h2" sx={{ fontSize: "md", mt: 1 }}>
                       {ele.mb_nick} coffee
                     </Typography>
-                    <Typography level="body1" sx={{ mt: 0.1, mb: 0.2,}}>
+                    <Typography sx={{ mt: 0.1, mb: 0.2,}}>
                       <Link
                         href=""
                         startDecorator={<LocationOnRoundedIcon />}
@@ -172,7 +172,7 @@ export function TopRestaurants() {
                         {ele.mb_address} Los Angles
                       </Link>
                     </Typography>
-                      <Typography level="body2" sx={{ mt: 0.1 }}>
+                      <Typography sx={{ mt: 0.1 }}>
                         <Link
                           href=""
                           startDecorator={<CallIcon />}
@@ -197,7 +197,6 @@ export function TopRestaurants() {
                       }}
                     >
                       <Typography
-                        level="body3"
                         sx={{
                           fontWeight: "md",
                           color: "#0b0e11",
@@ -209,7 +208,6 @@ export function TopRestaurants() {
                         <Visibility sx={{ fontSize: 23, marginLeft: "5px" }} />
                       </Typography>
                       <Typography
-                        level="body3"
                         sx={{
                           fontWeight: "md",
                           color: "#5a5a72",

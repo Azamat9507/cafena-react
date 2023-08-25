@@ -171,7 +171,7 @@ export function BestRestaurants() {
                     <Typography level="h2" sx={{ fontSize: "md", mt: 1 }}>
                       {ele.mb_nick} coffee
                     </Typography>
-                    <Typography level="body1" sx={{ mt: 0.1, mb: 0.2,}}>
+                    <Typography sx={{ mt: 0.1, mb: 0.2,}}>
                       <Link
                         href=""
                         startDecorator={<LocationOnRoundedIcon />}
@@ -180,7 +180,7 @@ export function BestRestaurants() {
                         {ele.mb_address} Los Angles
                       </Link>
                     </Typography>
-                      <Typography level="body2" sx={{ mt: 0.1 }}>
+                      <Typography sx={{ mt: 0.1 }}>
                         <Link
                           href=""
                           startDecorator={<CallIcon />}
@@ -205,7 +205,6 @@ export function BestRestaurants() {
                       }}
                     >
                       <Typography
-                        level="body3"
                         sx={{
                           fontWeight: "md",
                           color: "#0b0e11",
@@ -217,7 +216,6 @@ export function BestRestaurants() {
                         <Visibility sx={{ fontSize: 23, marginLeft: "5px" }} />
                       </Typography>
                       <Typography
-                        level="body3"
                         sx={{
                           fontWeight: "md",
                           color: "#5a5a72",

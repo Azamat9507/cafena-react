@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Container, Stack } from "@mui/material"; 
-import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import StarIcon from "@mui/icons-material/Star"; 
 import { Swiper, SwiperSlide } from "swiper/react"; 
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder"; 
-import Favorite from "@mui/icons-material/Favorite";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn"; 
+import Favorite from "@mui/icons-material/Favorite"; 
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import Badge from "@mui/material/Badge";
 import { useHistory, useParams } from "react-router-dom";

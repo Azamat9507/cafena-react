@@ -90,7 +90,7 @@ export function ChosenDish(props: any) {
 
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const [productRebuild, setProductRebuild] = useState<Date>(new Date());
-  const [productComments, setProductComments] = useState<Comment[]>([]);
+
 
   const dishRelatedProcess = async () => {
     try {
@@ -141,7 +141,7 @@ const [comments, setComments] = useState<{ [productId: string]: Comment[] }>(
 );
   const [productId, setProductId] = useState<string | undefined>(undefined);
 
-  const [lastCommentId, setLastCommentId] = useState(0);
+  const [lastCommentId] = useState(0);
   const [ratingError, setRatingError] = useState("");
 
   const handleSubmit = (event: React.FormEvent) => {
