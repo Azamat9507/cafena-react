@@ -205,11 +205,6 @@ const targetLikeHandler = async (e: any, id: string ) => {
                   
                 </div>
               </Box>
-
-
-               
-                
-               
               <Box className="hover_box">
                 <div onClick={(e) => targetLikeHandler(e, ele._id)}>
                   
@@ -243,7 +238,7 @@ const targetLikeHandler = async (e: any, id: string ) => {
             );
             })}
           </Stack>
-          <Stack className="bottom_box">
+          <Stack sx={{marginBottom: 5 }}className="bottom_box">
             <Pagination
               count={
                 targetSearchObject.page >= 3 ? targetSearchObject.page + 1 : 3
@@ -251,12 +246,13 @@ const targetLikeHandler = async (e: any, id: string ) => {
               page={targetSearchObject.page}
               renderItem={(item) => (
                 <PaginationItem
+                  sx={{color: "white"}}
                   components={{
                     previous: ArrowBackIcon,
                     next: ArrowForwardIcon,
                   }}
                   {...item}
-                  color="primary"
+                  color="secondary"
                 />
               )}
               onChange={handlePaginationChange}

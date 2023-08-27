@@ -13,11 +13,11 @@ class RestaurantApiService {
 
   async getTopRestaurants(): Promise<Restaurant[]> {
     try {
-      const url = "/restaurants?order=top&page=1&limit=4",
+      const url = "/restaurants?order=top&page=1&limit=3",
         result = await axios.get(this.path + url, { withCredentials: true });
 
         assert.ok(result?.data, Definer.general_err1);
-        assert.ok(result?.data?.state != "fail", result?.data?.message);
+        assert.ok(result?.data?.state !== "fail", result?.data?.message);
         console.log("state:", result.data.state);
 
       const top_restaurants: Restaurant[] = result.data.data;
@@ -34,7 +34,7 @@ class RestaurantApiService {
         result = await axios.get(this.path + url, { withCredentials: true });
 
       assert.ok(result?.data, Definer.general_err1);
-      assert.ok(result?.data?.state != "fail", result?.data?.message);
+      assert.ok(result?.data?.state !== "fail", result?.data?.message);
       console.log("state:", result.data.state);
 
       const restaurants: Restaurant[] = result.data.data;
@@ -51,7 +51,8 @@ class RestaurantApiService {
         result = await axios.get(this.path + url, {withCredentials: true});
 
       assert.ok(result?.data, Definer.general_err1);
-      assert.ok(result?.data?.state != "fail", result?.data?.message);
+      assert.ok(result?.data?.state !== "fail", result?.data?.message);
+       //should use the !== operator instead of != for strict equality comparison. 
       console.log("state:", result.data.state);
       
       const restaurant: Restaurant = result.data.data;

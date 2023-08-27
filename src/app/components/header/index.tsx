@@ -168,7 +168,15 @@ export function NavbarHome(props: any) {
               </Box>
             ) : (
               <img
-                style={{ borderRadius: "50%", width: "55px", height: "55px" }}
+                style={{ 
+                  borderRadius: "50%", 
+                  width: "70px", 
+                  height: "70px",
+                  objectFit: "cover",
+                  background: "no-repeat",
+                  border: "2px #f9b909 solid"
+
+                }}
                 src={verifiedMemberData.mb_image}
                 onClick={props.handleLogOutClick} 
                 alt={""}

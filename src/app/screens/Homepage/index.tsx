@@ -46,7 +46,7 @@ export function Homepage() {
       })
       .catch(err => console.log(err));
 
-      restaurantService.getRestaurants({page: 1, limit: 8, order: "mb_point"}).then( data => {
+      restaurantService.getRestaurants({page: 1, limit: 3, order: "mb_point"}).then( data => {
         setBestRestaurants(data);
       }).catch(err => console.log(err));
   }, []);

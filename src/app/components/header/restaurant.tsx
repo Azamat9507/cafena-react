@@ -159,7 +159,14 @@ export function NavbarRestaurant(props: any) {
               </Box>
             ) : (
               <img
-                style={{ width: "48px", height: "48px" }}
+                style={{ 
+                  borderRadius: "50%", 
+                  width: "70px", 
+                  height: "70px",
+                  objectFit: "cover",
+                  background: "no-repeat",
+                  border: "2px #f9b909 solid"
+                }}
                 src={verifiedMemberData.mb_image}
                 onClick={props.handleLogOutClick} 
                 alt={""}

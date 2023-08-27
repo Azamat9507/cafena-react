@@ -162,13 +162,16 @@
 }
 
 .homepage .restaurant_box {
-  margin-right: 13px;
-  margin-left: 13px;
-  margin-top: 40px;
+  margin: 13px;
+  padding: 5px;
+  width: 405px;
+  height: 350px;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
 @keyframes moveUp {
@@ -184,7 +187,7 @@
 
 .homepage .restaurant_box .restaurant_img {
   position: relative;
-  width: 400px;
+  width: 405px;
   height: 220px;
   background-size: cover;
   display: flex;
@@ -205,6 +208,8 @@
 .menu-frame {
     display: flex;
     flex-wrap: wrap;
+    padding-top: 40px;
+    padding-bottom: 30px;
     /* padding-left: 20px; */
   
 }
@@ -498,7 +503,7 @@
   /* font-size: 30px; */
   line-height: 37px;
   margin-bottom: 40px;
-  margin-top: 70px;
+  margin-top: 100px;
 
   /* color: #222222; */
 }
@@ -738,11 +743,10 @@ h1 {
 .custom-container {
   display: flex;
   justify-content: center;
-  border: 1px solid;
   align-items: center;
   height: 500px;
-  margin-top: 50px;
-  width: 1330px;
+  margin-top: 80px;
+  width: 1320px;
   border-radius: 10px 10px;
   font-family: 'Open Sans', sans-serif;
   background: #222;
@@ -1124,4 +1128,38 @@ h1.temperature {
 .machine_left > .machine_left_p {
   color: #ffffff;
   font-size: 18px;
+}
+
+/* NEW ALL_RESTAURANT_BOX */
+
+.homepage .allrestaurant_box {
+  margin: 13px;
+  padding: 5px;
+  width: 405px;
+  height: 350px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.homepage .allrestaurant_img {
+  width: 405px;
+  height: 350px;
+
+  border-radius: 5px;
+  background-size: cover;
+}
+
+.homepage .all_restaurant .all_res_box {
+  position: relative;
+  width: 1320px;
+  height: auto;
+  margin-top: 60px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
