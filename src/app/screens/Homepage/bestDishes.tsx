@@ -55,7 +55,7 @@ export function BestDishes() {
         <Stack flexDirection={"column"} alignItems={"center"}>
           <Box className="category_title_shop">Popular menu Cafena</Box>
           <div className='menu-frame'>
-            {trendProducts.map((product: Product) => {
+            {trendProducts && trendProducts.map((product: Product) => {
               const image_path = `${serverApi}/${product.product_images[0]}`;
               const size_volume = 
                 product.product_collection === "drink" 
