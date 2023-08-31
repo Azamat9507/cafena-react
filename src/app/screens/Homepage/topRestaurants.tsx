@@ -70,7 +70,7 @@ export function TopRestaurants() {
             Popular coffee shops
           </Box>
           <Stack className={"all_res_box"}>
-            {topRestaurants.map((ele: Restaurant) => {
+            {topRestaurants && topRestaurants.map((ele: Restaurant) => {
             const image_path = `${serverApi}/${ele.mb_image}`;
             return (
               <Box
