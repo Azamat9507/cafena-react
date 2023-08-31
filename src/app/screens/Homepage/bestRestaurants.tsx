@@ -78,7 +78,7 @@ export function BestRestaurants() {
         <Stack flexDirection={"column"} alignItems={"center"}>
           <div className="title_shop">Top seller</div>
           <Stack className={"all_res_box"}>
-            {bestRestaurants.map((ele: Restaurant) => {
+            {bestRestaurants && bestRestaurants.map((ele: Restaurant) => {
             const image_path = `${serverApi}/${ele.mb_image}`;
             return (
               <Box
