@@ -40,7 +40,7 @@ export default function FinishedOrders(props: any) {
                       <p className={"titleDish"}>{product.product_name}</p>
                       <Box className={"priceBox"}>
                         <p>${item.item_price}</p>
-                        <img src={"/icons/Close.svg"} />
+                        <img src={"/icons/close.svg"} />
                         <p>{item.item_quantity}</p>
                         <img src={"/icons/pause.svg"} />
                         <p style={{ marginLeft: "15px" }}>
