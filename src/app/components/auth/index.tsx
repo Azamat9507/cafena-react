@@ -129,7 +129,7 @@ export default function AuthenticationModal(props: any) {
             direction={"row"}
             sx={{ width: "800px" }}
           >
-            <ModalImg src={"/auth/password.jpeg"} alt="camera" />
+            <ModalImg src={"/auth/password1.jpeg"} alt="camera" />
             <Stack sx={{ marginLeft: "69px", alignItems: "center" }}>
               <h2>SignUp Form</h2>
               <TextField
@@ -186,7 +186,7 @@ export default function AuthenticationModal(props: any) {
             direction={"row"}
             sx={{ width: "700px" }}
           >
-            <ModalImg src={"/auth/password.jpeg"} alt="camera" />
+            <ModalImg src={"/auth/password1.jpeg"} alt="camera" />
             <Stack
               sx={{
                 marginLeft: "65px",
