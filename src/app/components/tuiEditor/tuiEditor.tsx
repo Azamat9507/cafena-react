@@ -114,11 +114,11 @@ export const TuiEditor = (props: any) => {
               onChange={changeCategoryHandler}
             >
               <MenuItem value="">
-                <span>Categoriyani tanlang</span>
+                <span>Choose category</span>
               </MenuItem>
-              <MenuItem value={"celebrity"}>Mashhurlar</MenuItem>
-              <MenuItem value={"evaluation"}>Restaurant baho</MenuItem>
-              <MenuItem value={"story"}>Mening Hikoyam</MenuItem>
+              <MenuItem value={"celebrity"}>News</MenuItem>
+              <MenuItem value={"evaluation"}>Coffee review</MenuItem>
+              <MenuItem value={"story"}>Local</MenuItem>
             </Select>
           </FormControl>
         </Box>
@@ -127,7 +127,7 @@ export const TuiEditor = (props: any) => {
             style={{ color: "rgb(225 255 233)", margin: "10px" }}
             variant="h3"
           >
-            Mavzu
+            Topic
           </Typography>
           <TextField
             id="filled-basic"
@@ -171,7 +171,7 @@ export const TuiEditor = (props: any) => {
           style={{ margin: "30px", width: "250px", height: "45px" }}
           onClick={handleRegisterButton}
         >
-          Register
+          Post
         </Button>
       </Stack>
     </Stack>

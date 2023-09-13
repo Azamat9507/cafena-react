@@ -184,7 +184,7 @@ export function VisitOtherPage(props: any) {
             <Stack className={"my_page_left"}>
               <Box display={"flex"} flexDirection={"column"}>
                 <TabPanel value={"1"}>
-                  <Box className={"menu_name"}>Maqolalar</Box>
+                  <Box className={"menu_name"}>Articles</Box>
                   <Box className={"menu_content"}>
                     <MemberPosts 
                       chosenMemberBoArticles={chosenMemberBoArticles}
@@ -246,7 +246,7 @@ export function VisitOtherPage(props: any) {
                 </TabPanel>
 
                 <TabPanel value={"4"}>
-                  <Box className={"menu_name"}>Tanlangan Maqola</Box>
+                  <Box className={"menu_name"}>Articles</Box>
                   <Box className={"menu_content"}>
                     <TViewer chosenSingleBoArticle={chosenSingleBoArticle} />
                   </Box>
@@ -267,7 +267,7 @@ export function VisitOtherPage(props: any) {
                       className={"order_user_avatar"}
                       alt={""}/>
                     <div className={"order_user_icon_box"}>
-                      <img src={"/icons/user_icon_small.svg"} />
+                      <img src={"/icons/user_icon_small.svg"}/>
                     </div>
                   </div>
                   <span className={"order_user_name"}>
