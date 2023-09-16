@@ -117,7 +117,7 @@ export const TuiEditor = (props: any) => {
                 <span>Choose category</span>
               </MenuItem>
               <MenuItem value={"celebrity"}>News</MenuItem>
-              <MenuItem value={"evaluation"}>Coffee review</MenuItem>
+              <MenuItem value={"evaluation"}>World news</MenuItem>
               <MenuItem value={"story"}>Local</MenuItem>
             </Select>
           </FormControl>
