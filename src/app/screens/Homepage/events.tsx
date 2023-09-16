@@ -31,7 +31,7 @@ const hiddenModalHandler = () => {
               <h3 className="machine_left_title">BUY FOR HOME</h3>
               <p className="machine_left_p">Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam quis quam venenatis fringilla. Morbi vestibulum id tellus mmodo mattis. Aliquam erat volutpat.
 mattis nunc. Praesent ut quam quis quam venenatis fringilla. Morbi vestibulum id tellus mmodo mattis.</p>
-              <Button className='machine_left_btn'>
+              <Button className='machine_left_btn' onClick={showModalHandler}>
                 Discover now
               </Button>
             </Box>
