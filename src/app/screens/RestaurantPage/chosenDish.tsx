@@ -18,6 +18,7 @@ import { Restaurant } from '../../../types/user';
 import assert from "assert";
 import { Definer } from "../../../lib/Definer";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 //REDUX
 import { useDispatch, useSelector} from "react-redux";
@@ -271,7 +272,12 @@ useEffect(() => {
             <strong className={"dish_txt"}>{chosenProduct?.product_name}</strong>
             <span className={"resto_name"}>{chosenRestaurant?.mb_nick}</span>
             <Box className={"rating_box"}>
-              <Rating name="half-rating" defaultValue={3.5} precision={0.5} />
+              <Rating 
+                name="half-rating" 
+                defaultValue={3.5} 
+                precision={0.5} 
+                emptyIcon={<StarBorderIcon style={{ color: 'white' }} />}
+                />
               <div className={"evaluation_box"}>
                 <div
                   style={{
@@ -368,6 +374,7 @@ useEffect(() => {
               value={rating || 1}
               onChange={(event, value) => setRating(value)}
               className="comment_cont_rating"
+              emptyIcon={<StarBorderIcon style={{ color: 'white' }} />}
             />
             {ratingError && <p style={{color: "red"}}>{ratingError}</p>}
           </div>

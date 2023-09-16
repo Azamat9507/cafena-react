@@ -87,7 +87,7 @@ export function OneRestaurant(props: any) {
     limit: 8,
     order: "createdAt",
     restaurant_mb_id: restaurant_id,
-    product_collection: "dish",
+    product_collection: "drink",
   });
 
 
@@ -147,7 +147,7 @@ export function OneRestaurant(props: any) {
     setTargetProductSearchObj({ ...targetProductSearchObj });
   };
   const chosenProductHandler = (id: string) => {
-    history.push(`/restaurant/products/${id}`);
+    history.push(`/restaurant/dish/${id}`);
   };
 
   
@@ -256,6 +256,16 @@ const handleSingleSelection = (groupName: string, selectedValue: string) => {
                 <Box className={"drop_down"}>
                   <div className="dishs_filter_box">
                     <Button className="checkbox_list"
+                      sx={{ml: 3}}
+                      variant="contained"
+                      name="filter"
+                      color="secondary"
+                      onClick={() => handleSingleSelection("filter", "drink")}
+                    >
+                      Drinks
+                    </Button>
+                    <Button className="checkbox_list"
+                      sx={{ml: 3}}
                       variant="contained"
                       name="filter"
                       color="secondary"
@@ -271,15 +281,6 @@ const handleSingleSelection = (groupName: string, selectedValue: string) => {
                       onClick={() => handleSingleSelection("filter", "dessert")}
                     >
                       Dessert
-                    </Button>
-                    <Button className="checkbox_list"
-                      sx={{ml: 3}}
-                      variant="contained"
-                      name="filter"
-                      color="secondary"
-                      onClick={() => handleSingleSelection("filter", "drink")}
-                    >
-                      Drinks
                     </Button>
                     <Button className="checkbox_list"
                       sx={{ml: 3}}

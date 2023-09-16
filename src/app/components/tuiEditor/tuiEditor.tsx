@@ -131,7 +131,7 @@ export const TuiEditor = (props: any) => {
           </Typography>
           <TextField
             id="filled-basic"
-            label="Mazvu"
+            label="Topic"
             variant="filled"
             style={{ width: "300px", background: "white" }}
             onChange={changeTitleHandler}
