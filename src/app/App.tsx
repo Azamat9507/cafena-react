@@ -27,6 +27,8 @@ import "../app/apiServices/verify";
 import { CartItem } from '../types/others';
 import { Product } from '../types/product';
 import { CommunityChats } from "./components/header/communityChats";
+import { Responsive } from "./screens/Responsive";
+import { useHistory } from "react-router-dom";
 
 
 function App() {
@@ -126,10 +128,14 @@ function App() {
     setCartItems([]);
     localStorage.removeItem("cart_data");
   };
+  const history = useHistory<History>();
+    const handleClickOpenAlert = () => {
+      history.push("/construction");
+    };
 
   return (
     <Router>
-      {main_path == "/" ? (
+      {main_path === "/" ? (
         <NavbarHome 
           setPath={setPath} 
           handleLoginOpen={handleLoginOpen}
@@ -205,6 +211,12 @@ function App() {
           <Route path="/login">
             <LoginPage />
           </Route>
+          <Route path="/construction">
+          <Responsive
+            handleClickOpenAlert={handleClickOpenAlert}
+            setPath={setPath}
+          />
+        </Route>
           <Route path="/">
             <Homepage />
           </Route>

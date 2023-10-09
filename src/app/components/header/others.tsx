@@ -8,6 +8,25 @@ import useDeviceDetect from "../../../lib/responsive";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 export function NavbarOthers(props: any) {
+  const [isHovered1, setIsHovered1] = useState(false);
+
+  const handleMouseEnter1 = () => {
+    setIsHovered1(true);
+  };
+
+  const handleMouseLeave1 = () => {
+    setIsHovered1(false);
+  };
+
+  const [isHovered2, setIsHovered2] = useState(false);
+
+  const handleMouseEnter2 = () => {
+    setIsHovered2(true);
+  };
+
+  const handleMouseLeave2 = () => {
+    setIsHovered2(false);
+  };
 
   const handleClickOther = () => {
     const element = document.getElementById("other");
@@ -21,7 +40,7 @@ export function NavbarOthers(props: any) {
    color: #fff;
  }
  
- .scroll_btn {
+ .scroll-button {
    position: fixed;
    bottom: 80px;
    left: 20px;
@@ -68,128 +87,126 @@ useEffect(() => {
   };
 }, []);
 const history = useHistory<History>();
+const { isMobile } = useDeviceDetect();
 const handlePushConstruction = () => {
  history.push("/construction");
  props.setPath();
 };
+
+if (isMobile()) {
   return (
     <div className="format_others home_navbar" id="other">
-      <Container>
-        <Stack 
-          flexDirection={"row"} 
-          className="navbar_config"
-          justifyContent={"space-between"}
-                
-        >
-          <Box>
-            <img src='/icons/logo.png' alt=""/>
-          </Box> 
-          <Stack
-            flexDirection={"row"}
-            justifyContent="space-evenly"
-            alignItems={"center"}
-            className="navbar_links"
-          >
-            <Box className="hover-line" onClick={props.setPath}>
-              <NavLink to="/">
-                Home
-              </NavLink>
-            </Box>
-            <Box className="hover-line" onClick={props.setPath}>
-              <NavLink to="/restaurant" activeClassName="underline" >
-              Franchise
-              </NavLink>
-            </Box>
-            {verifiedMemberData ? (
-            <Box className="hover-line" onClick={props.setPath}>
-              <NavLink to="/orders" activeClassName="underline" >
-                My Order
-              </NavLink>
-            </Box>
-            ) : null}
-            <Box className="hover-line" onClick={props.setPath}>
-              <NavLink to="/community" activeClassName="underline" >
-                Community
-              </NavLink>
-            </Box>
-            {verifiedMemberData ? (
+      <div className="navbar_block">
+        <Stack flexDirection={"row"} className="navbar_config" id="navbar">
+          <Box onClick={props.setPath}>
+            <NavLink to="/">
+              <img
+                style={{
+                  paddingRight: 45,
+                  cursor: "pointer",
+                  // borderRadius: "24px",
+                }}
+                src="/icons/logo.png"
+                alt="logo"
+                className="logo"
+              />
+            </NavLink>
+          </Box>
+          {/* <Stack className="navbar_links">
               <Box className="hover-line" onClick={props.setPath}>
-                <NavLink to="/member-page" activeClassName="underline" >
+                <NavLink to="/" activeClassName="underline">
+                  Home
+                </NavLink>
+              </Box>
+
+              <Box className="hover-line" onClick={props.setPath}>
+                <NavLink to={"/restaurant"} activeClassName="underline">
+                  Franchase
+                </NavLink>
+              </Box>
+
+              <Box className="hover-line" onClick={props.setPath}>
+                <NavLink to="/order" activeClassName="underline">
+                  My Order
+                </NavLink>
+              </Box>
+
+              <Box className="hover-line" onClick={props.setPath}>
+                <NavLink to="/community" activeClassName="underline">
+                  Community
+                </NavLink>
+              </Box>
+
+              <Box className="hover-line" onClick={props.setPath}>
+                <NavLink to="/member-page" activeClassName="underline">
                   My Page
                 </NavLink>
               </Box>
-            ) : null}
-            <Box className="hover-line" onClick={props.setPath}>
-              <NavLink to="/help" activeClassName="underline" >
-                Help
-              </NavLink>
-            </Box>
-            {/* Basketdan chaqirib olindi */}
-            <Basket 
-              cartItems={props.cartItems} 
-              onAdd={props.onAdd} 
-              onRemove={props.onRemove}
-              onDelete={props.onDelete}
-              onDeleteAll={props.onDeleteAll}
-              setOrderRebuild={props.setOrderRebuild}
-            />
-            <Box>
-                {!verifiedMemberData ? (
-                  <Button
-                    sx={{border: 1, borderRadius: 24, borderColor: "#C7A17A"}} 
-                    variant="contained" 
-                    style={{width: "100px", 
-                    height: "48px", 
-                    backgroundColor: "transparent", 
-                    color: "#FFFFFF",  
-                    }}
-                    onClick={props.handleSignUpOpen}
-                  >
-                    SIGN UP
-                  </Button>
-                ) : null}
-            </Box>
-            {!verifiedMemberData ? (  
+            </Stack> */}
+          <Stack
+            flexDirection={"row"}
+            justifyContent={"space-evenly"}
+            alignItems={"center"}
+            className="navbar_icons"
+          >
+            {!verifiedMemberData ? (
               <Box>
-                <Button 
-                  variant="contained" 
-                  style={{ color: "#FFFFFF",
-                  width: "100px", 
-                  background: "#C7A17A",
-                  height: "48px",
-                  borderRadius: "24px" 
-                }}
-                  onClick={props.handleLoginOpen}
+                <Button
+                  variant="contained"
+                  style={{
+                    color: isHovered1 ? "#282828" : "#f5f5f5",
+                    opacity: isHovered1 ? 0.7 : 1,
+                    backgroundColor: isHovered1 ? "#f5f5f5" : "transparent",
+                  }}
+                  onMouseEnter={handleMouseEnter1}
+                  onMouseLeave={handleMouseLeave1}
+                  onClick={handlePushConstruction}
                 >
-                  Login
+                  Sign up
+                </Button>
+              </Box>
+            ) : null}
+
+            {!verifiedMemberData ? (
+              <Box>
+                <Button
+                  variant="contained"
+                  style={{
+                    color: isHovered2 ? "#282828" : "#f5f5f5",
+                    opacity: isHovered2 ? 0.7 : 1,
+                    backgroundColor: isHovered2 ? "#f5f5f5" : "transparent",
+                  }}
+                  onMouseEnter={handleMouseEnter2}
+                  onMouseLeave={handleMouseLeave2}
+                  onClick={handlePushConstruction}
+                >
+                  Log in
                 </Button>
               </Box>
             ) : (
               <img
-                style={{ 
-                  borderRadius: "50%", 
-                  width: "70px", 
-                  height: "70px",
-                  objectFit: "cover",
-                  background: "no-repeat",
-                  border: "2px #f9b909 solid"
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "24px",
                 }}
                 src={verifiedMemberData.mb_image}
-                onClick={props.handleLogOutClick} 
-                alt={""}
+                alt=""
+                onClick={props.handleLogOutClick}
               />
             )}
+
             <Menu
               anchorEl={props.anchorEl}
-              open ={props.open}
+              open={props.open}
               onClose={props.handleCloseLogOut}
               onClick={props.handleCloseLogOut}
               PaperProps={{
                 elevation: 0,
                 sx: {
-                  overflow: "visible",
-                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                  mt: 1.5,
+                  overflow: "hidden",
+                  backgroundColor: "#fff",
+                  mt: "15px",
                   "& .MuiAvatar-root": {
                     width: 32,
                     height: 32,
@@ -197,7 +214,6 @@ const handlePushConstruction = () => {
                     mr: 1,
                   },
                   "&:before": {
-                    content: '""',
                     display: "block",
                     position: "absolute",
                     top: 0,
@@ -213,22 +229,192 @@ const handlePushConstruction = () => {
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              <MenuItem onClick={props.handleLogOutRequest}>
+              <MenuItem
+                onClick={props.handleLogOutRequest}
+                style={{ color: "#1f1f1f" }}
+              >
                 <ListItemIcon>
-                  <Logout fontSize="small" style={{ color: "blue" }} />
+                  <Logout fontSize="small" style={{ color: "#222222" }} />
                 </ListItemIcon>
-                Logout
+                <span style={{ color: "#222222", fontWeight: "600" }}>
+                  {" "}
+                  Log out
+                </span>
               </MenuItem>
             </Menu>
           </Stack>
         </Stack>
-        <style>{styles}</style>
-        <div className="scroll_btn">
-        <Button style={{ color: "white" }} onClick={handleClickOther}>
+      </div>
+      <style>{styles}</style>
+
+      <div className="scroll-button">
+        <Button style={{ color: "black" }} onClick={handleClickOther}>
           <ArrowUpwardIcon />
         </Button>
       </div>
-      </Container>
+    </div>
+  );
+} else {
+  return (
+    <div className="format_others home_navbar" id="other">
+      <div className="navbar_block">
+        <Container>
+          <Stack 
+            flexDirection={"row"} 
+            className="navbar_config"
+            justifyContent={"space-between"}
+                  
+          >
+            <Box>
+              <img src='/icons/logo.png' alt=""/>
+            </Box> 
+            <Stack
+              flexDirection={"row"}
+              justifyContent="space-evenly"
+              alignItems={"center"}
+              className="navbar_links"
+            >
+              <Box className="hover-line" onClick={props.setPath}>
+                <NavLink to="/">
+                  Home
+                </NavLink>
+              </Box>
+              <Box className="hover-line" onClick={props.setPath}>
+                <NavLink to="/restaurant" activeClassName="underline" >
+                Franchise
+                </NavLink>
+              </Box>
+              {verifiedMemberData ? (
+              <Box className="hover-line" onClick={props.setPath}>
+                <NavLink to="/orders" activeClassName="underline" >
+                  My Order
+                </NavLink>
+              </Box>
+              ) : null}
+              <Box className="hover-line" onClick={props.setPath}>
+                <NavLink to="/community" activeClassName="underline" >
+                  Community
+                </NavLink>
+              </Box>
+              {verifiedMemberData ? (
+                <Box className="hover-line" onClick={props.setPath}>
+                  <NavLink to="/member-page" activeClassName="underline" >
+                    My Page
+                  </NavLink>
+                </Box>
+              ) : null}
+              <Box className="hover-line" onClick={props.setPath}>
+                <NavLink to="/help" activeClassName="underline" >
+                  Help
+                </NavLink>
+              </Box>
+              {/* Basketdan chaqirib olindi */}
+              <Basket 
+                cartItems={props.cartItems} 
+                onAdd={props.onAdd} 
+                onRemove={props.onRemove}
+                onDelete={props.onDelete}
+                onDeleteAll={props.onDeleteAll}
+                setOrderRebuild={props.setOrderRebuild}
+              />
+              <Box>
+                  {!verifiedMemberData ? (
+                    <Button
+                      sx={{border: 1, borderRadius: 24, borderColor: "#C7A17A"}} 
+                      variant="contained" 
+                      style={{width: "100px", 
+                      height: "48px", 
+                      backgroundColor: "transparent", 
+                      color: "#FFFFFF",  
+                      }}
+                      onClick={props.handleSignUpOpen}
+                    >
+                      SIGN UP
+                    </Button>
+                  ) : null}
+              </Box>
+              {!verifiedMemberData ? (  
+                <Box>
+                  <Button 
+                    variant="contained" 
+                    style={{ color: "#FFFFFF",
+                    width: "100px", 
+                    background: "#C7A17A",
+                    height: "48px",
+                    borderRadius: "24px" 
+                  }}
+                    onClick={props.handleLoginOpen}
+                  >
+                    Login
+                  </Button>
+                </Box>
+              ) : (
+                <img
+                  style={{ 
+                    borderRadius: "50%", 
+                    width: "70px", 
+                    height: "70px",
+                    objectFit: "cover",
+                    background: "no-repeat",
+                    border: "2px #f9b909 solid"
+                  }}
+                  src={verifiedMemberData.mb_image}
+                  onClick={props.handleLogOutClick} 
+                  alt={""}
+                />
+              )}
+              <Menu
+                anchorEl={props.anchorEl}
+                open ={props.open}
+                onClose={props.handleCloseLogOut}
+                onClick={props.handleCloseLogOut}
+                PaperProps={{
+                  elevation: 0,
+                  sx: {
+                    overflow: "visible",
+                    filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                    mt: 1.5,
+                    "& .MuiAvatar-root": {
+                      width: 32,
+                      height: 32,
+                      ml: -0.5,
+                      mr: 1,
+                    },
+                    "&:before": {
+                      content: '""',
+                      display: "block",
+                      position: "absolute",
+                      top: 0,
+                      right: 14,
+                      width: 10,
+                      height: 10,
+                      bgcolor: "background.paper",
+                      transform: "translateY(-50%) rotate(45deg)",
+                      zIndex: 0,
+                    },
+                  },
+                }}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              >
+                <MenuItem onClick={props.handleLogOutRequest}>
+                  <ListItemIcon>
+                    <Logout fontSize="small" style={{ color: "blue" }} />
+                  </ListItemIcon>
+                  Logout
+                </MenuItem>
+              </Menu>
+            </Stack>
+          </Stack>
+          <style>{styles}</style>
+          <div className="scroll-button">
+          <Button style={{ color: "white" }} onClick={handleClickOther}>
+            <ArrowUpwardIcon />
+          </Button>
+        </div>
+        </Container>
+      </div>
     </div>
   ); 
+}
 }

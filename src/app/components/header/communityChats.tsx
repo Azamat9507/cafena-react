@@ -10,6 +10,7 @@ import SendIcon from "@mui/icons-material/Send";
 import { SocketContext } from "../../context/socket";
 import { ChatGreetingMsg, ChatMessage, ChatInfoMsg } from "../../../types/others";
 import "../../../css/communityChat.css";
+import MarkUnreadChatAltIcon from "@mui/icons-material/MarkUnreadChatAlt";
 
 import { verifiedMemberData } from "../../apiServices/verify";
 import assert from "assert";
@@ -175,7 +176,7 @@ export function CommunityChats(props: any) {
             {open ? (
               <CloseIcon />
             ) : (
-              <ForumIcon style={{ color: "white",transform: "scaleX(-1)" }} />
+              <MarkUnreadChatAltIcon style={{ transform: "scaleX(-1)" }} />
             )}
           </Button>
         ) : null}

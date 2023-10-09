@@ -1,6 +1,6 @@
-/* body {
+body {
   box-sizing: border-box;
-} */
+}
 .homepage {
   background: #000;
 
@@ -337,6 +337,9 @@
   overflow: hidden;
 }
 
+
+/* Events css begin */
+
 .homepage .events_frame {
   margin-top: 75px;
   width: 100%;
@@ -345,7 +348,6 @@
   overflow: hidden;
 }
 
-/* events css begin */
 
 .homepage .events_main {
   position: relative;
@@ -490,6 +492,13 @@
   color: #4f547b;
 }
 
+/* EVENTS COMPONENT RESPONSIVE */
+
+@media (max-width: 390px) {
+
+
+}
+
 
 /* infoProduct page start css */
 
@@ -535,10 +544,6 @@
   border-radius: 50%;
 }
 
-.homepage .swiper-pagination {
-  background: #007bff;
-  border-radius: 50%;
-}
 
 .homepage .dot_frame_pagination {
   position: relative;
@@ -860,6 +865,277 @@ h1.temperature {
 }
 
 
+
+ /* WEATHER COMPONENT RESPONSIVE */
+
+@media (max-width: 390px) {  
+  .top_coffeeshop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card-weather {
+    background: rgba(230, 234, 233, 1);
+    /* color: white; */
+    padding: 2em;
+    width: 350px;
+    max-width: 390px;
+    border-radius: 10px;
+  }
+  
+  .search {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+  
+  }
+  
+  .button {
+    flex-direction: column;
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    padding: 7px;
+    background-color: #3025252b;;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    
+  
+  }
+  
+  button:hover {
+    background: #7c7c7c7b;
+  }
+  
+  input.search-bar {
+    border: none;
+    outline: none;
+    padding: 0.3em 1em;
+    border-radius: 24px;
+    background-color: #FFFFFF;
+    color: #000000d0;
+    font-family: inherit;
+    font-size: 105%;
+    width: calc(100% - 100px);
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+  
+  }
+  
+  h1.temperature {
+    margin: 0;
+    margin-bottom: 0.4em;
+  }
+  
+  .description {
+    text-transform: capitalize;
+    margin-left: 8px;
+  }
+  
+  
+  .weather.loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+    
+  }
+  
+  .weather .loading::after {
+    visibility: visible;
+    content: "Loading...";
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 20px;
+  
+  }
+  
+  .title_weather {
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+  
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    /* font-size: 30px; */
+    line-height: 37px;
+    margin-top: 70px;
+  }
+
+
+  .machine_box {
+    width: 100%;
+    display: flex;
+    height: 50vh;
+  }
+  
+  .machine_box .machine_right,
+  .machine_box .machine_left
+   {
+    width: 50%;
+    height: 100%;
+    padding: 15px;
+    position: relative;
+  }
+  
+  .machine_box .machine_right img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .machine_box .machine_right .call_model {
+    position: absolute;
+    right: 0px;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    background: #C7A17A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    position: absolute;
+    top: 80px;
+    /* right: 150px; */
+    cursor: pointer;
+    transition: .5s ease;
+    transform: rotate(0);
+  }
+  
+  .machine_box .machine_right .call_model:hover {
+    transform: rotate(360deg);
+    background: #fff;
+    color: #333;
+  }
+  
+  
+  .machine_left_title {
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+  }
+  
+  
+  
+  
+  .machine_box .machine_left Button {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 2px;
+    background: #C7A17A;
+    padding: 9.5px 34px;
+    text-decoration: none;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-weight: 500;
+  }
+  
+  
+  .machine_modal {
+    width: 70vw;
+    min-height: 30vh;
+    background: #dfdfdf;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    
+  }
+  
+  .machine_modal .machine_left .machine_left_title, 
+  .machine_modal .machine_left .machine_left_p{
+    color: #222;
+  }
+  
+  .machine_modal .machine_left .machine_left_p {
+    font-size: 16px;
+    color: #555;
+    width: 500px;
+  }
+  
+  .machine_modal Button {
+    background: #000;
+    width: 50px;
+    height: 35px;
+    color: #fff;
+    font-size: 1.5rem;
+    
+  }
+  
+  
+  .quite_btn {
+    position: absolute;
+    left: 93%;
+    top: 10px;
+    cursor: pointer;
+    background: #000;
+    width: 50px;
+    height: 35px;
+    color: #fff;
+    font-size: 1.5rem;
+    
+  }
+  
+  .quite_btn span {
+    transform: rotate(45deg);
+  }
+  
+  
+  .machine_modal .machine_left Button {
+    width: 40%;
+    height: auto;
+    background: #C7A17A;
+    border: none;
+  }
+  
+  .machine_left_btn::after {
+    background: #32323D;
+    width: 0%;
+    height: 100%;
+    border-radius: 5px;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Use the CSS 'transform' property to rotate the element */
+    transform: rotate(180deg);
+    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  }
+  
+  .machine_left_btn:hover::after {
+    /* Set the width to 100% to complete the rotation */
+    width: 100%;
+  }
+  
+  .machine_left > .machine_left_p {
+    color: #ffffff;
+    font-size: 15px;
+  }
+
+
+}
+
+
 /* InfoProduct new */
 
 .homepage .best_dishes {
@@ -1162,4 +1438,291 @@ h1.temperature {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+@media (max-width: 390px) {
+
+  /* NEW ALL_RESTAURANT_BOX_RESPONSIVE */
+
+.homepage .allrestaurant_box {
+  margin: 13px;
+  padding: 5px;
+  width: 305px;
+  height: 350px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.homepage .allrestaurant_img {
+  width: 405px;
+  height: 350px;
+
+  border-radius: 5px;
+  background-size: cover;
+}
+
+.homepage .all_restaurant .all_res_box {
+  position: relative;
+  width: 1320px;
+  height: auto;
+  margin-top: 60px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.prev_next_frame1 {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex;
+  width: 250px;
+  height: 24px;
+  margin-bottom: 20px;
+}
+
+.homepage .swiper-pagination-bullet {
+  margin-right: 5px;
+  width: 8px;
+  height: 8px;
+  text-align: center;
+  opacity: 1;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+/* .homepage .swiper-pagination {
+  background: #007bff;
+  border-radius: 50%;
+} */
+
+.homepage .dot_frame_pagination {
+  position: relative;
+  width: auto;
+  display: flex;
+  margin-top: 5px;
+}
+
+
+
+.homepage .swiper-pagination-bullet {
+  margin-right: 5px;
+  width: 8px;
+  height: 8px;
+  text-align: center;
+  opacity: 1;
+  background: white;
+  border-radius: 50%;
+}
+
+  .homepage .ads_coffeeshop_frame {
+      width: 100%;
+      /* height: 810px; */
+      display: flex;
+      overflow: hidden;
+      box-shadow: 0px -22px 40px rgba(0, 0, 0, 0.25)
+          /* margin-top: 100px; */
+          /* background-color: #956dd3; */
+      ;
+  }
+
+
+
+  .homepage .swiper-wrapper {
+    width: 360px;
+    padding-left: 4px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+
+  .homepage .swiper-wrapper2 {
+          width: 378px;
+          margin-left: 12px;
+          display: flex;
+          justify-content: flex-start;
+          flex-direction: row;
+  }
+
+  .category_title_review {
+      font-family: "Dancing Script", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 37px;
+      color: #222222;
+      margin-bottom: 20px;
+      margin-top: 40px;
+      text-align: center;
+  }
+
+  .review_for_shop {
+      width: auto;
+      height: auto;
+      display: flex;
+      background: #f5f5f5;
+  }
+
+  .review_wrapper {
+          display: flex;
+              flex-direction: column;
+              width: 342px;
+              margin-top: 20px;
+              border-bottom: 0.5px solid gray;
+              background: #ffffffd0;
+              border-radius: 10px;
+              color: #000;
+              z-index: 1;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+              cursor: pointer;
+  }
+
+  .homepage .category_title_shop {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 37px;
+      margin-bottom: 45px;
+      margin-top: 60px;
+      z-index: 1;
+      color: #ffffff;
+  }
+
+  .homepage .best_shop_frame {
+      width: 100%;
+      height: auto;
+      display: flex;
+      background: #f5f5f5;
+      margin-bottom: 40px;
+  }
+
+
+  .homepage .dish_box {
+    width: 320px;
+    border: 1px solid #32323D;
+    margin: 5px;
+    position: relative;
+    padding-left: 80px;
+    padding-top: 30px;
+    padding-bottom: 45px;
+    padding-right: 20px;
+    margin-left: 40px;
+    cursor: pointer;
+  }
+
+  .homepage .dish_sale {
+    color: #fff;
+    position: absolute;
+    top: 40px;
+    background: #32323D;
+    padding: 2px 25px;
+    border: 1px #c7a17a solid;
+    border-radius: 15px;
+    z-index: 10;
+  
+  
+  }
+
+  .homepage .dish_desc .dish_title_text {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 30px;
+    color: #FFFFFF;
+  }
+
+  .homepage .dish_desc .dish_desc_text {
+    /* margin-top: 15px; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 36px;
+    color: #c7a17a;
+    display: flex;
+    align-items: center;
+  }
+  
+
+
+
+.under-construction {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  background-color: #f7f7f7;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.under-construction h2 {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.back00{
+  position: absolute;
+  top: 0px;
+  left: 5px
+}
+.back01 {
+  position: absolute;
+  right: 0px;
+  bottom: 1px;
+}
+
+
+.coffee_logo {
+  width: 100px;
+  height: 100px;
+  background: url("/public/icons/logo.png");
+  /* Replace with your own image */
+  background-size: contain;
+  background-repeat: no-repeat;
+   position: absolute;
+animation: bounce 16s linear infinite;
+
+
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+      top: 0;
+      left: 0;
+  }
+
+  25% {
+      top: calc(50vh - 35px);
+      left: calc(100vw - 100px);
+  }
+
+  50% {
+      top: calc(50vh - 35px);
+      left: 0;
+  }
+
+  75% {
+      top: 0;
+      left: calc(100vw - 100px);
+  }
+}
+.construction{
+  text-align: center;
+}
 }

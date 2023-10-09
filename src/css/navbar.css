@@ -1,35 +1,45 @@
 .format.home_navbar {
-    width: 100%;
-    height: 773px;
-    display: flex;
-    background: url("/public/restaurant/hero-img-3-1.jpeg");
-    background-size: cover;
+  width: 100%;
+  height: 773px;
+  display: flex;
+  background: url("/public/restaurant/hero-img-3-1.jpeg");
+  background-size: cover;
 }
 
 .format_restaurant.home_navbar {
-    width: 100%;
-    height: 400px;
-    display: flex;
-    background: url("/public/others/footer.jpeg");
-    background-size: cover;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  background: url("/public/others/footer.jpeg");
+  background-size: cover;
 }
 
 .format_others.home_navbar {
-    width: 100%;
-    height: 400px;
-    display: flex;
-    background: url("/public/others/banner_other.jpg");
-    background-size: cover;
-    background-position: 25% 48%;
-    
-    }
+  width: 100%;
+  height: 400px;
+  display: flex;
+  background: url("/public/others/banner_other.jpg");
+  background-size: cover;
+  background-position: 25% 48%;
+}
+
+
+.navbar_block {
+  width: 100%
+}
+
+.navbar_block_shop {
+  width: 100%
+}
+
 
 .home_navbar .navbar_config {
-    width: 1290px;
-    height: 46px;
-    margin-left: 26px;
-    margin-top: 55px;
+  width: 1290px;
+  height: 46px;
+  margin-top: 55px;
 }
+
+
 .home_navbar .navbar_links {
     width: 752px;
     height: 46px;
@@ -63,7 +73,6 @@
 .home_navbar .head_information {
     display: flex;
     flex-direction: row;
-    width: 1255px;
     height: 477px;
     color: #ffffff;
 }
@@ -243,10 +252,110 @@
   /* END BASKET */
 
 
-  .scroll_btn:hover {
+  .scroll-button:hover {
     bottom: 80px;
     cursor: pointer;
     transform: scale(1.03);
     background-color: #C7A17A;
     border: 1px solid #cb8c4c;
+}
+
+
+@media (max-width: 390px) {
+  
+.format.home_navbar {
+  width: 100%;
+  height: 640px;
+  display: flex;
+  background: url("/public/restaurant/hero-img-3-1.jpeg");
+  background-size: cover;
+}
+.format_shop.home_navbar {
+  width: 100%;
+  height: 535px;
+  display: flex;
+  background: url("/public/restaurant/hero-img-3-1.jpeg");
+  background-size: cover;
+}
+
+.format_others.home_navbar {
+  width: 100%;
+  height: 535px;
+  display: flex;
+  background: url("/public/restaurant/hero-img-3-1.jpeg");
+  background-size: cover;
+}
+
+.format.home_navbar {
+  width: 100%;
+  height: 550px;
+  display: flex;
+  background-size: cover;
+}
+
+  .home_navbar .navbar_config {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 390px;
+    position: fixed;
+    transition: top .3s ease;
+    z-index: 99;
+  }
+
+  .home_navbar .navbar_icons {
+      height: 46px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+  }
+      .framer-motion-wrapper {
+          position: absolute;
+          top: 28rem;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+  .head_information span {
+  font-family: 'Quattrocento Sans', sans-serif;
+  /* font-style: italic; */
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 44px;
+  color: #F1F1F1;
+}
+  .home_navbar .navbar_links {
+      width: 100%;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+  }
+ .home_navbar .navbar_icons {
+          width: 390px;
+      }
+
+  .home_navbar .hover-line {
+      margin: 5px;
+  }
+  .home_navbar .define_shop {
+          position: relative;
+              width: 390px;
+              height: auto;
+              margin-top: 230px;
+              font-family: "Poppins", sans-serif;
+              font-style: normal;
+              font-weight: 600;
+              font-size: 40px;
+              line-height: 55px;
+              color: #ffffff;
+  }
+  .crossed_under{
+          display: flex;
+              justify-content: center;
+              align-items: flex-end;
+              text-align: center;
+  }
 }

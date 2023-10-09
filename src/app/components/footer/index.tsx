@@ -20,7 +20,7 @@ import useDeviceDetect from "../../../lib/responsive";
   };
   
   const handleClickShop = () => {
-    const element = document.getElementById("shop");
+    const element = document.getElementById("restaurant");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -39,7 +39,7 @@ export function Footer() {
             >
               <Stack className="info" flexDirection={"column"}>
                 <Box>
-                  <img src="/icons/logo1.svg" alt="logo"></img>
+                  <img src="/icons/logo.png" alt="logo"></img>
                 </Box>
                 <Box className="main_text">
                     Subscribe to our newsletters now and stay up to date with 
@@ -47,23 +47,23 @@ export function Footer() {
                 </Box>
                 <Stack className="contact_links">
                   <Box>
-                    <a href="https://github.com/alekseykim-dev">
-                      <img src="/icons/facebook1.svg" alt="facebook" />
+                    <a href="https://www.facebook.com/azamat.solijonov.94">
+                      <img src="/icons/facebook_icon.svg" alt="facebook" />
                     </a>
                   </Box>
                   <Box>
-                    <a href="https://www.linkedin.com/in/aleksey-kim-61a916195/">
-                      <img src="/icons/twitter1.svg" alt="twitter" />
+                    <a href="https://www.linkedin.com/in/azamat-solijonov-b0b721232/">
+                      <img src="/icons/linkedin.svg" alt="twitter" />
                     </a>
                   </Box>
                   <Box>
-                    <a href="https://github.com/alekseykim-dev">
-                      <img src="/icons/instagram1.svg" alt="instagram" />
+                    <a href="https://twitter.com/Azamat_sol95">
+                      <img src="/icons/twitter.svg" alt="twitter" />
                     </a>
                   </Box>
                   <Box>
-                    <a href="https://www.linkedin.com/in/aleksey-kim-61a916195/">
-                      <img src="/icons/youtube1.svg" alt="youtube" />
+                    <a href="https://www.instagram.com/azamat_solijonov/">
+                      <img src="/icons/insta.svg" alt="instagramm" />
                     </a>
                   </Box>
                 </Stack>
@@ -79,7 +79,7 @@ export function Footer() {
           </Stack>
         </Container>
       </div>
-    );
+    )
   } else {
     return (
       <div className="footer_config">
@@ -139,7 +139,7 @@ export function Footer() {
                 </Box>
                 <Box className="targets">
                   <NavLink to="/restaurant" onClick={handleClickShop}>
-                    Shop
+                    Franchase
                   </NavLink>
                 </Box>
                 <Box className="targets">
