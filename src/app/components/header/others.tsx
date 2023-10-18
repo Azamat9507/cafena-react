@@ -70,10 +70,12 @@ useEffect(() => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const navbar = document.getElementById("navbar");
 
-    if (scrollTop > lastScrollTop) {
-      navbar!.style.top = "-80px";
-    } else {
-      navbar!.style.top = "0";
+    if (navbar) {
+      if (scrollTop > lastScrollTop) {
+        navbar.style.top = "-80px";
+      } else {
+        navbar.style.top = "0";
+      }
     }
 
     lastScrollTop = scrollTop;
@@ -86,6 +88,7 @@ useEffect(() => {
     window.removeEventListener("scroll", handleScroll);
   };
 }, []);
+
 const history = useHistory<History>();
 const { isMobile } = useDeviceDetect();
 const handlePushConstruction = () => {

@@ -191,7 +191,7 @@ useEffect(() => {
                     }}
                     onMouseEnter={handleMouseEnter1}
                     onMouseLeave={handleMouseLeave1}
-                    onClick={handlePushConstruction}
+                    // onClick={handlePushConstruction}
                   >
                     Sign up
                   </Button>
@@ -209,7 +209,7 @@ useEffect(() => {
                     }}
                     onMouseEnter={handleMouseEnter2}
                     onMouseLeave={handleMouseLeave2}
-                    onClick={handlePushConstruction}
+                    // onClick={handlePushConstruction}
                   >
                     Log in
                   </Button>
@@ -231,7 +231,7 @@ useEffect(() => {
                 anchorEl={props.anchorEl}
                 open={props.open}
                 onClose={props.handleCloseLogOut}
-                onClick={handlePushConstruction}
+                // onClick={handlePushConstruction}
                 PaperProps={{
                   elevation: 0,
                   sx: {
@@ -386,6 +386,8 @@ useEffect(() => {
                       height: "48px",
                       borderRadius: "24px",
                     }}
+                      onMouseEnter={handleMouseEnter2}
+                      onMouseLeave={handleMouseLeave2}
                       onClick={props.handleLoginOpen}
                     >
                       Login
