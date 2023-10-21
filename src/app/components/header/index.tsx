@@ -124,12 +124,7 @@ useEffect(() => {
 
    const history = useHistory<History>();
      const { isMobile } = useDeviceDetect();
-     const handlePushConstruction = () => {
-       history.push("/construction");
-       props.setPath();
-     };
   if (isMobile()) {
-
     return (
       <div className="format home_navbar" id="home">
         <div className="navbar_block">
@@ -191,7 +186,6 @@ useEffect(() => {
                     }}
                     onMouseEnter={handleMouseEnter1}
                     onMouseLeave={handleMouseLeave1}
-                    // onClick={handlePushConstruction}
                   >
                     Sign up
                   </Button>
@@ -209,7 +203,6 @@ useEffect(() => {
                     }}
                     onMouseEnter={handleMouseEnter2}
                     onMouseLeave={handleMouseLeave2}
-                    // onClick={handlePushConstruction}
                   >
                     Log in
                   </Button>
@@ -231,7 +224,6 @@ useEffect(() => {
                 anchorEl={props.anchorEl}
                 open={props.open}
                 onClose={props.handleCloseLogOut}
-                // onClick={handlePushConstruction}
                 PaperProps={{
                   elevation: 0,
                   sx: {
