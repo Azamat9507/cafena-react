@@ -6,12 +6,7 @@ import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Favorite from "@mui/icons-material/Favorite";
-import Typography from "@mui/joy/Typography";
-import Link from "@mui/joy/Link";
-import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
-import CallIcon from "@mui/icons-material/Call";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { serverApi } from '../../../lib/config';
 import assert from 'assert';
 import { Definer } from '../../../lib/Definer';
@@ -20,9 +15,6 @@ import MemberApiService from '../../apiServices/memberApiService';
 import { useHistory } from 'react-router-dom';
 import RestaurantApiService from '../../apiServices/restaurantApiService';
 import { SearchObj } from '../../../types/others';
-import Badge from "@mui/material/Badge";
-import Checkbox from "@mui/material/Checkbox";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 //REDUX
 import { useDispatch, useSelector} from "react-redux";
 import { createSelector } from "reselect";
@@ -80,6 +72,8 @@ const chosenRestaurantHandler = (id: string) => {
   history.push(`/restaurant/${id}`);
 };
 const [activeLink, setActiveLink] = useState("mb_point");
+const [activeBtn, setActiveBtn] = useState('');
+console.log('===========>', activeBtn)
 
 const searchHandler = (category: string) => {
 
@@ -87,6 +81,7 @@ const searchHandler = (category: string) => {
   targetSearchObject.page = 1;
   targetSearchObject.order = category;
   setTargetSearchObject({...targetSearchObject});
+  setActiveBtn(category)
 }
 
 /** Enabling search */
@@ -142,10 +137,10 @@ const targetLikeHandler = async (e: any, id: string ) => {
           <div className="title_shop">Welcome to Franchises</div>
           <Box className="fill_search_box">
             <Box className="fill_box" style={{ cursor: "pointer" }}>
-              <a onClick={() => searchHandler("mb_likes")}>Trending</a>
-              <a onClick={() => searchHandler("createdAt")}>New</a>
-              <a onClick={() => searchHandler("mb_point")}>Best</a>
-              <a onClick={() => searchHandler("mb_views")}>Famous</a>
+              <a style={{color: activeBtn === 'mb_likes' ? '#d7b686' : '#fff'}}  onClick={() => searchHandler("mb_likes")}>Trending</a>
+              <a style={{color: activeBtn === 'createdAt' ? '#d7b686' : '#fff'}} onClick={() => searchHandler("createdAt")}>New</a>
+              <a style={{color: activeBtn === 'mb_point' ? '#d7b686' : '#fff'}} onClick={() => searchHandler("mb_point")}>Best</a>
+              <a style={{color: activeBtn === 'mb_views' ? '#d7b686' : '#fff'}} onClick={() => searchHandler("mb_views")}>Famous</a>
             </Box>
             <Box className="search_big_box">
               <form className="search_form" action="" method="">

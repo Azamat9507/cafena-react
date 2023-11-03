@@ -74,6 +74,16 @@
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
+.restaurant_page .active-link {
+  color: red;/* Add the underline style for active links */
+}
+
+.home_navbar .underline {
+  display: block;
+  content: '';
+  border-bottom: solid 2px #d7b686;
+}
+
 .restaurant_page .all_restaurant .fill_box a::after {
   content: attr(data-replace);
   height: 100%;
